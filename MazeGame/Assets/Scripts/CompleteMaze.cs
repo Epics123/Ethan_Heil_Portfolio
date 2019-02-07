@@ -24,8 +24,15 @@ public class CompleteMaze : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            gm.floor.GetComponent<SpriteRenderer>().color = gm.originalColor;
-            winText.enabled = true;
+            if(gm.GetCurrentLevel() != GameManager.Levels.LEVEL3)
+            {
+                gm.IncreaseLevel();
+            }
+            else
+            {
+                gm.floor.GetComponent<SpriteRenderer>().color = gm.originalColor;
+                winText.enabled = true;
+            }          
         }
     }
 }
