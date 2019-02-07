@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//Manages the flow of the game
+
 public class GameManager : MonoBehaviour
 {
     public GameObject floor;
@@ -40,6 +42,7 @@ public class GameManager : MonoBehaviour
         UpdateTimer();
     }
 
+    //Restarts the game from the beginning
     void Restart()
     {
         if(Input.GetKeyDown(KeyCode.R))
@@ -48,11 +51,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //Updates the game timer
     void UpdateTimer()
     {
         if(timerCount)
         {
             time += Time.deltaTime;
+            //Restart the game if time >= 10 min
             if (time >= 600)
             {
                 Restart();
@@ -62,11 +67,13 @@ public class GameManager : MonoBehaviour
         
     }
 
+    //Displays the timer
     void DisplayTimer()
     {
         timer.text = FormatTime(time);
     }
 
+    //Formats the timer to 00:00:00 format
     string FormatTime(float time)
     {
         int timeDecimal = (int)(time * 100f);

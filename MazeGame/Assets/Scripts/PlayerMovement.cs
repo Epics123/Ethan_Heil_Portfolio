@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Moves the player
+
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -10,11 +12,6 @@ public class PlayerMovement : MonoBehaviour
     float xMove = 0f;
     float yMove = 0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -22,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
         CheckInput();
     }
 
+    //Check for player input
     void CheckInput()
     {
        
@@ -30,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         Move();
     }
 
+    //Moves player based on user input
     void Move()
     {
         transform.Translate((new Vector3(xMove, yMove, 0) * speed) * Time.deltaTime);

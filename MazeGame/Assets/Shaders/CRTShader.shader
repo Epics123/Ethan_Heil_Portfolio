@@ -1,5 +1,8 @@
-﻿Shader "Custom/CRTShader"
+﻿//Gives the feel of an old crt tv
+
+Shader "Custom/CRTShader"
 {
+	//Shader properties
 	Properties{
 		_MainTex("Base (RGB)", 2D) = "white" {}
 		_VertsColor("Verts fill color", Float) = 0
@@ -36,6 +39,7 @@
 
 				uniform sampler2D _MainTex;
 
+				//Get the vertecies of the screen
 				v2f vert(appdata_img v)
 				{
 					v2f o;
@@ -45,6 +49,7 @@
 					return o;
 				}
 
+				//Display crt effect
 				half4 frag(v2f i) : COLOR
 				{
 					half4 color = tex2D(_MainTex, i.uv);
