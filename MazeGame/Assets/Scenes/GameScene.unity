@@ -194,6 +194,7 @@ MonoBehaviour:
   lvl1Buttons: {fileID: 822252150}
   lvl2Buttons: {fileID: 662338611}
   gm: {fileID: 32217737}
+  tvShader: {fileID: 0}
   level: 0
 --- !u!1 &40188939
 GameObject:

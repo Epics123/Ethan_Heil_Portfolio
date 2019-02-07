@@ -11,6 +11,10 @@ public class CameraManager : MonoBehaviour
     public GameObject lvl1Buttons;
     public GameObject lvl2Buttons;
     public GameManager gm;
+    public TVShader tvShader;
+
+    float contrast;
+    float brightness;
 
     public enum LevelState
     {
@@ -26,6 +30,9 @@ public class CameraManager : MonoBehaviour
     {
         hiddenCamera.enabled = false;
         lvl2Grid.SetActive(false);
+        tvShader = activeCamera.GetComponent<TVShader>();
+        contrast = tvShader.contrast;
+        brightness = tvShader.brightness;
     }
 
     // Update is called once per frame
@@ -36,6 +43,7 @@ public class CameraManager : MonoBehaviour
 
     public void SwapCameras()
     {
+        StartCoroutine(SwapEffectStart(0.5f));
         var swapCam = hiddenCamera;
 
         gm.levelIdx++;
@@ -72,5 +80,40 @@ public class CameraManager : MonoBehaviour
         hiddenCamera.enabled = false;
         activeCamera = swapCam;
         activeCamera.enabled = true;
+        tvShader = activeCamera.GetComponent<TVShader>();
+        StartCoroutine(SwapEffectEnd(0.5f));
+    }
+
+    IEnumerator SwapEffectStart(float time)
+    {
+        float currentTime = 0.0f;
+
+        do
+        {
+            tvShader.contrast = Mathf.Lerp(contrast, 20f, currentTime / time);
+            tvShader.brightness = Mathf.Lerp(brightness, 200f, currentTime / time);
+            currentTime += Time.deltaTime;
+            yield return null;
+        } while (currentTime <= time);
+
+
+        yield return new WaitForSeconds(1.0f);
+    }
+
+    IEnumerator SwapEffectEnd(float time)
+    {
+        float currentTime = 0.0f;
+
+        do
+        {
+            tvShader.contrast = Mathf.Lerp(20f, contrast, currentTime / time);
+            tvShader.brightness = Mathf.Lerp(200f, brightness, currentTime / time);
+            currentTime += Time.deltaTime;
+            yield return null;
+        } while (currentTime <= time);
+
+        tvShader.contrast = 12.2f;
+        tvShader.brightness = 0f;
+        yield return new WaitForSeconds(1.0f);
     }
 }
