@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\CameraManager.cs" />
     <Compile Include="Assets\Scripts\CompleteMaze.cs" />
     <Compile Include="Assets\Scripts\DoorChange.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />

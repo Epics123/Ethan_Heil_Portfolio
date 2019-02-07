@@ -7,22 +7,16 @@ public class GameManager : MonoBehaviour
 {
     public GameObject floor;
     public GameObject player;
+    public GameObject spawnPoint;
     public GameObject[] doors;
     public Color originalColor;
 
     public int startLevel = 1;
     public int levelIdx;
+    public int startLayer = 8;
+    public int lvl2Layer = 9;
+    public int lvl3Layer = 10;
 
-    public enum Levels
-    {
-        LEVEL1,
-        LEVEL2,
-        LEVEL3
-    }
-
-    Levels currentLevel = Levels.LEVEL1;
-
-    int startLayer = 8;
 
     // Start is called before the first frame update
     void Start()
@@ -47,26 +41,5 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ChangeLevel(int level)
-    {
-        switch(level)
-        {
-            case 3: currentLevel = Levels.LEVEL3;
-                break;
-            case 2: currentLevel = Levels.LEVEL2;
-                break;
-            default: currentLevel = Levels.LEVEL1;
-                break;
-        }
-    }
 
-    public Levels GetCurrentLevel()
-    {
-        return currentLevel;
-    }
-
-    public void IncreaseLevel()
-    {
-        levelIdx++;
-    }
 }
