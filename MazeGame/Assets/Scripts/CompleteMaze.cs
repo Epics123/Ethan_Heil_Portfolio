@@ -24,17 +24,14 @@ public class CompleteMaze : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            
-            if(gm.GetComponent<CameraManager>().level == CameraManager.LevelState.LEVEL3)
+
+            gm.GetComponent<CameraManager>().SwapCameras();
+            gm.player.transform.position = gm.spawnPoint.transform.position;
+            gm.floor.GetComponent<SpriteRenderer>().color = gm.originalColor;
+            if (gm.win == true)
             {
                 gm.floor.GetComponent<SpriteRenderer>().color = gm.originalColor;
                 winText.enabled = true;
-            }
-            else
-            {
-                gm.GetComponent<CameraManager>().SwapCameras();
-                gm.player.transform.position = gm.spawnPoint.transform.position;
-                gm.floor.GetComponent<SpriteRenderer>().color = gm.originalColor;
             }
             
         }

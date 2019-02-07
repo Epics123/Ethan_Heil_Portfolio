@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public int startLayer = 8;
     public int lvl2Layer = 9;
     public int lvl3Layer = 10;
+    public bool win = false;
+
+    float time;
 
 
     // Start is called before the first frame update
@@ -39,6 +42,11 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadSceneAsync(0);
         }
+    }
+
+    void UpdateTimer()
+    {
+        time += Time.deltaTime;
     }
 
 

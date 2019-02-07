@@ -57,6 +57,7 @@ public class CameraManager : MonoBehaviour
                 level = LevelState.LEVEL3;
                 gm.player.layer = gm.lvl3Layer;
                 gm.floor.layer = gm.lvl3Layer;
+                gm.win = true;
                 break;
             default:
                 level = LevelState.LEVEL1;
