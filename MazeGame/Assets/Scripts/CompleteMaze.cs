@@ -32,6 +32,7 @@ public class CompleteMaze : MonoBehaviour
             {
                 gm.floor.GetComponent<SpriteRenderer>().color = gm.originalColor;
                 winText.enabled = true;
+                gm.timerCount = false;
             }
             
         }
