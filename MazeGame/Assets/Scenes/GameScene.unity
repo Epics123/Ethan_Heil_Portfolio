@@ -141,7 +141,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &32217737
 MonoBehaviour:
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 40188942}
   - component: {fileID: 40188941}
   - component: {fileID: 40188940}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorChange (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,12 +274,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40188939}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.5, y: 3.49, z: 0}
   m_LocalScale: {x: 0.67936, y: 0.67936, z: 0.67936}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 822252151}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &47863060
 GameObject:
@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 161826927}
   - component: {fileID: 161826926}
   - component: {fileID: 161826925}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorChange (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,12 +473,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161826924}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 11.54, y: -6.52, z: 0}
   m_LocalScale: {x: 0.67936, y: 0.67936, z: 0.67936}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 822252151}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &180774640
 GameObject:
@@ -574,7 +574,7 @@ RectTransform:
   - {fileID: 525760936}
   - {fileID: 47863061}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 206689320}
   - component: {fileID: 206689319}
   - component: {fileID: 206689318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorChange (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -694,12 +694,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206689317}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8.52, y: 1.47, z: 0}
   m_LocalScale: {x: 0.67936, y: 0.67936, z: 0.67936}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 822252151}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &215199353
 GameObject:
@@ -962,7 +962,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &312153856
 GameObject:
@@ -976,7 +976,7 @@ GameObject:
   - component: {fileID: 312153859}
   - component: {fileID: 312153858}
   - component: {fileID: 312153857}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorChange (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1060,7 +1060,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1cad9d695c6141d4ca3a7c5d3af78b80, type: 3}
-  m_Color: {r: 0.8, g: 0.83, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.5, b: 0.08, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1077,12 +1077,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312153856}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.49, y: 10.49, z: 0}
   m_LocalScale: {x: 0.67936, y: 0.67936, z: 0.67936}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 822252151}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &359634601
 GameObject:
@@ -1096,7 +1096,7 @@ GameObject:
   - component: {fileID: 359634604}
   - component: {fileID: 359634603}
   - component: {fileID: 359634602}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorChange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1197,12 +1197,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359634601}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.39, y: 9.57, z: 0}
   m_LocalScale: {x: 0.67936, y: 0.67936, z: 0.67936}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 822252151}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &377049079
 GameObject:
@@ -1216,7 +1216,7 @@ GameObject:
   - component: {fileID: 377049082}
   - component: {fileID: 377049081}
   - component: {fileID: 377049080}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorChange (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1317,12 +1317,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377049079}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.37, y: -0.46, z: 0}
   m_LocalScale: {x: 0.67936, y: 0.67936, z: 0.67936}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 822252151}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1365,7 +1365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: a813b0640e16c8c4696cb0aa845dba61, type: 3}
   verts_force: 0
-  verts_force_2: 0.5
+  verts_force_2: 0.6
   contrast: 12.2
   brightness: 0
 --- !u!20 &519420031
@@ -1516,7 +1516,7 @@ GameObject:
   - component: {fileID: 563995998}
   - component: {fileID: 563995997}
   m_Layer: 8
-  m_Name: YellowDoors
+  m_Name: GreenDoors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1674,7 +1674,7 @@ Tilemap:
   - m_RefCount: 6
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.8, g: 0.83, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.5, b: 0.08, a: 1}
   m_Origin: {x: -3, y: -11, z: 0}
   m_Size: {x: 12, y: 21, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -1774,7 +1774,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &761123845
 GameObject:
@@ -1788,7 +1788,7 @@ GameObject:
   - component: {fileID: 761123848}
   - component: {fileID: 761123847}
   - component: {fileID: 761123846}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorChange (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1872,7 +1872,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1cad9d695c6141d4ca3a7c5d3af78b80, type: 3}
-  m_Color: {r: 0.8, g: 0.83, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.5, b: 0.08, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1889,12 +1889,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761123845}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -11.43, y: 11.5, z: 0}
   m_LocalScale: {x: 0.67936, y: 0.67936, z: 0.67936}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 822252151}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &766159076
 GameObject:
@@ -1908,7 +1908,7 @@ GameObject:
   - component: {fileID: 766159079}
   - component: {fileID: 766159078}
   - component: {fileID: 766159077}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorChange (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2009,12 +2009,55 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766159076}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.51, y: -8.5, z: 0}
   m_LocalScale: {x: 0.67936, y: 0.67936, z: 0.67936}
   m_Children: []
+  m_Father: {fileID: 822252151}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &822252150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 822252151}
+  m_Layer: 8
+  m_Name: Level1DoorButtons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &822252151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822252150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 359634605}
+  - {fileID: 312153860}
+  - {fileID: 40188943}
+  - {fileID: 761123849}
+  - {fileID: 911465796}
+  - {fileID: 766159080}
+  - {fileID: 377049083}
+  - {fileID: 1673481919}
+  - {fileID: 206689321}
+  - {fileID: 1660765652}
+  - {fileID: 1853142201}
+  - {fileID: 161826928}
+  - {fileID: 1077348632}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &911465792
 GameObject:
@@ -2028,7 +2071,7 @@ GameObject:
   - component: {fileID: 911465795}
   - component: {fileID: 911465794}
   - component: {fileID: 911465793}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorChange (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2129,12 +2172,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911465792}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -7.56, y: -3.54, z: 0}
   m_LocalScale: {x: 0.67936, y: 0.67936, z: 0.67936}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 822252151}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1077348628
 GameObject:
@@ -2148,7 +2191,7 @@ GameObject:
   - component: {fileID: 1077348631}
   - component: {fileID: 1077348630}
   - component: {fileID: 1077348629}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorChange (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2249,12 +2292,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077348628}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 11.53, y: -0.54, z: 0}
   m_LocalScale: {x: 0.67936, y: 0.67936, z: 0.67936}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 822252151}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1078389272
 GameObject:
@@ -2545,7 +2588,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aef9dd8d951ccd2459ef2fb74144086d, type: 3}
-  m_Color: {r: 0, g: 0.5750263, b: 0.5943396, a: 1}
+  m_Color: {r: 0, g: 0.41146585, b: 0.4245283, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2866,8 +2909,8 @@ GameObject:
   - component: {fileID: 1343471955}
   - component: {fileID: 1343471954}
   - component: {fileID: 1343471957}
-  m_Layer: 0
-  m_Name: Grid
+  m_Layer: 8
+  m_Name: Level1Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2952,7 +2995,7 @@ GameObject:
   - component: {fileID: 1660765651}
   - component: {fileID: 1660765650}
   - component: {fileID: 1660765649}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorChange (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3036,7 +3079,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1cad9d695c6141d4ca3a7c5d3af78b80, type: 3}
-  m_Color: {r: 0.8, g: 0.83, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.5, b: 0.08, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3053,12 +3096,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1660765648}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 11.48, y: 2.46, z: 0}
   m_LocalScale: {x: 0.67936, y: 0.67936, z: 0.67936}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 822252151}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1673481915
 GameObject:
@@ -3072,7 +3115,7 @@ GameObject:
   - component: {fileID: 1673481918}
   - component: {fileID: 1673481917}
   - component: {fileID: 1673481916}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorChange (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3156,7 +3199,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1cad9d695c6141d4ca3a7c5d3af78b80, type: 3}
-  m_Color: {r: 0.8, g: 0.83, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.5, b: 0.08, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3173,12 +3216,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673481915}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.313, y: 0.22, z: 0}
   m_LocalScale: {x: 0.67936, y: 0.67936, z: 0.67936}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 822252151}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1853142197
 GameObject:
@@ -3192,7 +3235,7 @@ GameObject:
   - component: {fileID: 1853142200}
   - component: {fileID: 1853142199}
   - component: {fileID: 1853142198}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorChange (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3276,7 +3319,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1cad9d695c6141d4ca3a7c5d3af78b80, type: 3}
-  m_Color: {r: 0.8, g: 0.83, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.5, b: 0.08, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3293,12 +3336,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853142197}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 6.53, y: -8.54, z: 0}
   m_LocalScale: {x: 0.67936, y: 0.67936, z: 0.67936}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 822252151}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2003161762
 GameObject:
