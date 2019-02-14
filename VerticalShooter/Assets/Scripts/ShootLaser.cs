@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ShootingMode
+{
+    NORMAL,
+    RAPID,
+    SPREAD
+}
+
 public class ShootLaser : MonoBehaviour
 {
 
@@ -11,14 +18,7 @@ public class ShootLaser : MonoBehaviour
 
     bool canFire = true;
 
-    public enum ShootingMode
-    {
-        NORMAL,
-        RAPID,
-        SPREAD
-    }
-
-    ShootingMode shootMode = ShootingMode.NORMAL;
+     ShootingMode shootMode = ShootingMode.NORMAL;
 
     // Start is called before the first frame update
     void Start()
