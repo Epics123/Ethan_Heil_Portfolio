@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laser: {fileID: 941594538471793157, guid: 32b57ef0eada6d74cb3bf480a31ce526, type: 3}
   laserSpawn: {fileID: 8477327648183097024}
-  cooldown: 0.5
+  cooldown: 0.25
 --- !u!1 &5362983053058955404
 GameObject:
   m_ObjectHideFlags: 0
