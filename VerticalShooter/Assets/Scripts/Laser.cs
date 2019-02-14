@@ -25,4 +25,5 @@ public class Laser : MonoBehaviour
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
     }
+
 }
