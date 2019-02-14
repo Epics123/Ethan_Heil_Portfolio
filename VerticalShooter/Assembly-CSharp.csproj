@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Laser.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\ShootLaser.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/eheil/source/repos/ethan-heil-gametech/VerticalShooter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
