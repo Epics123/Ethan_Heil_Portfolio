@@ -14,6 +14,7 @@ public class ShootLaser : MonoBehaviour
 
     public GameObject laser;
     public Transform laserSpawn;
+    public CameraShake camShake;
     public float cooldown = 0.25f;
 
     bool canFire = true;
@@ -45,6 +46,8 @@ public class ShootLaser : MonoBehaviour
     void FireLaser()
     {
         GameObject newLaser = Instantiate(laser, laserSpawn.position, laserSpawn.rotation);
+        camShake.Shake(camShake.shakeAmount, camShake.shakeLength);
+
     }
 
     IEnumerator ShootCooldown(float time)

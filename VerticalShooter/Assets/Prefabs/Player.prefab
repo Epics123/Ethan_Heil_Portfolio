@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1897721381184166303}
   - component: {fileID: 502616620839838523}
   - component: {fileID: 8056410125275389755}
+  - component: {fileID: 6535320104426924005}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -146,7 +147,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laser: {fileID: 941594538471793157, guid: 32b57ef0eada6d74cb3bf480a31ce526, type: 3}
   laserSpawn: {fileID: 8477327648183097024}
-  cooldown: 0.25
+  camShake: {fileID: 6535320104426924005}
+  cooldown: 0.5
+--- !u!114 &6535320104426924005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897721381184166291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2194a87f155f5ec4ca23b2d391c7867e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
+  shakeAmount: 0.1
+  shakeLength: 0.01
 --- !u!1 &5362983053058955404
 GameObject:
   m_ObjectHideFlags: 0
