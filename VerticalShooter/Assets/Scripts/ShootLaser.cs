@@ -46,7 +46,6 @@ public class ShootLaser : MonoBehaviour
     void FireLaser()
     {
         GameObject newLaser = Instantiate(laser, laserSpawn.position, laserSpawn.rotation);
-        camShake.Shake(camShake.shakeAmount, camShake.shakeLength);
 
     }
 
