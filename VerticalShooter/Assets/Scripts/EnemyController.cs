@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-
-
+    public GameManager gm;
+    public AudioSource hitSound;
+    public CameraShake camShake;
+    public float enemyHealth = 150f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        camShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
     }
 
     // Update is called once per frame
@@ -23,8 +26,19 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Laser")
         {
+            enemyHealth -= collision.gameObject.GetComponent<Laser>().laserDamage;
+            hitSound.Play();
             Destroy(collision.gameObject);
-            Destroy(gameObject);
+            if(enemyHealth <= 0)
+            {
+                camShake.power = 0.2f;
+                camShake.shouldShake = true;
+                gm.deathSound.Play();
+                Destroy(gameObject);
+            }
+            
         }
     }
+
+
 }

@@ -20,7 +20,7 @@ public class SpawnItems : MonoBehaviour
         startPos = start.position;
         endPos = end.position;
 
-        StartCoroutine(SpawnItem(spawnDelay));
+        StartCoroutine(DelayStart(spawnDelay));
     }
 
     // Update is called once per frame
@@ -38,6 +38,12 @@ public class SpawnItems : MonoBehaviour
 
         Instantiate(item, spawnPos, transform.rotation);
 
+        yield return new WaitForSeconds(time);
+        StartCoroutine(SpawnItem(spawnDelay));
+    }
+
+    IEnumerator DelayStart(float time)
+    {
         yield return new WaitForSeconds(time);
         StartCoroutine(SpawnItem(spawnDelay));
     }

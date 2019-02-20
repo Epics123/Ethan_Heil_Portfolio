@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public AudioSource deathSound;
+
     // Start is called before the first frame update
     void Start()
     {
