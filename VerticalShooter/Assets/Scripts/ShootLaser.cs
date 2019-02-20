@@ -21,6 +21,14 @@ public class ShootLaser : MonoBehaviour
 
      ShootingMode shootMode = ShootingMode.NORMAL;
 
+    private void Awake()
+    {
+        if(camShake == null)
+        {
+            camShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +54,7 @@ public class ShootLaser : MonoBehaviour
     void FireLaser()
     {
         GameObject newLaser = Instantiate(laser, laserSpawn.position, laserSpawn.rotation);
-
+        camShake.shouldShake = true;
     }
 
     IEnumerator ShootCooldown(float time)
