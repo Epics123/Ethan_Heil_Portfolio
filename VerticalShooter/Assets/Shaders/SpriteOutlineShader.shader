@@ -41,15 +41,15 @@
 			fixed4 fragmentFunction(v2f input) : COLOR
 			{
 				half4 color = tex2D(_MainTex, input.uv); //Gets the color of the current pixel
-				color.rgb *= color.a; //Multiply each pixel's color by it's alpha
+				color.rgb *= 0;//color.a; //Multiply each pixel's color by it's alpha
 				half4 outlineColor = _Color;
 				outlineColor.a *= ceil(color.a);//Rounds outline alpha to a whole number
 				outlineColor.rgb *= outlineColor.a;
 
-				fixed upAlpha = tex2D(_MainTex, input.uv + fixed2(0, 8 *_MainTex_TexelSize.y)).a;//Gets alpha of 4 pixels above current pixel
-				fixed downAlpha = tex2D(_MainTex, input.uv - fixed2(0, 8 *_MainTex_TexelSize.y)).a;//Gets alpha of 4 pixels below current pixel
-				fixed rightAlpha = tex2D(_MainTex, input.uv + fixed2(8 * _MainTex_TexelSize.x, 0)).a;//Gets alpha of 4 pixels to the right of the current pixel
-				fixed leftAlpha = tex2D(_MainTex, input.uv - fixed2(8 * _MainTex_TexelSize.x, 0)).a;//Gets alpha of 4 pixels to the left of the current pixel
+				fixed upAlpha = tex2D(_MainTex, input.uv + fixed2(0, 8 *_MainTex_TexelSize.y)).a;//Gets alpha of 8 pixels above current pixel
+				fixed downAlpha = tex2D(_MainTex, input.uv - fixed2(0, 8 *_MainTex_TexelSize.y)).a;//Gets alpha of 8 pixels below current pixel
+				fixed rightAlpha = tex2D(_MainTex, input.uv + fixed2(8 * _MainTex_TexelSize.x, 0)).a;//Gets alpha of 8 pixels to the right of the current pixel
+				fixed leftAlpha = tex2D(_MainTex, input.uv - fixed2(8 * _MainTex_TexelSize.x, 0)).a;//Gets alpha of 8 pixels to the left of the current pixel
 
 				return lerp(outlineColor, color, ceil(upAlpha * downAlpha * rightAlpha * leftAlpha));//If 0, returns outline color, if 1, returns normal pixel color
 			}

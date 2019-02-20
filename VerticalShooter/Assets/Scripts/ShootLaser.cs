@@ -110,5 +110,18 @@ public class ShootLaser : MonoBehaviour
         canFire = true;
     }
 
-    
+    public IEnumerator ShootModeTimer(float time)
+    {
+        yield return new WaitForSeconds(time);
+        shootMode = ShootingMode.NORMAL;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "ShootMode")
+        {
+            StartCoroutine(ShootModeTimer(collision.GetComponent<FireModePickup>().shootModeTime));
+        }
+    }
+
 }
