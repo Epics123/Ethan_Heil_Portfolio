@@ -16,10 +16,11 @@ public class ShootLaser : MonoBehaviour
     public Transform laserSpawn;
     public CameraShake camShake;
     public float cooldown = 0.25f;
+    public float rapidAngleRange = 7;
 
     bool canFire = true;
 
-     ShootingMode shootMode = ShootingMode.NORMAL;
+     public ShootingMode shootMode = ShootingMode.NORMAL;
 
     private void Awake()
     {
@@ -53,8 +54,25 @@ public class ShootLaser : MonoBehaviour
 
     void FireLaser()
     {
-        GameObject newLaser = Instantiate(laser, laserSpawn.position, laserSpawn.rotation);
-        camShake.shouldShake = true;
+        GameObject newLaser;
+        switch(shootMode)
+        {
+            case ShootingMode.NORMAL:
+                newLaser = Instantiate(laser, laserSpawn.position, laserSpawn.rotation);
+                camShake.power = 0f;
+                camShake.shouldShake = true;
+                break;
+            case ShootingMode.RAPID:
+                cooldown = 0.1f;
+                float zOffset = Random.Range(-rapidAngleRange, rapidAngleRange);
+                newLaser = Instantiate(laser, laserSpawn.position, Quaternion.Euler(new Vector3(0, 0, zOffset)));
+                camShake.power = 0.1f;
+                camShake.shouldShake = true;
+                break;
+            case ShootingMode.SPREAD:
+                break;
+        }
+        
     }
 
     IEnumerator ShootCooldown(float time)
