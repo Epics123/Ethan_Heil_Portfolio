@@ -12,9 +12,12 @@ public enum ShootingMode
 public class ShootLaser : MonoBehaviour
 {
 
+    public GameManager gm;
     public GameObject laser;
     public Transform laserSpawn;
     public CameraShake camShake;
+    public AudioSource[] laserSounds;
+
     public float cooldown = 0.25f;
     public float rapidAngleRange = 7;
 
@@ -28,6 +31,7 @@ public class ShootLaser : MonoBehaviour
         {
             camShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
         }
+        gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
     // Start is called before the first frame update
@@ -58,18 +62,33 @@ public class ShootLaser : MonoBehaviour
         switch(shootMode)
         {
             case ShootingMode.NORMAL:
+                for(int i = 0; i < laserSounds.Length; i++)
+                {
+                    laserSounds[i].enabled = false;
+                }
+                laserSounds[0].enabled = true;
                 newLaser = Instantiate(laser, laserSpawn.position, laserSpawn.rotation);
                 camShake.power = 0f;
                 camShake.shouldShake = true;
                 break;
             case ShootingMode.RAPID:
-                cooldown = 0.1f;
+                for (int i = 0; i < laserSounds.Length; i++)
+                {
+                    laserSounds[i].enabled = false;
+                }
+                laserSounds[1].enabled = true;
+                cooldown = 0.05f;
                 float zOffset = Random.Range(-rapidAngleRange, rapidAngleRange);
                 newLaser = Instantiate(laser, laserSpawn.position, Quaternion.Euler(new Vector3(0, 0, zOffset)));
                 camShake.power = 0.1f;
                 camShake.shouldShake = true;
                 break;
             case ShootingMode.SPREAD:
+                for (int i = 0; i < laserSounds.Length; i++)
+                {
+                    laserSounds[i].enabled = false;
+                }
+                laserSounds[2].enabled = true;
                 break;
         }
         
