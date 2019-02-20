@@ -4953,6 +4953,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5807898a63fc4f742bbbd142fbfe31f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1923839698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1643962442482759113, guid: f6bbbc1f6b00ce047a4afd33f70dfeec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1643962443440822809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1923839699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923839698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ad936260d44b94ebdad0546174f8ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outline: {fileID: 2100000, guid: 53f6da58ba3ec9b42a07d158897c43ac, type: 2}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1984942180
 GameObject:
   m_ObjectHideFlags: 0
@@ -5125,16 +5145,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5751255203467190261, guid: 19280637b6021c04aafa1abb00ed33d7,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: dc4c873b6223a8b40ba3ed323e156923, type: 3}
-    - target: {fileID: 2619080766377894403, guid: 19280637b6021c04aafa1abb00ed33d7,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 14792909c13293349b63ea9d3a268713, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19280637b6021c04aafa1abb00ed33d7, type: 3}
 --- !u!1001 &6182039156172986064
