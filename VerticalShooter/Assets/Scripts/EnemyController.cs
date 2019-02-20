@@ -23,7 +23,6 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Laser")
         {
-            Debug.Log("Killed Enemy");
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
