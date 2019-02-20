@@ -8,6 +8,7 @@ public class FireModePickup : MonoBehaviour
     public ShootingMode shootMode;
     public int modeSelect;
     public float shootModeTime = 5f;
+    public float rotateSpeed = 40f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class FireModePickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Rotate(new Vector3(0, 0, -rotateSpeed * Time.deltaTime));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
