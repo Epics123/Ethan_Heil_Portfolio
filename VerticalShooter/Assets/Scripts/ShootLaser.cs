@@ -19,7 +19,8 @@ public class ShootLaser : MonoBehaviour
     public AudioSource[] laserSounds;
 
     public float cooldown = 0.25f;
-    public float rapidAngleRange = 7;
+    public float rapidAngleRange = 7f;
+    public float spreadAngle = 15f;
 
     bool canFire = true;
 
@@ -66,7 +67,9 @@ public class ShootLaser : MonoBehaviour
                 {
                     laserSounds[i].enabled = false;
                 }
+                laserSounds[0].playOnAwake = true;
                 laserSounds[0].enabled = true;
+                cooldown = 0.5f;
                 newLaser = Instantiate(laser, laserSpawn.position, laserSpawn.rotation);
                 camShake.power = 0f;
                 camShake.shouldShake = true;
@@ -89,6 +92,13 @@ public class ShootLaser : MonoBehaviour
                     laserSounds[i].enabled = false;
                 }
                 laserSounds[2].enabled = true;
+                cooldown = 0.5f;
+                float spread = spreadAngle;
+                newLaser = Instantiate(laser, laserSpawn.position, Quaternion.Euler(new Vector3(0, 0, spread)));
+                GameObject newLaser2 = Instantiate(laser, laserSpawn.position, Quaternion.Euler(new Vector3(0, 0, -spread)));
+                GameObject newLaser3 = Instantiate(laser, laserSpawn.position, Quaternion.Euler(Vector3.zero));
+                camShake.power = 0.1f;
+                camShake.shouldShake = true;
                 break;
         }
         
