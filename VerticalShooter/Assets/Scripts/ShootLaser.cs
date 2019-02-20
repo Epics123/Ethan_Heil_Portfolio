@@ -120,7 +120,15 @@ public class ShootLaser : MonoBehaviour
     {
         if (collision.tag == "ShootMode")
         {
-            StartCoroutine(ShootModeTimer(collision.GetComponent<FireModePickup>().shootModeTime));
+            if(collision.gameObject.GetComponent<FireModePickup>().shootMode == ShootingMode.RAPID)
+            {
+                StartCoroutine(ShootModeTimer(collision.GetComponent<FireModePickup>().shootModeTime));
+            }
+            if (collision.gameObject.GetComponent<FireModePickup>().shootMode == ShootingMode.SPREAD)
+            {
+                StartCoroutine(ShootModeTimer(collision.GetComponent<FireModePickup>().shootModeTime * 2));
+            }
+
         }
     }
 
