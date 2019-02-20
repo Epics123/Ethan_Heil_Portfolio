@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour
 
     float xMove = 10f;
     float yMove = 10f;
-    float xSpeed = 7f;
-    float ySpeed = 5f;
+    float xSpeed = 5f;
+    float ySpeed = 3f;
     float upperBound = 9.5f;
     float lowerBound = -10f;
     float rightBound = 5f;
