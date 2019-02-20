@@ -7,6 +7,7 @@ public class FireModePickup : MonoBehaviour
 
     public ShootingMode shootMode;
     public int modeSelect;
+    public int lifespan = 4;
     public float shootModeTime = 5f;
     public float movementSpeed = 3f;
 
@@ -25,6 +26,7 @@ public class FireModePickup : MonoBehaviour
             default:
                 break;
         }
+        StartCoroutine(DelayedDestroy(lifespan));
     }
 
     // Update is called once per frame
@@ -39,6 +41,12 @@ public class FireModePickup : MonoBehaviour
         {
             collision.gameObject.GetComponent<ShootLaser>().shootMode = shootMode;   
         }
+        Destroy(gameObject);
+    }
+
+    IEnumerator DelayedDestroy(int time)
+    {
+        yield return new WaitForSeconds(time);
         Destroy(gameObject);
     }
 

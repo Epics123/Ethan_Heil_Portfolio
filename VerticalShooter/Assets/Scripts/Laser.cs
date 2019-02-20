@@ -6,7 +6,7 @@ public class Laser : MonoBehaviour
 {
 
     public float speed = 5f;
-    public int lifeSpan = 3;
+    public int lifeSpan = 5;
 
     // Start is called before the first frame update
     void Start()
