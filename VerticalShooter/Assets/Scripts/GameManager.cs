@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public Image Black;
     public GameObject player;
     public Text[] deathScreenText;
+    public Image[] lives;
     public Text waveText;
     public Text scoreText;
     public Text finalWaveText;
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
     public void LooseLives()
     {
         playerLives--;
+        lives[playerLives].enabled = false;
     }
 
     void DestroyPlayer()
