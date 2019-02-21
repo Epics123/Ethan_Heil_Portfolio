@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public GameManager gm;
     public CameraShake camShake;
     public AudioSource hitSound;
+    public AudioSource itemSound;
     public Image red;
     public Color lerpedColor;
     public Color startColor;
@@ -46,6 +47,10 @@ public class PlayerController : MonoBehaviour
             camShake.power = 0.4f;
             camShake.shouldShake = true;
             StartCoroutine(FlashRed(0.5f));
+        }
+        if(collision.gameObject.tag == "ShootMode")
+        {
+            itemSound.Play();
         }
     }
 
