@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Controls how much the camera will shake
 public class CameraShake : MonoBehaviour
 {
 
@@ -30,14 +31,14 @@ public class CameraShake : MonoBehaviour
         {
             if(duration > 0)
             {
-                cam.localPosition = startPos + Random.insideUnitSphere * power;
+                cam.localPosition = startPos + Random.insideUnitSphere * power; //move camera to random point in unit sphere
                 duration -= Time.deltaTime * slowDownAmount;
             }
             else
             {
                 shouldShake = false;
                 duration = initalDuration;
-                cam.localPosition = startPos;
+                cam.localPosition = startPos; //Reset camera position
             }
         }
     }

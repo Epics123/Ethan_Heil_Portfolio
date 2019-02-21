@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Script for handling enemy movement
 public class MoveEnemy : MonoBehaviour
 {
     public Transform enemy;
@@ -25,12 +25,16 @@ public class MoveEnemy : MonoBehaviour
         EnemyMove();
     }
 
+    //Move the enemy
     void EnemyMove()
     {
-        transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
+        transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0)); //Move enemy doen the screen
+
+        //Move the enemy to a target position
         Vector3 targetPos = currentTarget.position;
         enemy.position = Vector3.SmoothDamp(enemy.position, targetPos, ref velocity, smoothTime);
  
+        //Change target position
         if(enemy.position == movePoint1.position)
         {
             currentTarget = movePoint2;

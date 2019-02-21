@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script responsible for moving the laser
 public class Laser : MonoBehaviour
 {
     public GameObject miniExplosion;
@@ -18,15 +19,17 @@ public class Laser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
+        transform.Translate(new Vector3(0, speed * Time.deltaTime, 0)); //Move laser 
     }
 
+    //Destroys laser after a given amount of time
     IEnumerator DelayedDestroyLaser(int time)
     {
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
     }
 
+    //Checks if laser hit something
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "EnemyLaser")

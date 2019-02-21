@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script to spawn powerup items
 public class SpawnItems : MonoBehaviour
 {
     public GameObject item;
@@ -31,6 +32,7 @@ public class SpawnItems : MonoBehaviour
         
     }
 
+    //Spawns item at a random point between startPos and endPos
     IEnumerator SpawnItem(float time)
     {
         spawnDistance = Random.Range(0.5f, 9.5f);
@@ -42,12 +44,14 @@ public class SpawnItems : MonoBehaviour
 
         yield return new WaitForSeconds(time);
 
+        //Stop spawning if player is dead
         if(gm.playerDead == false)
         {
             StartCoroutine(SpawnItem(spawnDelay));
         }
     }
 
+    //Delays the spawn for the specefied amount of time
     IEnumerator DelayStart(float time)
     {
         yield return new WaitForSeconds(time);

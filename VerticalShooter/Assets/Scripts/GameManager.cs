@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
+//Script for controlling general behaviors in the game
 public class GameManager : MonoBehaviour
 {
     public CameraShake camShake;
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
 
     bool playSound = true;
 
+    //Disable all of the death screen UI
     private void Awake()
     {
         for(int i = 0; i < deathScreenText.Length; i++)
@@ -52,12 +53,14 @@ public class GameManager : MonoBehaviour
         DestroyPlayer();
     }
 
+    //Decrase player's lives and updates the UI
     public void LooseLives()
     {
         playerLives--;
         lives[playerLives].enabled = false;
     }
 
+    //Checks to see if the player should be destroyed
     void DestroyPlayer()
     {
         if(playerLives <= 0)
@@ -66,9 +69,14 @@ public class GameManager : MonoBehaviour
             if(playSound)
             {
                 StartCoroutine(PlayDeathSound());
+                //Create death explosion on the player
                 Instantiate(player.GetComponent<PlayerController>().explosion, player.transform.position, player.transform.rotation);
+
+                //Shake the camera
                 camShake.power = 0.7f;
                 camShake.shouldShake = true;
+
+                //Switch to death screen
                 StartCoroutine(FadeOut(3f));
                 for (int i = 0; i < deathScreenText.Length; i++)
                 {
@@ -76,6 +84,8 @@ public class GameManager : MonoBehaviour
                 }
                 finalWaveText.text = waveNum.ToString();
                 finalScoreText.text = totalScore.ToString();
+
+                //Destroy player and restart the game
                 StartCoroutine(RestartGame());
                 playSound = false;
                 Destroy(player);
@@ -84,22 +94,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //Updates the UI to display the current score
     public void UpdateScore()
     {
         scoreText.text = totalScore.ToString();
     }
 
+    //Updates the UI to display the current wave
     public void UpdateWave()
     {
         waveText.text = waveNum.ToString();
     }
 
+    //Plays the death sound for the player
     IEnumerator PlayDeathSound()
     {
         playerDeathSound.Play();
         yield return null;
     }
-
+    
+    //Fades to the death screen
     IEnumerator FadeOut(float time)
     {
         float currentTime = 0f;
@@ -115,6 +129,7 @@ public class GameManager : MonoBehaviour
 
     }
 
+    //Restarts the game
     IEnumerator RestartGame()
     {
         yield return new WaitForSeconds(5.0f);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script that makes the outline of the pickup flash colors
 public class PickUpFlashColor : MonoBehaviour
 {
 
@@ -24,7 +25,10 @@ public class PickUpFlashColor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Lerp the outline color to the target color
         outline.color = Color.Lerp(outline.color, targetColor, flashSpeed * Time.deltaTime);
+
+        //Change the target color
         if(outline.color == targetColor)
         {
             if(currentIndex >= colors.Length-1)

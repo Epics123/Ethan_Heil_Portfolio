@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script to rotate and object
 public class RotateObject : MonoBehaviour
 {
     public float rotateSpeed = 40f;
@@ -15,6 +16,6 @@ public class RotateObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0, 0, -rotateSpeed * Time.deltaTime));
+        transform.Rotate(new Vector3(0, 0, -rotateSpeed * Time.deltaTime)); //Rotates object
     }
 }

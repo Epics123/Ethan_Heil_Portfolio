@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script for controlling the behavior of the enemy
 public class EnemyController : MonoBehaviour
 {
     public GameManager gm;
@@ -30,17 +31,23 @@ public class EnemyController : MonoBehaviour
         
     }
 
+    //Checks to see if enemy has hit something
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Enemy is hit by a laser
         if (collision.gameObject.tag == "Laser")
         {
+            //Decraease health and spawn a mini explosion
             enemyHealth -= collision.gameObject.GetComponent<Laser>().laserDamage;
             Instantiate(miniExplosion, transform.position, transform.rotation);
 
             if (hitSound.enabled == true)
                 hitSound.Play();
 
+            //Destroy laser that hit this enemy
             Destroy(collision.gameObject);
+
+            //Increment score and create visual effects when enemy is destroyed
             if(enemyHealth <= 0)
             {
                 gm.totalScore += enemyScore;
@@ -53,11 +60,13 @@ public class EnemyController : MonoBehaviour
             }
         }
 
+        //Destroy enemy if it reaches the end of the screen
         if(collision.gameObject.tag == "DestroyZone")
         {
             Destroy(enemyBase);
         }
 
+        //Destroy enemy if it touches the player
         if (collision.gameObject.tag == "Player")
         {
             gm.enemyDeathSound.Play();
@@ -66,6 +75,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    //Shoot a laser from the enemy 
     IEnumerator EnemyShoot(float time)
     {
         yield return new WaitForSeconds(time);

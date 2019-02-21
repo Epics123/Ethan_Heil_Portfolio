@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Enum to control shooting mode
 public enum ShootingMode
 {
     NORMAL,
@@ -9,6 +10,7 @@ public enum ShootingMode
     SPREAD
 }
 
+//Script to control laser shooting behavior
 public class ShootLaser : MonoBehaviour
 {
 
@@ -24,7 +26,7 @@ public class ShootLaser : MonoBehaviour
 
     bool canFire = true;
 
-     public ShootingMode shootMode = ShootingMode.NORMAL;
+    public ShootingMode shootMode = ShootingMode.NORMAL;
 
     private void Awake()
     {
@@ -35,11 +37,6 @@ public class ShootLaser : MonoBehaviour
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -47,6 +44,7 @@ public class ShootLaser : MonoBehaviour
         CheckInput();
     }
 
+    //Check for player input
     void CheckInput()
     {
         if(Input.GetKey(KeyCode.Space) && canFire)
@@ -57,11 +55,14 @@ public class ShootLaser : MonoBehaviour
         }
     }
 
+    //Shoots laser
     void FireLaser()
     {
         GameObject newLaser;
+        //Check which mode to shoot in
         switch(shootMode)
         {
+            //Normal mode
             case ShootingMode.NORMAL:
                 laserSounds[0].Play();
                 cooldown = 0.3f;
@@ -71,6 +72,7 @@ public class ShootLaser : MonoBehaviour
                 camShake.power = 0f;
                 camShake.shouldShake = true;
                 break;
+            //Rapid fire
             case ShootingMode.RAPID:
                 laserSounds[1].Play();
                 cooldown = 0.05f;
@@ -81,6 +83,7 @@ public class ShootLaser : MonoBehaviour
                 camShake.power = 0.1f;
                 camShake.shouldShake = true;
                 break;
+            //Spread Shot
             case ShootingMode.SPREAD:
                 laserSounds[2].Play();
                 cooldown = 0.3f;
@@ -98,22 +101,26 @@ public class ShootLaser : MonoBehaviour
         
     }
 
+    //Delays the next shot for the specefied amount of time
     IEnumerator ShootCooldown(float time)
     {
         yield return new WaitForSeconds(time);
         canFire = true;
     }
 
+    //Returns the shooting mode to normal after the specefied amount of time
     public IEnumerator ShootModeTimer(float time)
     {
         yield return new WaitForSeconds(time);
         shootMode = ShootingMode.NORMAL;
     }
 
+    //Checks if player hit the shooting mode item
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "ShootMode")
         {
+            //Change shoot mode time based on current shooting mode
             if(collision.gameObject.GetComponent<FireModePickup>().shootMode == ShootingMode.RAPID)
             {
                 StartCoroutine(ShootModeTimer(collision.GetComponent<FireModePickup>().shootModeTime));

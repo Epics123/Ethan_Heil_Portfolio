@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script for destroying the explosion object
 public class Explosion : MonoBehaviour
 {
     public float delay;
@@ -12,12 +13,7 @@ public class Explosion : MonoBehaviour
         StartCoroutine(DelayedDestroyExplosion(delay));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Destroys the Explosion object after a given amount of time
     IEnumerator DelayedDestroyExplosion(float time)
     {
         yield return new WaitForSeconds(time);

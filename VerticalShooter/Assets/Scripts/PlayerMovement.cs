@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script to control the player's movement
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -30,24 +31,28 @@ public class PlayerMovement : MonoBehaviour
         CheckInput();
     }
 
+    //Check movement and bounds
     void FixedUpdate()
     {
         Move();
         CheckBounds();
     }
 
+    //Check for player input 
     void CheckInput()
     {
         xMove = Input.GetAxis("Horizontal") * xSpeed;
         yMove = Input.GetAxis("Vertical") * ySpeed;
     }
 
+    //Move player
     void Move()
     {
         Vector2 newVelocity = new Vector2(xMove, yMove);
         rb2D.velocity = newVelocity;
     }
 
+    //Check if player is within bounds of the screen
     void CheckBounds()
     {
         Vector2 maxPosX, maxPosY;

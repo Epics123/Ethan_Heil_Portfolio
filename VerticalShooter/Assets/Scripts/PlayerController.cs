@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Script to control the behavior of the player
 public class PlayerController : MonoBehaviour
 {
 
@@ -30,8 +31,10 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    //Checks to see if the player hit something
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Player hit by enemy laser
         if(collision.gameObject.tag == "EnemyLaser")
         {
             hitSound.Play();
@@ -41,6 +44,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(FlashRed(0.5f));
             Destroy(collision.gameObject);
         }
+        //Player hit by enemy
         if (collision.gameObject.tag == "Enemy")
         {
             hitSound.Play();
@@ -49,12 +53,14 @@ public class PlayerController : MonoBehaviour
             camShake.shouldShake = true;
             StartCoroutine(FlashRed(0.5f));
         }
+        //Player hits powerup
         if(collision.gameObject.tag == "ShootMode")
         {
             itemSound.Play();
         }
     }
 
+    //Flashes a red image when hit
     IEnumerator FlashRed(float time)
     {
         float currentTime = 0f;

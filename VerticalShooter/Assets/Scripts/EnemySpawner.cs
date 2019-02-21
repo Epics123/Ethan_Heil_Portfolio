@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script for spawning enemies dinamically
 public class EnemySpawner : MonoBehaviour
 {
     public GameManager gm;
@@ -27,19 +28,17 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnWaves());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Controls the dynamic spawning of enemies
     IEnumerator SpawnWaves()
     {
         while(gm.playerDead == false)
         {
+            //Update UI
             gm.waveNum = (int)enemyCount - 1;
             gm.UpdateWave();
             yield return new WaitForSeconds(startDelay);
+
+            //Spawn enemies at a random point between startPos and endPos
             for (int i = 0; i < enemyCount; i++)
             {
                 spawnDistance = Random.Range(1.5f, 8.5f);
@@ -51,6 +50,7 @@ public class EnemySpawner : MonoBehaviour
 
                 yield return new WaitForSeconds(spawnDelay);
             }
+            //Wait for new wave and increase the amount of enemies
             yield return new WaitForSeconds(waveDelay);
             enemyCount++;
         }  

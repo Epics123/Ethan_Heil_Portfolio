@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Changes the player's firing mode when they pick up this object
 public class FireModePickup : MonoBehaviour
 {
 
@@ -14,6 +15,7 @@ public class FireModePickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Randomly choose a firing mode when created
         modeSelect = Random.Range(0, 2);
         switch (modeSelect)
         {
@@ -32,18 +34,20 @@ public class FireModePickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3(0, -movementSpeed * Time.deltaTime, 0));
+        transform.Translate(new Vector3(0, -movementSpeed * Time.deltaTime, 0)); //Move object down the screen
     }
 
+    //Checks if this item hit something
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            collision.gameObject.GetComponent<ShootLaser>().shootMode = shootMode;   
+            collision.gameObject.GetComponent<ShootLaser>().shootMode = shootMode;//Set new shooting mode  
             Destroy(gameObject);
         }
     }
 
+    //Destroy this object after a given amount of time
     IEnumerator DelayedDestroy(int time)
     {
         yield return new WaitForSeconds(time);
