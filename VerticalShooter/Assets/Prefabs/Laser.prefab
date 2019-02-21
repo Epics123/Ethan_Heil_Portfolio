@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 941594538471793157}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0017, y: -0.2704, z: 0}
-  m_LocalScale: {x: -0.16363941, y: 0.30753964, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.56, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -93,6 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0efb5e4c7ffdc24495ce0c8c9a6c0bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miniExplosion: {fileID: 8315457025498147606, guid: 737a83399362d524e9c0f1b4edf7e3a1,
+    type: 3}
   speed: 10
   laserDamage: 50
   lifeSpan: 5

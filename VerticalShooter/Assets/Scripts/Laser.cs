@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-
+    public GameObject miniExplosion;
     public float speed = 10f;
     public float laserDamage = 50f;
     public int lifeSpan = 5;
@@ -31,6 +31,7 @@ public class Laser : MonoBehaviour
     {
         if(collision.gameObject.tag == "EnemyLaser")
         {
+            Instantiate(miniExplosion, transform.position, transform.rotation);
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }

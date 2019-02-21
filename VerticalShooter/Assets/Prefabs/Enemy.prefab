@@ -127,6 +127,8 @@ MonoBehaviour:
   enemyBase: {fileID: 0}
   explosion: {fileID: 8294391436683948986, guid: a099dd90d8c04e046bcd22eaef1727d1,
     type: 3}
+  miniExplosion: {fileID: 8315457025498147606, guid: 737a83399362d524e9c0f1b4edf7e3a1,
+    type: 3}
   laserSpawn: {fileID: 5613184067850273706}
   laser: {fileID: 941594538471793157, guid: 433c79563ddc45e4599781861471cb6a, type: 3}
   hitSound: {fileID: 6277596401147891370}
