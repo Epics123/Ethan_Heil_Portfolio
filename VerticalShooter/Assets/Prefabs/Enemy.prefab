@@ -122,9 +122,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4124f8a06821c6c489d6fbfe2376d615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 0}
   hitSound: {fileID: 6277596401147891370}
-  deathSound: {fileID: 1436384995590885769}
+  camShake: {fileID: 0}
   enemyHealth: 150
+  speed: 3
 --- !u!50 &1307548833
 Rigidbody2D:
   serializedVersion: 4

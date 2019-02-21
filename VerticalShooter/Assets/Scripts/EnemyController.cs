@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     public AudioSource hitSound;
     public CameraShake camShake;
     public float enemyHealth = 150f;
+    public float speed = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,7 +37,11 @@ public class EnemyController : MonoBehaviour
                 gm.deathSound.Play();
                 Destroy(gameObject);
             }
-            
+        }
+
+        if(collision.gameObject.tag == "DestroyZone")
+        {
+            Destroy(gameObject);
         }
     }
 
