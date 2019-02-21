@@ -6,15 +6,19 @@ public class EnemyController : MonoBehaviour
 {
     public GameManager gm;
     public GameObject enemyBase;
+    public Transform laserSpawn;
+    public GameObject laser;
     public AudioSource hitSound;
     public CameraShake camShake;
     public float enemyHealth = 150f;
+    public float shootCooldown = 1.5f;
 
     // Start is called before the first frame update
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         camShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
+        StartCoroutine(EnemyShoot(0.5f));
     }
 
     // Update is called once per frame
@@ -45,7 +49,12 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    
+    IEnumerator EnemyShoot(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Instantiate(laser, laserSpawn.position, transform.rotation);
+        StartCoroutine(EnemyShoot(shootCooldown));
+    }
 
 
 }
