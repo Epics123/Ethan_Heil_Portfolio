@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     public AudioSource deathSound;
+    public AudioSource laserCollision;
     public bool playerDead = false;
 
     // Start is called before the first frame update

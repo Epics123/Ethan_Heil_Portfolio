@@ -125,10 +125,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
   enemyBase: {fileID: 0}
+  explosion: {fileID: 8294391436683948986, guid: a099dd90d8c04e046bcd22eaef1727d1,
+    type: 3}
+  laserSpawn: {fileID: 5613184067850273706}
+  laser: {fileID: 941594538471793157, guid: 433c79563ddc45e4599781861471cb6a, type: 3}
   hitSound: {fileID: 6277596401147891370}
   camShake: {fileID: 0}
   enemyHealth: 150
-  shootCooldown: 3
+  shootCooldown: 1.5
 --- !u!50 &1307548833
 Rigidbody2D:
   serializedVersion: 4

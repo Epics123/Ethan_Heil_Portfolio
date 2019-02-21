@@ -65,25 +65,32 @@ public class ShootLaser : MonoBehaviour
             case ShootingMode.NORMAL:
                 laserSounds[0].Play();
                 cooldown = 0.3f;
+
                 newLaser = Instantiate(laser, laserSpawn.position, laserSpawn.rotation);
+
                 camShake.power = 0f;
                 camShake.shouldShake = true;
                 break;
             case ShootingMode.RAPID:
                 laserSounds[1].Play();
                 cooldown = 0.05f;
+
                 float zOffset = Random.Range(-rapidAngleRange, rapidAngleRange);
                 newLaser = Instantiate(laser, laserSpawn.position, Quaternion.Euler(new Vector3(0, 0, zOffset)));
+
                 camShake.power = 0.1f;
                 camShake.shouldShake = true;
                 break;
             case ShootingMode.SPREAD:
                 laserSounds[2].Play();
                 cooldown = 0.3f;
+
                 float spread = spreadAngle;
+
                 newLaser = Instantiate(laser, laserSpawn.position, Quaternion.Euler(new Vector3(0, 0, spread)));
                 GameObject newLaser2 = Instantiate(laser, laserSpawn.position, Quaternion.Euler(new Vector3(0, 0, -spread)));
                 GameObject newLaser3 = Instantiate(laser, laserSpawn.position, Quaternion.Euler(Vector3.zero));
+
                 camShake.power = 0.1f;
                 camShake.shouldShake = true;
                 break;

@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     public GameManager gm;
     public GameObject enemyBase;
+    public GameObject explosion;
     public Transform laserSpawn;
     public GameObject laser;
     public AudioSource hitSound;
@@ -32,13 +33,17 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.tag == "Laser")
         {
             enemyHealth -= collision.gameObject.GetComponent<Laser>().laserDamage;
-            hitSound.Play();
+
+            if(hitSound.enabled == true)
+                hitSound.Play();
+
             Destroy(collision.gameObject);
             if(enemyHealth <= 0)
             {
                 camShake.power = 0.2f;
                 camShake.shouldShake = true;
                 gm.deathSound.Play();
+                Instantiate(explosion, transform.position, transform.rotation);
                 Destroy(enemyBase);
             }
         }
