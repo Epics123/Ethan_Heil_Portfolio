@@ -5076,6 +5076,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc3bcbbcd5a56e43834ed8fb52a4cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 0}
+  enemy: {fileID: 3349684807785095762, guid: bbd75ee9f20d94643bad520ddcbd812b, type: 3}
+  start: {fileID: 411316689}
+  end: {fileID: 1535554348}
+  spawnDistance: 0
+  spawnDelay: 1
+  startDelay: 1
+  waveDelay: 10
+  enemyCount: 2
 --- !u!4 &852820959
 Transform:
   m_ObjectHideFlags: 0
@@ -5167,6 +5176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathSound: {fileID: 1616101665}
+  playerDead: 0
 --- !u!82 &1616101665
 AudioSource:
   m_ObjectHideFlags: 0

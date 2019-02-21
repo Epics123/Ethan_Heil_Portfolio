@@ -156,7 +156,7 @@ MonoBehaviour:
   - {fileID: 5649679387903985539}
   - {fileID: 2619080766377894403}
   - {fileID: 5751255203467190261}
-  cooldown: 0.5
+  cooldown: 0.3
   rapidAngleRange: 7
   spreadAngle: 15
   shootMode: 0
@@ -263,11 +263,11 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897721381184166291}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dc4c873b6223a8b40ba3ed323e156923, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
@@ -359,11 +359,11 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897721381184166291}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 14792909c13293349b63ea9d3a268713, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 0

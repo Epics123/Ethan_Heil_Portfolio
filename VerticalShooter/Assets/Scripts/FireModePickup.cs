@@ -40,8 +40,8 @@ public class FireModePickup : MonoBehaviour
         if(collision.tag == "Player")
         {
             collision.gameObject.GetComponent<ShootLaser>().shootMode = shootMode;   
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 
     IEnumerator DelayedDestroy(int time)
