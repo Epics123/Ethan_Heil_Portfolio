@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
             {
                 camShake.power = 0.2f;
                 camShake.shouldShake = true;
-                gm.deathSound.Play();
+                gm.enemyDeathSound.Play();
                 Instantiate(explosion, transform.position, transform.rotation);
                 Destroy(enemyBase);
             }
@@ -57,7 +57,7 @@ public class EnemyController : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
-            gm.deathSound.Play();
+            gm.enemyDeathSound.Play();
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(enemyBase);
         }

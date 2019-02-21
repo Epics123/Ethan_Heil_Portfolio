@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public GameManager gm;
+    public GameObject explosion;
     public CameraShake camShake;
     public AudioSource hitSound;
     public AudioSource itemSound;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnItems : MonoBehaviour
 {
     public GameObject item;
+    public GameManager gm;
     public Transform start;
     public Transform end;
     public float spawnDistance;
@@ -17,6 +18,7 @@ public class SpawnItems : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         startPos = start.position;
         endPos = end.position;
 
@@ -39,7 +41,11 @@ public class SpawnItems : MonoBehaviour
         Instantiate(item, spawnPos, transform.rotation);
 
         yield return new WaitForSeconds(time);
-        StartCoroutine(SpawnItem(spawnDelay));
+
+        if(gm.playerDead == false)
+        {
+            StartCoroutine(SpawnItem(spawnDelay));
+        }
     }
 
     IEnumerator DelayStart(float time)

@@ -485,6 +485,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
+  explosion: {fileID: 8294391436683948986, guid: a099dd90d8c04e046bcd22eaef1727d1,
+    type: 3}
   camShake: {fileID: 0}
   hitSound: {fileID: 2546913346706872822}
   itemSound: {fileID: 3546640251181653356}
