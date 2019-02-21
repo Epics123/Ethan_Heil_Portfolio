@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour
@@ -8,17 +9,30 @@ public class GameManager : MonoBehaviour
     public CameraShake camShake;
     public AudioSource enemyDeathSound;
     public AudioSource playerDeathSound;
+    public Color lerpedColor;
+    public Color startColor;
+    public Image Black;
     public GameObject player;
+    public Text[] deathScreenText;
     public bool playerDead = false;
     public int playerLives = 3;
 
     bool playSound = true;
+
+    private void Awake()
+    {
+        for(int i = 0; i < deathScreenText.Length; i++)
+        {
+            deathScreenText[i].enabled = false;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         camShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
         player = GameObject.FindGameObjectWithTag("Player");
+        startColor = new Color(0, 0, 0, 0);
     }
 
     // Update is called once per frame
@@ -43,11 +57,15 @@ public class GameManager : MonoBehaviour
                 Instantiate(player.GetComponent<PlayerController>().explosion, player.transform.position, player.transform.rotation);
                 camShake.power = 0.7f;
                 camShake.shouldShake = true;
+                StartCoroutine(FadeOut(3f));
+                for (int i = 0; i < deathScreenText.Length; i++)
+                {
+                    deathScreenText[i].enabled = true;
+                }
                 playSound = false;
+                Destroy(player);
             }      
-            
-            
-            Destroy(player);
+ 
         }
     }
 
@@ -55,5 +73,20 @@ public class GameManager : MonoBehaviour
     {
         playerDeathSound.Play();
         yield return null;
+    }
+
+    IEnumerator FadeOut(float time)
+    {
+        float currentTime = 0f;
+        lerpedColor = Color.black;
+        Color currentColor;
+        do
+        {
+            currentColor = Color.Lerp(startColor, lerpedColor, 0.5f);
+            Black.color = currentColor;
+            currentTime += Time.deltaTime;
+            yield return null;
+        } while (currentTime < time);
+
     }
 }
