@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Laser
+  - ShootMode
+  - DestroyZone
+  - EnemyLaser
   layers:
   - Default
   - TransparentFX
