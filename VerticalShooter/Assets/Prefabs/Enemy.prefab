@@ -125,8 +125,12 @@ MonoBehaviour:
   gm: {fileID: 0}
   hitSound: {fileID: 6277596401147891370}
   camShake: {fileID: 0}
+  movePoint1: {fileID: 0}
+  movePoint2: {fileID: 0}
+  currentTarget: {fileID: 0}
   enemyHealth: 150
   speed: 3
+  smoothTime: 0.3
 --- !u!50 &1307548833
 Rigidbody2D:
   serializedVersion: 4
