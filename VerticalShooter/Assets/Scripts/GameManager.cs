@@ -15,8 +15,15 @@ public class GameManager : MonoBehaviour
     public Image Black;
     public GameObject player;
     public Text[] deathScreenText;
+    public Text waveText;
+    public Text scoreText;
+    public Text finalWaveText;
+    public Text finalScoreText;
     public bool playerDead = false;
     public int playerLives = 3;
+    public int totalScore;
+    public int waveNum;
+
 
     bool playSound = true;
 
@@ -34,6 +41,8 @@ public class GameManager : MonoBehaviour
         camShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
         player = GameObject.FindGameObjectWithTag("Player");
         startColor = new Color(0, 0, 0, 0);
+        totalScore = 0;
+        waveNum = 1;
     }
 
     // Update is called once per frame
@@ -63,12 +72,24 @@ public class GameManager : MonoBehaviour
                 {
                     deathScreenText[i].enabled = true;
                 }
+                finalWaveText.text = waveNum.ToString();
+                finalScoreText.text = totalScore.ToString();
                 StartCoroutine(RestartGame());
                 playSound = false;
                 Destroy(player);
             }      
  
         }
+    }
+
+    public void UpdateScore()
+    {
+        scoreText.text = totalScore.ToString();
+    }
+
+    public void UpdateWave()
+    {
+        waveText.text = waveNum.ToString();
     }
 
     IEnumerator PlayDeathSound()

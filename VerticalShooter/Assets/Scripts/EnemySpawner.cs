@@ -37,6 +37,8 @@ public class EnemySpawner : MonoBehaviour
     {
         while(gm.playerDead == false)
         {
+            gm.waveNum = (int)enemyCount - 1;
+            gm.UpdateWave();
             yield return new WaitForSeconds(startDelay);
             for (int i = 0; i < enemyCount; i++)
             {

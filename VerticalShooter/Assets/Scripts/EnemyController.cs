@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
     public CameraShake camShake;
     public float enemyHealth = 150f;
     public float shootCooldown = 1.5f;
+    public int enemyScore = 500;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,8 @@ public class EnemyController : MonoBehaviour
             Destroy(collision.gameObject);
             if(enemyHealth <= 0)
             {
+                gm.totalScore += enemyScore;
+                gm.UpdateScore();
                 camShake.power = 0.2f;
                 camShake.shouldShake = true;
                 gm.enemyDeathSound.Play();
