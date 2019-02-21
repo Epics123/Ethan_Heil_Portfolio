@@ -484,7 +484,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
+  camShake: {fileID: 0}
   hitSound: {fileID: 2546913346706872822}
+  red: {fileID: 0}
+  flashTime: 0.5
 --- !u!82 &2546913346706872822
 AudioSource:
   m_ObjectHideFlags: 0
