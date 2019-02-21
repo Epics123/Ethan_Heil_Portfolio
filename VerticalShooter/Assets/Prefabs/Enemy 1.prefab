@@ -110,8 +110,8 @@ MonoBehaviour:
   movePoint1: {fileID: 3349684807774317194}
   movePoint2: {fileID: 3349684807416076850}
   currentTarget: {fileID: 0}
-  speed: 3
-  smoothTime: 0.1
+  speed: 1.5
+  smoothTime: 0.2
 --- !u!1001 &8914729564291020207
 PrefabInstance:
   m_ObjectHideFlags: 0

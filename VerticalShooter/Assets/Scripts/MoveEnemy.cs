@@ -8,8 +8,8 @@ public class MoveEnemy : MonoBehaviour
     public Transform movePoint1;
     public Transform movePoint2;
     public Transform currentTarget;
-    public float speed = 3f;
-    public float smoothTime = 0.1f;
+    public float speed = 1.5f;
+    public float smoothTime = 0.2f;
 
     Vector3 velocity = Vector3.zero;
 
