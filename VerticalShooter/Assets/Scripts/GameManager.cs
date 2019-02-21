@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
                 {
                     deathScreenText[i].enabled = true;
                 }
+                StartCoroutine(RestartGame());
                 playSound = false;
                 Destroy(player);
             }      
@@ -88,5 +90,11 @@ public class GameManager : MonoBehaviour
             yield return null;
         } while (currentTime < time);
 
+    }
+
+    IEnumerator RestartGame()
+    {
+        yield return new WaitForSeconds(5.0f);
+        SceneManager.LoadSceneAsync(1);
     }
 }
