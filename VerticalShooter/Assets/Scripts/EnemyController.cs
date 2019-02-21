@@ -54,6 +54,13 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(enemyBase);
         }
+
+        if (collision.gameObject.tag == "Player")
+        {
+            gm.deathSound.Play();
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(enemyBase);
+        }
     }
 
     IEnumerator EnemyShoot(float time)
@@ -62,6 +69,7 @@ public class EnemyController : MonoBehaviour
         Instantiate(laser, laserSpawn.position, transform.rotation);
         StartCoroutine(EnemyShoot(shootCooldown));
     }
+
 
 
 }

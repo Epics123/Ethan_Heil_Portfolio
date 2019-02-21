@@ -35,6 +35,7 @@ public class Laser : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
+        //if(gameObject.tag == "EnemyLaser" && )
     }
 
 }

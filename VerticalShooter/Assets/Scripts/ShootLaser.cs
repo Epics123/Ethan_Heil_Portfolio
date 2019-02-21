@@ -30,7 +30,7 @@ public class ShootLaser : MonoBehaviour
     {
         if(camShake == null)
         {
-            camShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
+            camShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
         }
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }

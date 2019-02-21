@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public AudioSource deathSound;
     public AudioSource laserCollision;
     public bool playerDead = false;
+    public int playerLives = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -20,5 +21,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void LooseLives()
+    {
+        playerLives--;
     }
 }
