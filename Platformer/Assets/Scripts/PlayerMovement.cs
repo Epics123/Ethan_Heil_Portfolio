@@ -7,9 +7,9 @@ public class PlayerMovement : MonoBehaviour
 
     public LayerMask ground;
     public Transform groundCheck;
-    public float xSpeed = 5f;
+    public float xSpeed = 0.5f;
     public float ySpeed = 7f;
-    public float maxXSpeed = 10f;
+    public float maxXSpeed = 15f;
     public float maxYSpeed = 25f;
 
     Rigidbody2D rb2D;
@@ -42,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
         Move();
         CheckJump();
         CheckGround();
-        Debug.Log(rb2D.velocity.y);
     }
 
     void CheckInput()
@@ -80,17 +79,12 @@ public class PlayerMovement : MonoBehaviour
         {
             shouldJump = true;
         }
-        if (Input.GetKeyUp(KeyCode.Space) && !isGrounded)
-        {
-            shouldJump = false;
-        }
 
     }
 
     void Move()
     {
         rb2D.velocity = new Vector2(xMove, yMove);
-        //Debug.Log(rb2D.velocity);
     }
 
     void CheckMaxSpeed()
