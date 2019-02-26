@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float ySpeed = 7f;
     public float maxXSpeed = 15f;
     public float maxYSpeed = 25f;
+    public bool isGrounded = false;
 
     Rigidbody2D rb2D;
 
@@ -21,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
     float frc = 0.3f;
     float jmp = 4f;
 
-    bool isGrounded = false;
     bool shouldJump = false;
 
 
