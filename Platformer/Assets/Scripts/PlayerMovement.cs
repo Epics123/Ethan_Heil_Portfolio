@@ -5,15 +5,23 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
+    public LayerMask ground;
+    public Transform groundCheck;
     public float xSpeed = 5f;
+    public float ySpeed = 7f;
     public float maxXSpeed = 10f;
+    public float maxYSpeed = 10f;
 
     Rigidbody2D rb2D;
 
     float xMove = 0;
     float yMove = 0;
-    float gravity = -3f;
+    float gravity = 0.21f;
     float acc = 0.25f;
+    float frc = 0.3f;
+
+    bool isGrounded = false;
+    bool shouldJump = false;
 
 
     // Start is called before the first frame update
@@ -31,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+        CheckGround();
     }
 
     void CheckInput()
@@ -47,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
                 CheckMaxSpeed();
             }
         }
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             if (xMove > 0)
             {
@@ -59,12 +68,16 @@ public class PlayerMovement : MonoBehaviour
                 CheckMaxSpeed();
             }   
         }
+        else
+        {
+            xMove -= Mathf.Min(Mathf.Abs(xMove), frc) * Mathf.Sign(xMove);
+        }
 
     }
 
     void Move()
     {
-        rb2D.velocity = new Vector2(xMove, rb2D.velocity.y);
+        rb2D.velocity = new Vector2(xMove, yMove);
     }
 
     void CheckMaxSpeed()
@@ -76,6 +89,21 @@ public class PlayerMovement : MonoBehaviour
         if (xMove <= -maxXSpeed)
         {
             xMove = -maxXSpeed;
+        }
+    }
+
+    void CheckGround()
+    {
+        Collider2D col = Physics2D.OverlapCircle(groundCheck.position, 0.5f, ground);
+        if(col == null)
+        {
+            isGrounded = false;
+            yMove -= gravity * ySpeed; 
+        }
+        else
+        {
+            isGrounded = true;
+            yMove = 0f;
         }
     }
 }
