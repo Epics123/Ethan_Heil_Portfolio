@@ -317,7 +317,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1469664920
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -361,7 +361,9 @@ MonoBehaviour:
     m_Bits: 256
   groundCheck: {fileID: 2133010515}
   xSpeed: 5
+  ySpeed: 7
   maxXSpeed: 10
+  maxYSpeed: 25
 --- !u!1 &1530626064
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float xSpeed = 5f;
     public float ySpeed = 7f;
     public float maxXSpeed = 10f;
-    public float maxYSpeed = 10f;
+    public float maxYSpeed = 25f;
 
     Rigidbody2D rb2D;
 
@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     float gravity = 0.21f;
     float acc = 0.25f;
     float frc = 0.3f;
+    float jmp = 4f;
 
     bool isGrounded = false;
     bool shouldJump = false;
@@ -39,7 +40,9 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+        CheckJump();
         CheckGround();
+        Debug.Log(rb2D.velocity.y);
     }
 
     void CheckInput()
@@ -73,11 +76,21 @@ public class PlayerMovement : MonoBehaviour
             xMove -= Mathf.Min(Mathf.Abs(xMove), frc) * Mathf.Sign(xMove);
         }
 
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            shouldJump = true;
+        }
+        if (Input.GetKeyUp(KeyCode.Space) && !isGrounded)
+        {
+            shouldJump = false;
+        }
+
     }
 
     void Move()
     {
         rb2D.velocity = new Vector2(xMove, yMove);
+        //Debug.Log(rb2D.velocity);
     }
 
     void CheckMaxSpeed()
@@ -90,6 +103,15 @@ public class PlayerMovement : MonoBehaviour
         {
             xMove = -maxXSpeed;
         }
+        if (yMove >= maxYSpeed)
+        {
+            yMove = maxYSpeed;
+        }
+        if (yMove <= -maxYSpeed)
+        {
+            yMove = -maxYSpeed;
+        }
+
     }
 
     void CheckGround()
@@ -98,12 +120,34 @@ public class PlayerMovement : MonoBehaviour
         if(col == null)
         {
             isGrounded = false;
-            yMove -= gravity * ySpeed; 
+            yMove -= gravity * ySpeed;
+            CheckMaxSpeed();
         }
         else
         {
             isGrounded = true;
             yMove = 0f;
         }
+    }
+
+    void CheckJump()
+    {
+        if(shouldJump)
+        {
+            Jump();
+        }
+    }
+
+    void Jump()
+    {
+        //shouldJump = false;
+        yMove += ySpeed * jmp;
+        if (rb2D.velocity.y >= maxYSpeed)
+        {
+            shouldJump = false;
+        }
+
+        rb2D.velocity = new Vector2(rb2D.velocity.x, yMove);
+        
     }
 }
