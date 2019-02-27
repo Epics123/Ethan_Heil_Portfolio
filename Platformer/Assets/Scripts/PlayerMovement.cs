@@ -147,17 +147,8 @@ public class PlayerMovement : MonoBehaviour
 
             transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 10 * Time.deltaTime);
         }
-
-
-        if (trigger.GetComponent<CheckTriggers>().startLoop == true && xMove != 0f)
-        {
-            rb2D.gravityScale = 0;
-            transform.RotateAround(trigger.GetComponent<CheckTriggers>().loopCenter.transform.position, Vector3.forward, xMove);
-        }
-        else
-        {
-            rb2D.gravityScale = 1;
-        }
+        
     }
+
 
 }
