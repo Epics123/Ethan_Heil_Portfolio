@@ -17,10 +17,8 @@ public class PlayerMovement : MonoBehaviour
 
     float xMove = 0;
     float yMove = 0;
-    float gravity = 0.21f;
     float acc = 0.25f;
     float frc = 0.3f;
-    float jmp = 4f;
 
     bool shouldJump = false;
 
@@ -42,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         Move();
         CheckJump();
         CheckGround();
+        CheckRotation();
     }
 
     void CheckInput()
@@ -50,7 +49,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if(xMove < 0)
             {
-                xMove += acc * xSpeed;
+                xMove += (acc * xSpeed)*2;
+                if(xMove >= -7.5f)
+                {
+                    xMove = 0f;
+                }
             }
             else
             {
@@ -62,7 +65,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (xMove > 0)
             {
-                xMove -= acc * xSpeed;
+                xMove -= (acc * xSpeed)*2;
+                if (xMove <= 7.5f)
+                {
+                    xMove = 0f;
+                }
             }
             else
             {
@@ -84,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        rb2D.velocity = new Vector2(xMove, yMove);
+        rb2D.velocity = new Vector2(xMove, rb2D.velocity.y);
     }
 
     void CheckMaxSpeed()
@@ -97,30 +104,18 @@ public class PlayerMovement : MonoBehaviour
         {
             xMove = -maxXSpeed;
         }
-        if (yMove >= maxYSpeed)
-        {
-            yMove = maxYSpeed;
-        }
-        if (yMove <= -maxYSpeed)
-        {
-            yMove = -maxYSpeed;
-        }
-
     }
 
     void CheckGround()
     {
-        Collider2D col = Physics2D.OverlapCircle(groundCheck.position, 0.5f, ground);
+        Collider2D col = Physics2D.OverlapCircle(groundCheck.position, 0.25f, ground);
         if(col == null)
         {
             isGrounded = false;
-            yMove -= gravity * ySpeed;
-            CheckMaxSpeed();
         }
         else
         {
             isGrounded = true;
-            yMove = 0f;
         }
     }
 
@@ -134,14 +129,23 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        //shouldJump = false;
-        yMove += ySpeed * jmp;
-        if (rb2D.velocity.y >= maxYSpeed)
-        {
-            shouldJump = false;
-        }
-
-        rb2D.velocity = new Vector2(rb2D.velocity.x, yMove);
+        
         
     }
+
+    void CheckRotation()
+    {
+        Debug.DrawRay(transform.position, -Vector3.up, Color.blue);
+
+        RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 5f, ground);
+
+        if (Physics2D.Raycast(transform.position, -Vector3.up, 5f, ground))
+        {
+            Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 10 * Time.deltaTime);
+        }
+
+    }
+ 
 }
