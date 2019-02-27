@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    public GameObject trigger;
     public LayerMask ground;
     public Transform groundCheck;
     public float xSpeed = 0.5f;
@@ -138,8 +138,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckRotation()
     {
-        Debug.DrawRay(transform.position, -Vector3.up, Color.blue);
-
+        //Debug.DrawRay(transform.position, -Vector3.up, Color.blue);
         RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 5f, ground);
 
         if (Physics2D.Raycast(transform.position, -Vector3.up, 5f, ground))
@@ -149,6 +148,16 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 10 * Time.deltaTime);
         }
 
+
+        if (trigger.GetComponent<CheckTriggers>().startLoop == true && xMove != 0f)
+        {
+            rb2D.gravityScale = 0;
+            transform.RotateAround(trigger.GetComponent<CheckTriggers>().loopCenter.transform.position, Vector3.forward, xMove);
+        }
+        else
+        {
+            rb2D.gravityScale = 1;
+        }
     }
- 
+
 }
