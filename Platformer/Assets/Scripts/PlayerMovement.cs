@@ -9,17 +9,19 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float xSpeed = 0.5f;
     public float ySpeed = 7f;
+    public float jumpForce = 700f;
     public float maxXSpeed = 15f;
     public float maxYSpeed = 25f;
     public bool isGrounded = false;
 
     Rigidbody2D rb2D;
+    Vector2 angleNormal;
 
     float xMove = 0;
-    float yMove = 0;
+    //float yMove = 0;
     float acc = 0.25f;
     float frc = 0.3f;
-
+    
     bool shouldJump = false;
 
 
@@ -129,8 +131,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        
-        
+        shouldJump = false;
+
+        rb2D.AddForce((Vector2.up) * jumpForce);
     }
 
     void CheckRotation()
