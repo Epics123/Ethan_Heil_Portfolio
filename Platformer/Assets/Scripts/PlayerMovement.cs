@@ -145,8 +145,9 @@ public class PlayerMovement : MonoBehaviour
     void Jump()
     {
         shouldJump = false;
-
-        //rb2D.AddForce((Vector2.up) * jumpForce);
+        Vector2 localUp = transform.InverseTransformDirection(Vector3.up);
+        localUp = angleNormal;
+        rb2D.AddForce((transform.TransformDirection(localUp)) * jumpForce);
     }
 
     void CheckFloorMode()
@@ -188,9 +189,14 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
+                angleNormal = hitDown.normal;
+
                 float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
-                Physics2D.gravity = new Vector2(-(hitDown.normal.magnitude * Mathf.Sin(theta)) * 23, (hitDown.normal.magnitude * Mathf.Sin(theta)) * 23);
-                Debug.Log(Physics2D.gravity);
+                float newGravityX = (hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
+                float newGravityY = (hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
+                Physics2D.gravity = new Vector2(newGravityX, newGravityY);
+                //Debug.Log(Physics2D.gravity);
+
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
                 //Debug.Log(slopeRotation.eulerAngles.z);
 
@@ -225,6 +231,14 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
+                angleNormal = -hitDown.normal;
+
+                float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
+                float newGravityX = (hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
+                float newGravityY = (hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
+                Physics2D.gravity = new Vector2(newGravityX, newGravityY);
+                //Debug.Log(Physics2D.gravity);
+
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
                 //Debug.Log(slopeRotation.eulerAngles.z);
 
@@ -259,6 +273,14 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
+                angleNormal = -hitDown.normal;
+
+                float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
+                float newGravityX = -(hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
+                float newGravityY = -(hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
+                Physics2D.gravity = new Vector2(newGravityX, newGravityY);
+                Debug.Log(Physics2D.gravity);
+
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
                 //Debug.Log(slopeRotation.eulerAngles.z);
 
@@ -293,6 +315,14 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
+                angleNormal = hitDown.normal;
+
+                float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
+                float newGravityX = -(hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
+                float newGravityY = -(hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
+                Physics2D.gravity = new Vector2(newGravityX, newGravityY);
+                //Debug.Log(Physics2D.gravity);
+
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
                 //Debug.Log(slopeRotation.eulerAngles.z);
 
