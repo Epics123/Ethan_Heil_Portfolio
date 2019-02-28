@@ -194,7 +194,16 @@ public class PlayerMovement : MonoBehaviour
                 float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
                 float newGravityX = (hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
                 float newGravityY = (hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
-                Physics2D.gravity = new Vector2(newGravityX, newGravityY);
+
+                if (!float.IsNaN(newGravityX) && !float.IsNaN(newGravityY))
+                {
+                    Physics2D.gravity = new Vector2(newGravityX, newGravityY);
+                }
+                else
+                {
+                    Physics2D.gravity = new Vector2(0f, -23f);
+                }
+
                 //Debug.Log(Physics2D.gravity);
 
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
@@ -236,7 +245,14 @@ public class PlayerMovement : MonoBehaviour
                 float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
                 float newGravityX = (hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
                 float newGravityY = (hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
-                Physics2D.gravity = new Vector2(newGravityX, newGravityY);
+                if (!float.IsNaN(newGravityX) && !float.IsNaN(newGravityY))
+                {
+                    Physics2D.gravity = new Vector2(newGravityX, newGravityY);
+                }
+                else
+                {
+                    Physics2D.gravity = new Vector2(23f, 0f);
+                }
                 //Debug.Log(Physics2D.gravity);
 
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
@@ -278,8 +294,15 @@ public class PlayerMovement : MonoBehaviour
                 float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
                 float newGravityX = -(hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
                 float newGravityY = -(hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
-                Physics2D.gravity = new Vector2(newGravityX, newGravityY);
-                Debug.Log(Physics2D.gravity);
+
+                if (!float.IsNaN(newGravityX) && !float.IsNaN(newGravityY))
+                {
+                    Physics2D.gravity = new Vector2(newGravityX, newGravityY);
+                }
+                else
+                {
+                    Physics2D.gravity = new Vector2(0f, 23f);
+                }
 
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
                 //Debug.Log(slopeRotation.eulerAngles.z);
@@ -320,8 +343,15 @@ public class PlayerMovement : MonoBehaviour
                 float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
                 float newGravityX = -(hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
                 float newGravityY = -(hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
-                Physics2D.gravity = new Vector2(newGravityX, newGravityY);
-                //Debug.Log(Physics2D.gravity);
+
+                if (!float.IsNaN(newGravityX) && !float.IsNaN(newGravityY))
+                {
+                    Physics2D.gravity = new Vector2(newGravityX, newGravityY);
+                }
+                else
+                {
+                    Physics2D.gravity = new Vector2(-23f, 0f);
+                }
 
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
                 //Debug.Log(slopeRotation.eulerAngles.z);
