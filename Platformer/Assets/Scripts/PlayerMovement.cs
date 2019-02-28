@@ -27,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
     Vector2 angleNormal;
 
     float xMove = 0f;
-    float yMove = 0f;
     float acc = 0.25f;
     float frc = 0.3f;
     int quadrant = 0;
@@ -51,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         CheckRotation();
-        Debug.Log(switchQuad);
         CheckFloorMode();
         Move();
         CheckJump();
@@ -255,7 +253,7 @@ public class PlayerMovement : MonoBehaviour
 
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
-                Debug.Log(slopeRotation.eulerAngles.z);
+                //Debug.Log(slopeRotation.eulerAngles.z);
 
                 if (slopeRotation.eulerAngles.z >= 210f)
                 {
@@ -289,7 +287,7 @@ public class PlayerMovement : MonoBehaviour
 
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
-                Debug.Log(slopeRotation.eulerAngles.z);
+                //Debug.Log(slopeRotation.eulerAngles.z);
 
                 if (slopeRotation.eulerAngles.z >= 330f)
                 {

@@ -112,6 +112,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &850712730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 850712731}
+  m_Layer: 8
+  m_Name: LevelFinish
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &850712731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850712730}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1731160240}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &886191207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -178,6 +208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085271784462441186, guid: 56185781719958749ac8a590e6daf0c9,
+        type: 3}
+      propertyPath: maxXSpeed
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56185781719958749ac8a590e6daf0c9, type: 3}
@@ -277,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1374598485}
-  offset: {x: 0, y: 0, z: -10}
+  offset: {x: 0, y: 3, z: -10}
   smoothTime: 0.1
 --- !u!4 &1374598485 stripped
 Transform:
@@ -460,9 +495,9 @@ PolygonCollider2D:
       - {x: -0.94851774, y: 1.9969729}
       - {x: -0.8284796, y: 2.0459485}
       - {x: -0.68037695, y: 2.1048095}
-      - {x: -0.63707066, y: 2.114238}
-      - {x: -0.5851864, y: 2.126835}
-      - {x: -0.5559444, y: 2.1345565}
+      - {x: -0.64361334, y: 2.1175094}
+      - {x: -0.5862769, y: 2.1355586}
+      - {x: -0.5395877, y: 2.1487324}
       - {x: -0.4605012, y: 2.1602523}
       - {x: -0.3651864, y: 2.178227}
       - {x: -0.27999583, y: 2.1927838}
@@ -471,6 +506,7 @@ PolygonCollider2D:
       - {x: 0.1396993, y: 2.2032201}
       - {x: 0.18028477, y: 2.200443}
       - {x: 0.2045321, y: 2.2000225}
+      - {x: 0.3145679, y: 2.1943893}
       - {x: 0.41975328, y: 2.1698952}
       - {x: 0.5848894, y: 2.1307695}
       - {x: 0.7300771, y: 2.086627}
@@ -489,7 +525,7 @@ PolygonCollider2D:
       - {x: 1.8337806, y: 1.2310413}
       - {x: 1.9005085, y: 1.1293308}
       - {x: 1.9951233, y: 0.9513425}
-      - {x: 2.0102465, y: 0.93134254}
+      - {x: 2.0089557, y: 0.9210176}
       - {x: 2.062685, y: 0.80457544}
       - {x: 2.0943286, y: 0.7153155}
       - {x: 2.1211317, y: 0.6233555}
@@ -503,7 +539,7 @@ PolygonCollider2D:
       - {x: 2.2157142, y: -0.11588361}
       - {x: 2.208739, y: -0.18487419}
       - {x: 2.1994421, y: -0.2924573}
-      - {x: 2.1822445, y: -0.39231083}
+      - {x: 2.187987, y: -0.39231083}
       - {x: 2.1745286, y: -0.4664627}
       - {x: 2.164114, y: -0.5158575}
       - {x: 2.1290908, y: -0.6345933}
@@ -526,13 +562,18 @@ PolygonCollider2D:
       - {x: 1.1553389, y: -1.9074265}
       - {x: 1.0789169, y: -1.9515675}
       - {x: 0.9745919, y: -2.0063546}
-      - {x: 0.9409618, y: -2.0231907}
-      - {x: 0.79767895, y: -2.0784295}
-      - {x: 0.73455286, y: -2.1011243}
-      - {x: 0.68148476, y: -2.1197991}
-      - {x: 0.65852076, y: -2.1279774}
-      - {x: 0.6339359, y: -2.1368196}
-      - {x: 0.62187564, y: -2.1405036}
+      - {x: 0.9614917, y: -2.013503}
+      - {x: 0.9417667, y: -2.0231907}
+      - {x: 0.9392628, y: -2.0244453}
+      - {x: 0.8268694, y: -2.0734394}
+      - {x: 0.8091051, y: -2.0802724}
+      - {x: 0.75188243, y: -2.101678}
+      - {x: 0.72024727, y: -2.1125677}
+      - {x: 0.6817783, y: -2.1252086}
+      - {x: 0.65608597, y: -2.134051}
+      - {x: 0.63018197, y: -2.142165}
+      - {x: 0.58790547, y: -2.15506}
+      - {x: 0.53044116, y: -2.1696918}
       - {x: 0.45582223, y: -2.1852298}
       - {x: 0.29706785, y: -2.214826}
       - {x: 0.19577794, y: -2.2259839}
@@ -599,7 +640,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
-  m_Children: []
+  m_Children:
+  - {fileID: 850712731}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
