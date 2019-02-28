@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5c11b41ef07d46b00cfedd16d784e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mode: 0
   trigger: {fileID: 226444998}
   ground:
     serializedVersion: 2

@@ -291,7 +291,7 @@ public class PlayerMovement : MonoBehaviour
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
                 Debug.Log(slopeRotation.eulerAngles.z);
 
-                if (slopeRotation.eulerAngles.z >= 210f)
+                if (slopeRotation.eulerAngles.z >= 330f)
                 {
                     switchQuad = true;
                     mode = FloorMode.BOTTOM_RIGHT;
