@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public GameManager gm;
+    public int scoreValue = 10;
 
     bool mouseOver = false;
 
@@ -30,6 +31,7 @@ public class EnemyController : MonoBehaviour
         if(mouseOver)
         {
             gm.numEnemies--;
+            gm.score += scoreValue;
             Destroy(gameObject);
         }
     }
