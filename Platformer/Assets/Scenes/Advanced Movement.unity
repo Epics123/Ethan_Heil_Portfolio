@@ -121,6 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 850712731}
+  - component: {fileID: 850712732}
   m_Layer: 8
   m_Name: LevelFinish
   m_TagString: Untagged
@@ -142,6 +143,22 @@ Transform:
   m_Father: {fileID: 1731160240}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &850712732
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850712730}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00447914, y: -0.001592493}
+  serializedVersion: 2
+  m_Radius: 0.06812214
 --- !u!1001 &886191207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -489,7 +506,7 @@ PolygonCollider2D:
       - {x: -1.5814196, y: 1.5540713}
       - {x: -1.4470981, y: 1.6798123}
       - {x: -1.3199755, y: 1.7759514}
-      - {x: -1.2411693, y: 1.835616}
+      - {x: -1.2411693, y: 1.8347632}
       - {x: -1.1876659, y: 1.8686886}
       - {x: -1.0210443, y: 1.9629017}
       - {x: -0.94851774, y: 1.9969729}
