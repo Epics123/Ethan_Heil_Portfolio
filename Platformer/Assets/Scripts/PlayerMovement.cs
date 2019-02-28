@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     Vector2 angleNormal;
 
     float xMove = 0;
-    //float yMove = 0;
     float acc = 0.25f;
     float frc = 0.3f;
     
@@ -29,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
