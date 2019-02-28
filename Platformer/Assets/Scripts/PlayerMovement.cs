@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     float acc = 0.25f;
     float frc = 0.3f;
     int quadrant = 0;
-    
+
     bool shouldJump = false;
     bool switchQuad = false;
 
@@ -53,17 +53,17 @@ public class PlayerMovement : MonoBehaviour
         CheckFloorMode();
         Move();
         CheckJump();
-        CheckGround();  
+        CheckGround();
     }
 
     void CheckInput()
     {
-        if(Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
-            if(xMove < 0)
+            if (xMove < 0)
             {
-                xMove += (acc * xSpeed)*2;
-                if(xMove >= -7.5f)
+                xMove += (acc * xSpeed) * 2;
+                if (xMove >= -7.5f)
                 {
                     xMove = 0f;
                 }
@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (xMove > 0)
             {
-                xMove -= (acc * xSpeed)*2;
+                xMove -= (acc * xSpeed) * 2;
                 if (xMove <= 7.5f)
                 {
                     xMove = 0f;
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 xMove -= acc * xSpeed;
                 CheckMaxSpeed();
-            }   
+            }
         }
         else
         {
@@ -111,9 +111,9 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckMaxSpeed()
     {
-        if(xMove >= maxXSpeed)
+        if (xMove >= maxXSpeed)
         {
-             xMove = maxXSpeed;
+            xMove = maxXSpeed;
         }
         if (xMove <= -maxXSpeed)
         {
@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
     void CheckGround()
     {
         Collider2D col = Physics2D.OverlapCircle(groundCheck.position, 0.25f, ground);
-        if(col == null)
+        if (col == null)
         {
             isGrounded = false;
         }
@@ -136,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckJump()
     {
-        if(shouldJump)
+        if (shouldJump)
         {
             Jump();
         }
@@ -152,15 +152,19 @@ public class PlayerMovement : MonoBehaviour
     void CheckFloorMode()
     {
 
-        switch(quadrant)
+        switch (quadrant)
         {
-            case 0: mode = FloorMode.BOTTOM_RIGHT;
+            case 0:
+                mode = FloorMode.BOTTOM_RIGHT;
                 break;
-            case 1: mode = FloorMode.TOP_RIGHT;
+            case 1:
+                mode = FloorMode.TOP_RIGHT;
                 break;
-            case 2: mode = FloorMode.TOP_LEFT;
+            case 2:
+                mode = FloorMode.TOP_LEFT;
                 break;
-            case 3: mode = FloorMode.BOTTOM_LEFT;
+            case 3:
+                mode = FloorMode.BOTTOM_LEFT;
                 break;
         }
     }
@@ -169,7 +173,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.DrawRay(transform.position, -Vector3.up, Color.red);
 
-        if(mode == FloorMode.BOTTOM_RIGHT)
+        if (mode == FloorMode.BOTTOM_RIGHT)
         {
             if (Physics2D.Raycast(transform.position, -Vector3.up, 5f, ground))
             {
@@ -184,6 +188,9 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
+                float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
+                Physics2D.gravity = new Vector2(-(hitDown.normal.magnitude * Mathf.Sin(theta)) * 23, (hitDown.normal.magnitude * Mathf.Sin(theta)) * 23);
+                Debug.Log(Physics2D.gravity);
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
                 //Debug.Log(slopeRotation.eulerAngles.z);
 
@@ -219,7 +226,7 @@ public class PlayerMovement : MonoBehaviour
 
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
-                Debug.Log(slopeRotation.eulerAngles.z);
+                //Debug.Log(slopeRotation.eulerAngles.z);
 
                 if (slopeRotation.eulerAngles.z >= 160f)
                 {
@@ -303,6 +310,5 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
 
 }
