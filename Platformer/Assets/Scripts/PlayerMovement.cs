@@ -136,6 +136,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckJump()
     {
+        Debug.Log(angleNormal);
         if (shouldJump)
         {
             Jump();
@@ -146,7 +147,10 @@ public class PlayerMovement : MonoBehaviour
     {
         shouldJump = false;
         Vector2 localUp = transform.InverseTransformDirection(Vector3.up);
-        localUp = angleNormal;
+        localUp.x = Mathf.Round(angleNormal.x);
+        localUp.y = Mathf.Round(angleNormal.y);
+        Debug.Log(localUp);
+        //localUp = angleNormal;
         rb2D.AddForce((transform.TransformDirection(localUp)) * jumpForce);
     }
 
@@ -176,16 +180,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (mode == FloorMode.BOTTOM_RIGHT)
         {
-            if (Physics2D.Raycast(transform.position, -Vector3.up, 5f, ground))
+            if (Physics2D.Raycast(transform.position, -Vector3.up, 20f, ground))
             {
                 RaycastHit2D hitDown;
                 if (switchQuad == false)
                 {
-                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 5f, ground);
+                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 20f, ground);
                 }
                 else
                 {
-                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 5f, ground);
+                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 20f, ground);
                 }
 
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
@@ -226,17 +230,17 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawRay(transform.position, Vector3.right, Color.blue);
         if (mode == FloorMode.TOP_RIGHT)
         {
-            if (Physics2D.Raycast(transform.position, Vector3.right, 5f, ground))
+            if (Physics2D.Raycast(transform.position, Vector3.right, 20f, ground))
             {
 
                 RaycastHit2D hitDown;
                 if (switchQuad == false)
                 {
-                    hitDown = Physics2D.Raycast(transform.position, Vector3.right, 5f, ground);
+                    hitDown = Physics2D.Raycast(transform.position, Vector3.right, 20f, ground);
                 }
                 else
                 {
-                    hitDown = Physics2D.Raycast(transform.position, Vector3.up, 5f, ground);
+                    hitDown = Physics2D.Raycast(transform.position, Vector3.up, 20f, ground);
                 }
 
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
@@ -275,17 +279,17 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawRay(transform.position, Vector3.up, Color.green);
         if (mode == FloorMode.TOP_LEFT)
         {
-            if (Physics2D.Raycast(transform.position, Vector3.up, 5f, ground))
+            if (Physics2D.Raycast(transform.position, Vector3.up, 20f, ground))
             {
 
                 RaycastHit2D hitDown;
                 if (switchQuad == false)
                 {
-                    hitDown = Physics2D.Raycast(transform.position, Vector3.up, 5f, ground);
+                    hitDown = Physics2D.Raycast(transform.position, Vector3.up, 20f, ground);
                 }
                 else
                 {
-                    hitDown = Physics2D.Raycast(transform.position, -Vector3.right, 5f, ground);
+                    hitDown = Physics2D.Raycast(transform.position, -Vector3.right, 20f, ground);
                 }
 
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
@@ -324,17 +328,17 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawRay(transform.position, -Vector3.right, Color.yellow);
         if (mode == FloorMode.BOTTOM_LEFT)
         {
-            if (Physics2D.Raycast(transform.position, -Vector3.right, 5f, ground))
+            if (Physics2D.Raycast(transform.position, -Vector3.right, 20f, ground))
             {
 
                 RaycastHit2D hitDown;
                 if (switchQuad == false)
                 {
-                    hitDown = Physics2D.Raycast(transform.position, -Vector3.right, 5f, ground);
+                    hitDown = Physics2D.Raycast(transform.position, -Vector3.right, 20f, ground);
                 }
                 else
                 {
-                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 5f, ground);
+                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 20f, ground);
                 }
 
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
