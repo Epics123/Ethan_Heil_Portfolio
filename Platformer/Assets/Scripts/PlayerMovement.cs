@@ -202,10 +202,7 @@ public class PlayerMovement : MonoBehaviour
                     Physics2D.gravity = new Vector2(0f, -23f);
                 }
 
-                //Debug.Log(Physics2D.gravity);
-
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
-                //Debug.Log(slopeRotation.eulerAngles.z);
 
                 if (slopeRotation.eulerAngles.z >= 70f)
                 {
@@ -214,7 +211,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    switchQuad = false;
+                    switchQuad = false; 
                 }
 
                 transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 10 * Time.deltaTime);
@@ -251,10 +248,8 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Physics2D.gravity = new Vector2(23f, 0f);
                 }
-                //Debug.Log(Physics2D.gravity);
 
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
-                //Debug.Log(slopeRotation.eulerAngles.z);
 
                 if (slopeRotation.eulerAngles.z >= 160f)
                 {
@@ -303,7 +298,6 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
-                Debug.Log(slopeRotation.eulerAngles.z);
 
                 if (slopeRotation.eulerAngles.z >= 250f)
                 {
@@ -352,7 +346,6 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
-                //Debug.Log(slopeRotation.eulerAngles.z);
 
                 if (slopeRotation.eulerAngles.z >= 330f)
                 {
