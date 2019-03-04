@@ -24,7 +24,7 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
         CheckAnimation();
-        CheckFilp();
+        //CheckFilp();
     }
 
     void CheckAnimation()

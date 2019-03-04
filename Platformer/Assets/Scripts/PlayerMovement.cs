@@ -2,25 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum FloorMode
+{
+    BOTTOM_RIGHT,
+    TOP_RIGHT,
+    BOTTOM_LEFT,
+    TOP_LEFT
+}
+
 public class PlayerMovement : MonoBehaviour
 {
-
+    public FloorMode mode = FloorMode.BOTTOM_RIGHT;
+    public GameObject trigger;
     public LayerMask ground;
     public Transform groundCheck;
     public float xSpeed = 0.5f;
     public float ySpeed = 7f;
+    public float jumpForce = 700f;
     public float maxXSpeed = 15f;
     public float maxYSpeed = 25f;
     public bool isGrounded = false;
 
     Rigidbody2D rb2D;
+    Vector2 angleNormal;
 
-    float xMove = 0;
-    float yMove = 0;
+    float xMove = 0f;
     float acc = 0.25f;
     float frc = 0.3f;
+    int quadrant = 0;
 
     bool shouldJump = false;
+    bool switchQuad = false;
 
 
     // Start is called before the first frame update
@@ -37,20 +49,21 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        CheckRotation();
+        CheckFloorMode();
         Move();
         CheckJump();
         CheckGround();
-        CheckRotation();
     }
 
     void CheckInput()
     {
-        if(Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
-            if(xMove < 0)
+            if (xMove < 0)
             {
-                xMove += (acc * xSpeed)*2;
-                if(xMove >= -7.5f)
+                xMove += (acc * xSpeed) * 2;
+                if (xMove >= -7.5f)
                 {
                     xMove = 0f;
                 }
@@ -65,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (xMove > 0)
             {
-                xMove -= (acc * xSpeed)*2;
+                xMove -= (acc * xSpeed) * 2;
                 if (xMove <= 7.5f)
                 {
                     xMove = 0f;
@@ -75,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 xMove -= acc * xSpeed;
                 CheckMaxSpeed();
-            }   
+            }
         }
         else
         {
@@ -91,14 +104,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        rb2D.velocity = new Vector2(xMove, rb2D.velocity.y);
+        Vector2 localVel = transform.InverseTransformDirection(rb2D.velocity);
+        localVel.x = xMove;
+        rb2D.velocity = transform.TransformDirection(localVel);
     }
 
     void CheckMaxSpeed()
     {
-        if(xMove >= maxXSpeed)
+        if (xMove >= maxXSpeed)
         {
-             xMove = maxXSpeed;
+            xMove = maxXSpeed;
         }
         if (xMove <= -maxXSpeed)
         {
@@ -109,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
     void CheckGround()
     {
         Collider2D col = Physics2D.OverlapCircle(groundCheck.position, 0.25f, ground);
-        if(col == null)
+        if (col == null)
         {
             isGrounded = false;
         }
@@ -121,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckJump()
     {
-        if(shouldJump)
+        if (shouldJump)
         {
             Jump();
         }
@@ -129,23 +144,231 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        
-        
+        shouldJump = false;
+        Vector2 localUp = transform.InverseTransformDirection(Vector3.up);
+        localUp = angleNormal;
+        rb2D.AddForce((transform.TransformDirection(localUp)) * jumpForce);
+    }
+
+    void CheckFloorMode()
+    {
+
+        switch (quadrant)
+        {
+            case 0:
+                mode = FloorMode.BOTTOM_RIGHT;
+                break;
+            case 1:
+                mode = FloorMode.TOP_RIGHT;
+                break;
+            case 2:
+                mode = FloorMode.TOP_LEFT;
+                break;
+            case 3:
+                mode = FloorMode.BOTTOM_LEFT;
+                break;
+        }
     }
 
     void CheckRotation()
     {
-        Debug.DrawRay(transform.position, -Vector3.up, Color.blue);
+        Debug.DrawRay(transform.position, -Vector3.up, Color.red);
 
-        RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 5f, ground);
-
-        if (Physics2D.Raycast(transform.position, -Vector3.up, 5f, ground))
+        if (mode == FloorMode.BOTTOM_RIGHT)
         {
-            Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
+            if (Physics2D.Raycast(transform.position, -Vector3.up, 5f, ground))
+            {
+                RaycastHit2D hitDown;
+                if (switchQuad == false)
+                {
+                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 5f, ground);
+                }
+                else
+                {
+                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 5f, ground);
+                }
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 10 * Time.deltaTime);
+                Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
+                angleNormal = hitDown.normal;
+
+                float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
+                float newGravityX = (hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
+                float newGravityY = (hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
+
+                if (!float.IsNaN(newGravityX) && !float.IsNaN(newGravityY))
+                {
+                    Physics2D.gravity = new Vector2(newGravityX, newGravityY);
+                }
+                else
+                {
+                    Physics2D.gravity = new Vector2(0f, -23f);
+                }
+
+                //Debug.Log(Physics2D.gravity);
+
+                quadrant = (int)(slopeRotation.eulerAngles.z / 90);
+                //Debug.Log(slopeRotation.eulerAngles.z);
+
+                if (slopeRotation.eulerAngles.z >= 70f)
+                {
+                    switchQuad = true;
+                    mode = FloorMode.TOP_RIGHT;
+                }
+                else
+                {
+                    switchQuad = false;
+                }
+
+                transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 10 * Time.deltaTime);
+            }
         }
 
+        Debug.DrawRay(transform.position, Vector3.right, Color.blue);
+        if (mode == FloorMode.TOP_RIGHT)
+        {
+            if (Physics2D.Raycast(transform.position, Vector3.right, 5f, ground))
+            {
+
+                RaycastHit2D hitDown;
+                if (switchQuad == false)
+                {
+                    hitDown = Physics2D.Raycast(transform.position, Vector3.right, 5f, ground);
+                }
+                else
+                {
+                    hitDown = Physics2D.Raycast(transform.position, Vector3.up, 5f, ground);
+                }
+
+                Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
+                angleNormal = -hitDown.normal;
+
+                float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
+                float newGravityX = (hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
+                float newGravityY = (hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
+                if (!float.IsNaN(newGravityX) && !float.IsNaN(newGravityY))
+                {
+                    Physics2D.gravity = new Vector2(newGravityX, newGravityY);
+                }
+                else
+                {
+                    Physics2D.gravity = new Vector2(23f, 0f);
+                }
+                //Debug.Log(Physics2D.gravity);
+
+                quadrant = (int)(slopeRotation.eulerAngles.z / 90);
+                //Debug.Log(slopeRotation.eulerAngles.z);
+
+                if (slopeRotation.eulerAngles.z >= 160f)
+                {
+                    switchQuad = true;
+                    mode = FloorMode.TOP_LEFT;
+                }
+                else
+                {
+                    switchQuad = false;
+                }
+
+                transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 10 * Time.deltaTime);
+            }
+        }
+
+        Debug.DrawRay(transform.position, Vector3.up, Color.green);
+        if (mode == FloorMode.TOP_LEFT)
+        {
+            if (Physics2D.Raycast(transform.position, Vector3.up, 5f, ground))
+            {
+
+                RaycastHit2D hitDown;
+                if (switchQuad == false)
+                {
+                    hitDown = Physics2D.Raycast(transform.position, Vector3.up, 5f, ground);
+                }
+                else
+                {
+                    hitDown = Physics2D.Raycast(transform.position, -Vector3.right, 5f, ground);
+                }
+
+                Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
+                angleNormal = -hitDown.normal;
+
+                float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
+                float newGravityX = -(hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
+                float newGravityY = -(hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
+
+                if (!float.IsNaN(newGravityX) && !float.IsNaN(newGravityY))
+                {
+                    Physics2D.gravity = new Vector2(newGravityX, newGravityY);
+                }
+                else
+                {
+                    Physics2D.gravity = new Vector2(0f, 23f);
+                }
+
+                quadrant = (int)(slopeRotation.eulerAngles.z / 90);
+                //Debug.Log(slopeRotation.eulerAngles.z);
+
+                if (slopeRotation.eulerAngles.z >= 210f)
+                {
+                    switchQuad = true;
+                    mode = FloorMode.BOTTOM_LEFT;
+                }
+                else
+                {
+                    switchQuad = false;
+                }
+
+                transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 10 * Time.deltaTime);
+            }
+        }
+
+        Debug.DrawRay(transform.position, -Vector3.right, Color.yellow);
+        if (mode == FloorMode.BOTTOM_LEFT)
+        {
+            if (Physics2D.Raycast(transform.position, -Vector3.right, 5f, ground))
+            {
+
+                RaycastHit2D hitDown;
+                if (switchQuad == false)
+                {
+                    hitDown = Physics2D.Raycast(transform.position, -Vector3.right, 5f, ground);
+                }
+                else
+                {
+                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 5f, ground);
+                }
+
+                Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
+                angleNormal = hitDown.normal;
+
+                float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
+                float newGravityX = -(hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
+                float newGravityY = -(hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
+
+                if (!float.IsNaN(newGravityX) && !float.IsNaN(newGravityY))
+                {
+                    Physics2D.gravity = new Vector2(newGravityX, newGravityY);
+                }
+                else
+                {
+                    Physics2D.gravity = new Vector2(-23f, 0f);
+                }
+
+                quadrant = (int)(slopeRotation.eulerAngles.z / 90);
+                //Debug.Log(slopeRotation.eulerAngles.z);
+
+                if (slopeRotation.eulerAngles.z >= 330f)
+                {
+                    switchQuad = true;
+                    mode = FloorMode.BOTTOM_RIGHT;
+                }
+                else
+                {
+                    switchQuad = false;
+                }
+
+                transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 10 * Time.deltaTime);
+            }
+        }
     }
- 
+
 }
