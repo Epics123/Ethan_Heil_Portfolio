@@ -242,11 +242,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
+  gm: {fileID: 0}
   trigger: {fileID: 226444998}
   ground:
     serializedVersion: 2
     m_Bits: 256
   groundCheck: {fileID: 6085271784052833320}
+  anim: {fileID: 6085271784462441185}
   xSpeed: 0.5
   ySpeed: 7
   jumpForce: 700

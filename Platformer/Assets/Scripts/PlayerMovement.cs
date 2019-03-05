@@ -13,9 +13,11 @@ public enum FloorMode
 public class PlayerMovement : MonoBehaviour
 {
     public FloorMode mode = FloorMode.BOTTOM_RIGHT;
+    public GameManager gm;
     public GameObject trigger;
     public LayerMask ground;
     public Transform groundCheck;
+    public PlayerAnimation anim;
     public float xSpeed = 0.5f;
     public float ySpeed = 7f;
     public float jumpForce = 700f;
@@ -39,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -60,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
+            anim.facingRight = true;
             if (xMove < 0)
             {
                 xMove += (acc * xSpeed) * 2;
@@ -76,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.A))
         {
+            anim.facingRight = false;
             if (xMove > 0)
             {
                 xMove -= (acc * xSpeed) * 2;
