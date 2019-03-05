@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 572fbb187adc22c4b9a9027861eaa23c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.20850754, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -144,3 +144,5 @@ MonoBehaviour:
   player:
     serializedVersion: 2
     m_Bits: 512
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
+  lerpAmount: 0.05

@@ -360,7 +360,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1161,12 +1161,12 @@ PrefabInstance:
     - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.85
+      value: 3.366
       objectReference: {fileID: 0}
     - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.05
+      value: -9.89
       objectReference: {fileID: 0}
     - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
         type: 3}
@@ -1176,22 +1176,22 @@ PrefabInstance:
     - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.20060505
       objectReference: {fileID: 0}
     - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9796722
       objectReference: {fileID: 0}
     - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
         type: 3}
@@ -1211,7 +1211,7 @@ PrefabInstance:
     - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 23.145
       objectReference: {fileID: 0}
     - target: {fileID: 136397101, guid: 35bade8232b72e8449cdf148c02fb366, type: 3}
       propertyPath: background
