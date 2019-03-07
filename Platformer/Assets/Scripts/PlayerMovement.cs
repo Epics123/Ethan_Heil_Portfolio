@@ -7,7 +7,8 @@ public enum FloorMode
     BOTTOM_RIGHT,
     TOP_RIGHT,
     BOTTOM_LEFT,
-    TOP_LEFT
+    TOP_LEFT,
+    NUETRAL
 }
 
 public class PlayerMovement : MonoBehaviour
@@ -170,25 +171,31 @@ public class PlayerMovement : MonoBehaviour
             case 3:
                 mode = FloorMode.BOTTOM_LEFT;
                 break;
+            default:
+                mode = FloorMode.NUETRAL;
+                break;
         }
     }
 
     void CheckRotation()
     {
         Debug.DrawRay(transform.position, -Vector3.up, Color.red);
+        Debug.DrawRay(transform.position, Vector3.right, Color.blue);
+        Debug.DrawRay(transform.position, Vector3.up, Color.green);
+        Debug.DrawRay(transform.position, -Vector3.right, Color.yellow);
 
         if (mode == FloorMode.BOTTOM_RIGHT)
         {
-            if (Physics2D.Raycast(transform.position, -Vector3.up, 10f, ground))
+            if (Physics2D.Raycast(transform.position, -Vector3.up, 7f, ground) && isGrounded)
             {
                 RaycastHit2D hitDown;
                 if (switchQuad == false)
                 {
-                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 10f, ground);
+                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 7f, ground);
                 }
                 else
                 {
-                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 10f, ground);
+                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 7f, ground);
                 }
 
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
@@ -200,6 +207,7 @@ public class PlayerMovement : MonoBehaviour
 
                 if (!float.IsNaN(newGravityX) && !float.IsNaN(newGravityY))
                 {
+                    mode = FloorMode.NUETRAL;
                     Physics2D.gravity = new Vector2(newGravityX, newGravityY);
                 }
                 else
@@ -208,6 +216,7 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
+                //Debug.Log(slopeRotation.eulerAngles.z);
 
                 if (slopeRotation.eulerAngles.z >= 70f)
                 {
@@ -219,24 +228,22 @@ public class PlayerMovement : MonoBehaviour
                     switchQuad = false; 
                 }
 
-                transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 10 * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 15 * Time.deltaTime);
             }
         }
-
-        Debug.DrawRay(transform.position, Vector3.right, Color.blue);
         if (mode == FloorMode.TOP_RIGHT)
         {
-            if (Physics2D.Raycast(transform.position, Vector3.right, 10f, ground))
+            if (Physics2D.Raycast(transform.position, Vector3.right, 7f, ground) && isGrounded)
             {
 
                 RaycastHit2D hitDown;
                 if (switchQuad == false)
                 {
-                    hitDown = Physics2D.Raycast(transform.position, Vector3.right, 10f, ground);
+                    hitDown = Physics2D.Raycast(transform.position, Vector3.right, 7f, ground);
                 }
                 else
                 {
-                    hitDown = Physics2D.Raycast(transform.position, Vector3.up, 10f, ground);
+                    hitDown = Physics2D.Raycast(transform.position, Vector3.up, 7f, ground);
                 }
 
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
@@ -266,24 +273,22 @@ public class PlayerMovement : MonoBehaviour
                     switchQuad = false;
                 }
 
-                transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 10 * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 15 * Time.deltaTime);
             }
         }
-
-        Debug.DrawRay(transform.position, Vector3.up, Color.green);
         if (mode == FloorMode.TOP_LEFT)
         {
-            if (Physics2D.Raycast(transform.position, Vector3.up, 10f, ground))
+            if (Physics2D.Raycast(transform.position, Vector3.up, 7f, ground) && isGrounded)
             {
 
                 RaycastHit2D hitDown;
                 if (switchQuad == false)
                 {
-                    hitDown = Physics2D.Raycast(transform.position, Vector3.up, 10f, ground);
+                    hitDown = Physics2D.Raycast(transform.position, Vector3.up, 7f, ground);
                 }
                 else
                 {
-                    hitDown = Physics2D.Raycast(transform.position, -Vector3.right, 10f, ground);
+                    hitDown = Physics2D.Raycast(transform.position, -Vector3.right, 7f, ground);
                 }
 
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
@@ -314,24 +319,22 @@ public class PlayerMovement : MonoBehaviour
                     switchQuad = false;
                 }
 
-                transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 10 * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 15 * Time.deltaTime);
             }
         }
-
-        Debug.DrawRay(transform.position, -Vector3.right, Color.yellow);
         if (mode == FloorMode.BOTTOM_LEFT)
         {
-            if (Physics2D.Raycast(transform.position, -Vector3.right, 10f, ground))
+            if (Physics2D.Raycast(transform.position, -Vector3.right, 7f, ground) && isGrounded)
             {
 
                 RaycastHit2D hitDown;
                 if (switchQuad == false)
                 {
-                    hitDown = Physics2D.Raycast(transform.position, -Vector3.right, 10f, ground);
+                    hitDown = Physics2D.Raycast(transform.position, -Vector3.right, 7f, ground);
                 }
                 else
                 {
-                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 10f, ground);
+                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 7f, ground);
                 }
 
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
@@ -362,7 +365,7 @@ public class PlayerMovement : MonoBehaviour
                     switchQuad = false;
                 }
 
-                transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 10 * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 15 * Time.deltaTime);
             }
         }
     }
