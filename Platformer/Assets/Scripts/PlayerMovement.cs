@@ -184,9 +184,11 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawRay(transform.position, Vector3.up, Color.green);
         Debug.DrawRay(transform.position, -Vector3.right, Color.yellow);
 
+        //Use transform.up instead of vector2.up
+
         if (mode == FloorMode.BOTTOM_RIGHT)
         {
-            if (Physics2D.Raycast(transform.position, -Vector3.up, 7f, ground) && isGrounded)
+            if (Physics2D.Raycast(transform.position, -Vector2.up, 7f, ground) && isGrounded)
             {
                 RaycastHit2D hitDown;
                 if (switchQuad == false)
@@ -216,9 +218,9 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 quadrant = (int)(slopeRotation.eulerAngles.z / 90);
-                //Debug.Log(slopeRotation.eulerAngles.z);
+                Debug.Log(slopeRotation.eulerAngles.z);
 
-                if (slopeRotation.eulerAngles.z >= 70f)
+                if (slopeRotation.eulerAngles.z >= 90f)
                 {
                     switchQuad = true;
                     mode = FloorMode.TOP_RIGHT;
