@@ -54,7 +54,6 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         CheckRotation();
-        CheckFloorMode();
         Move();
         CheckJump();
         CheckGround();
@@ -154,222 +153,33 @@ public class PlayerMovement : MonoBehaviour
         rb2D.AddForce(transform.up * jumpForce);
     }
 
-    void CheckFloorMode()
-    {
-
-        switch (quadrant)
-        {
-            case 0:
-                mode = FloorMode.BOTTOM_RIGHT;
-                break;
-            case 1:
-                mode = FloorMode.TOP_RIGHT;
-                break;
-            case 2:
-                mode = FloorMode.TOP_LEFT;
-                break;
-            case 3:
-                mode = FloorMode.BOTTOM_LEFT;
-                break;
-            default:
-                mode = FloorMode.NUETRAL;
-                break;
-        }
-    }
 
     void CheckRotation()
     {
-        Debug.DrawRay(transform.position, -Vector3.up, Color.red);
-        Debug.DrawRay(transform.position, Vector3.right, Color.blue);
-        Debug.DrawRay(transform.position, Vector3.up, Color.green);
-        Debug.DrawRay(transform.position, -Vector3.right, Color.yellow);
 
-        //Use transform.up instead of vector2.up
-
-        if (mode == FloorMode.BOTTOM_RIGHT)
+        if(Physics2D.Raycast(transform.position, -transform.up, 7f, ground) && isGrounded)
         {
-            if (Physics2D.Raycast(transform.position, -Vector2.up, 7f, ground) && isGrounded)
+            RaycastHit2D hitDown;
+            hitDown = Physics2D.Raycast(transform.position, -transform.up, 7f, ground);
+
+            Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
+            angleNormal = hitDown.normal;
+
+            float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
+            float newGravityX = (hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
+            float newGravityY = (hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
+
+            Physics2D.gravity = new Vector2(newGravityX, newGravityY);
+            Debug.Log(Physics2D.gravity);
+            if (!float.IsNaN(newGravityX) && !float.IsNaN(newGravityY))
             {
-                RaycastHit2D hitDown;
-                if (switchQuad == false)
-                {
-                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 7f, ground);
-                }
-                else
-                {
-                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 7f, ground);
-                }
-
-                Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
-                angleNormal = hitDown.normal;
-
-                float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
-                float newGravityX = (hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
-                float newGravityY = (hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
-
-                if (!float.IsNaN(newGravityX) && !float.IsNaN(newGravityY))
-                {
-                    mode = FloorMode.NUETRAL;
-                    Physics2D.gravity = new Vector2(newGravityX, newGravityY);
-                }
-                else
-                {
-                    Physics2D.gravity = new Vector2(0f, -23f);
-                }
-
-                quadrant = (int)(slopeRotation.eulerAngles.z / 90);
-                Debug.Log(slopeRotation.eulerAngles.z);
-
-                if (slopeRotation.eulerAngles.z >= 90f)
-                {
-                    switchQuad = true;
-                    mode = FloorMode.TOP_RIGHT;
-                }
-                else
-                {
-                    switchQuad = false; 
-                }
-
-                transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 15 * Time.deltaTime);
+                //mode = FloorMode.NUETRAL;
+                //Physics2D.gravity = new Vector2(newGravityX, newGravityY);
             }
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 15 * Time.deltaTime);
         }
-        if (mode == FloorMode.TOP_RIGHT)
-        {
-            if (Physics2D.Raycast(transform.position, Vector3.right, 7f, ground) && isGrounded)
-            {
-
-                RaycastHit2D hitDown;
-                if (switchQuad == false)
-                {
-                    hitDown = Physics2D.Raycast(transform.position, Vector3.right, 7f, ground);
-                }
-                else
-                {
-                    hitDown = Physics2D.Raycast(transform.position, Vector3.up, 7f, ground);
-                }
-
-                Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
-                angleNormal = -hitDown.normal;
-
-                float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
-                float newGravityX = (hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
-                float newGravityY = (hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
-                if (!float.IsNaN(newGravityX) && !float.IsNaN(newGravityY))
-                {
-                    Physics2D.gravity = new Vector2(newGravityX, newGravityY);
-                }
-                else
-                {
-                    Physics2D.gravity = new Vector2(23f, 0f);
-                }
-
-                quadrant = (int)(slopeRotation.eulerAngles.z / 90);
-
-                if (slopeRotation.eulerAngles.z >= 160f)
-                {
-                    switchQuad = true;
-                    mode = FloorMode.TOP_LEFT;
-                }
-                else
-                {
-                    switchQuad = false;
-                }
-
-                transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 15 * Time.deltaTime);
-            }
-        }
-        if (mode == FloorMode.TOP_LEFT)
-        {
-            if (Physics2D.Raycast(transform.position, Vector3.up, 7f, ground) && isGrounded)
-            {
-
-                RaycastHit2D hitDown;
-                if (switchQuad == false)
-                {
-                    hitDown = Physics2D.Raycast(transform.position, Vector3.up, 7f, ground);
-                }
-                else
-                {
-                    hitDown = Physics2D.Raycast(transform.position, -Vector3.right, 7f, ground);
-                }
-
-                Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
-                angleNormal = -hitDown.normal;
-
-                float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
-                float newGravityX = -(hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
-                float newGravityY = -(hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
-
-                if (!float.IsNaN(newGravityX) && !float.IsNaN(newGravityY))
-                {
-                    Physics2D.gravity = new Vector2(newGravityX, newGravityY);
-                }
-                else
-                {
-                    Physics2D.gravity = new Vector2(0f, 23f);
-                }
-
-                quadrant = (int)(slopeRotation.eulerAngles.z / 90);
-
-                if (slopeRotation.eulerAngles.z >= 250f)
-                {
-                    switchQuad = true;
-                    mode = FloorMode.BOTTOM_LEFT;
-                }
-                else
-                {
-                    switchQuad = false;
-                }
-
-                transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 15 * Time.deltaTime);
-            }
-        }
-        if (mode == FloorMode.BOTTOM_LEFT)
-        {
-            if (Physics2D.Raycast(transform.position, -Vector3.right, 7f, ground) && isGrounded)
-            {
-
-                RaycastHit2D hitDown;
-                if (switchQuad == false)
-                {
-                    hitDown = Physics2D.Raycast(transform.position, -Vector3.right, 7f, ground);
-                }
-                else
-                {
-                    hitDown = Physics2D.Raycast(transform.position, -Vector3.up, 7f, ground);
-                }
-
-                Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
-                angleNormal = hitDown.normal;
-
-                float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
-                float newGravityX = -(hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
-                float newGravityY = -(hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
-
-                if (!float.IsNaN(newGravityX) && !float.IsNaN(newGravityY))
-                {
-                    Physics2D.gravity = new Vector2(newGravityX, newGravityY);
-                }
-                else
-                {
-                    Physics2D.gravity = new Vector2(-23f, 0f);
-                }
-
-                quadrant = (int)(slopeRotation.eulerAngles.z / 90);
-
-                if (slopeRotation.eulerAngles.z >= 330f)
-                {
-                    switchQuad = true;
-                    mode = FloorMode.BOTTOM_RIGHT;
-                }
-                else
-                {
-                    switchQuad = false;
-                }
-
-                transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 15 * Time.deltaTime);
-            }
-        }
+       
     }
 
 }

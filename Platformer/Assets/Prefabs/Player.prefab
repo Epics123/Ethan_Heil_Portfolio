@@ -42,11 +42,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.9899999, y: 3.53}
+  m_Size: {x: 1.1055555, y: 1.9611111}
   m_Direction: 0
 --- !u!114 &226445001
 MonoBehaviour:
@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6085271784052833321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.7703, z: 0}
+  m_LocalPosition: {x: 0, y: -1.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6085271784462441197}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 6085271784462441196}
   - component: {fileID: 6085271784462441185}
   - component: {fileID: 6085271784462441186}
-  - component: {fileID: 2513261464868646106}
+  - component: {fileID: 1416890290}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -121,7 +121,7 @@ Transform:
   m_GameObject: {fileID: 6085271784462441192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.01, y: -2.47, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6085271784052833320}
   - {fileID: 226444999}
@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 6085271784462441186}
+  facingRight: 1
 --- !u!114 &6085271784462441186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +256,7 @@ MonoBehaviour:
   maxXSpeed: 10
   maxYSpeed: 25
   isGrounded: 0
---- !u!70 &2513261464868646106
+--- !u!70 &1416890290
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -269,5 +270,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.9899999, y: 3.53}
+  m_Size: {x: 1.1055555, y: 1.9611111}
   m_Direction: 0
