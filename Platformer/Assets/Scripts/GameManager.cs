@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public Transform restartPoint;
-    public FloorMode currentMode;
 
     // Start is called before the first frame update
     void Start()

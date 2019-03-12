@@ -2,18 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum FloorMode
-{
-    BOTTOM_RIGHT,
-    TOP_RIGHT,
-    BOTTOM_LEFT,
-    TOP_LEFT,
-    NUETRAL
-}
 
 public class PlayerMovement : MonoBehaviour
 {
-    public FloorMode mode = FloorMode.BOTTOM_RIGHT;
     public GameManager gm;
     public GameObject trigger;
     public LayerMask ground;
@@ -32,10 +23,8 @@ public class PlayerMovement : MonoBehaviour
     float xMove = 0f;
     float acc = 0.25f;
     float frc = 0.3f;
-    int quadrant = 0;
 
     bool shouldJump = false;
-    bool switchQuad = false;
 
 
     // Start is called before the first frame update
@@ -166,16 +155,22 @@ public class PlayerMovement : MonoBehaviour
             angleNormal = hitDown.normal;
 
             float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
-            float newGravityX = (hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
-            float newGravityY = (hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
+
+            float newGravityX = 0f;
+            float newGravityY = 0f;
+
+            if(slopeRotation.eulerAngles.z <= 180f)
+            {
+                newGravityX = (hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
+                newGravityY = (hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
+            }
+            else if(slopeRotation.eulerAngles.z >= 180f)
+            {
+                newGravityX = (hitDown.normal.magnitude * -Mathf.Cos(theta)) * 23;
+                newGravityY = (hitDown.normal.magnitude * -Mathf.Sin(theta)) * 23;
+            }
 
             Physics2D.gravity = new Vector2(newGravityX, newGravityY);
-            Debug.Log(Physics2D.gravity);
-            if (!float.IsNaN(newGravityX) && !float.IsNaN(newGravityY))
-            {
-                //mode = FloorMode.NUETRAL;
-                //Physics2D.gravity = new Vector2(newGravityX, newGravityY);
-            }
 
             transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 15 * Time.deltaTime);
         }
