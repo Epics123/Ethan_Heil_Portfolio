@@ -146,10 +146,10 @@ public class PlayerMovement : MonoBehaviour
     void CheckRotation()
     {
 
-        if(Physics2D.Raycast(transform.position, -transform.up, 7f, ground) && isGrounded)
+        if(Physics2D.Raycast(transform.position, -transform.up, 20f, ground))// && isGrounded)
         {
             RaycastHit2D hitDown;
-            hitDown = Physics2D.Raycast(transform.position, -transform.up, 7f, ground);
+            hitDown = Physics2D.Raycast(transform.position, -transform.up, 20f, ground);
 
             Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
             angleNormal = hitDown.normal;
