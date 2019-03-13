@@ -218,38 +218,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!1 &261963131 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8649069289178235803, guid: 35bade8232b72e8449cdf148c02fb366,
-    type: 3}
-  m_PrefabInstance: {fileID: 8649069289041871539}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &261963134
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 261963131}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
-    newSize: {x: 1.83, y: 3.56}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2}
-  m_EdgeRadius: 0
 --- !u!1 &329613917
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +288,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hmm... I should find my way to the center of this cirlce.
+  m_Text: Hint
 --- !u!222 &329613920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -556,12 +524,12 @@ PrefabInstance:
     - target: {fileID: 6085271784462441197, guid: 56185781719958749ac8a590e6daf0c9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.67
+      value: -3.62
       objectReference: {fileID: 0}
     - target: {fileID: 6085271784462441197, guid: 56185781719958749ac8a590e6daf0c9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19.41
+      value: -19.66
       objectReference: {fileID: 0}
     - target: {fileID: 6085271784462441197, guid: 56185781719958749ac8a590e6daf0c9,
         type: 3}
@@ -607,11 +575,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6085271784462441186, guid: 56185781719958749ac8a590e6daf0c9,
-        type: 3}
-      propertyPath: maxXSpeed
-      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56185781719958749ac8a590e6daf0c9, type: 3}
@@ -2024,12 +1987,12 @@ PrefabInstance:
     - target: {fileID: 1838895874991455499, guid: 8a643c42d88cdab40adc7abea23da8fd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.01
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1838895874991455499, guid: 8a643c42d88cdab40adc7abea23da8fd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -20.48
+      value: -22.02
       objectReference: {fileID: 0}
     - target: {fileID: 1838895874991455499, guid: 8a643c42d88cdab40adc7abea23da8fd,
         type: 3}
@@ -2172,12 +2135,12 @@ PrefabInstance:
     - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.56
+      value: 5.58
       objectReference: {fileID: 0}
     - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -18.26
+      value: -19.92
       objectReference: {fileID: 0}
     - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
         type: 3}
@@ -2197,12 +2160,12 @@ PrefabInstance:
     - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.24230398
+      value: 0.12507997
       objectReference: {fileID: 0}
     - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9702004
+      value: 0.9921467
       objectReference: {fileID: 0}
     - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
         type: 3}
@@ -2222,17 +2185,7 @@ PrefabInstance:
     - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 28.045002
-      objectReference: {fileID: 0}
-    - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8649069289178235801, guid: 35bade8232b72e8449cdf148c02fb366,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
+      value: 14.371
       objectReference: {fileID: 0}
     - target: {fileID: 136397101, guid: 35bade8232b72e8449cdf148c02fb366, type: 3}
       propertyPath: background
@@ -2242,32 +2195,5 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 329613919}
-    - target: {fileID: 8649069289178235802, guid: 35bade8232b72e8449cdf148c02fb366,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 73238e97cd3e4064e9eae7b37b460766,
-        type: 3}
-    - target: {fileID: 8649069289178235800, guid: 35bade8232b72e8449cdf148c02fb366,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8649069289178235800, guid: 35bade8232b72e8449cdf148c02fb366,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8649069289178235800, guid: 35bade8232b72e8449cdf148c02fb366,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 8649069289178235800, guid: 35bade8232b72e8449cdf148c02fb366,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.56
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8649069289178235800, guid: 35bade8232b72e8449cdf148c02fb366, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35bade8232b72e8449cdf148c02fb366, type: 3}

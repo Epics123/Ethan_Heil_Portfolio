@@ -243,7 +243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5c11b41ef07d46b00cfedd16d784e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 0
   gm: {fileID: 0}
   trigger: {fileID: 226444998}
   ground:
@@ -254,9 +253,10 @@ MonoBehaviour:
   xSpeed: 0.5
   ySpeed: 7
   jumpForce: 700
-  maxXSpeed: 10
+  maxXSpeed: 15
   maxYSpeed: 25
   isGrounded: 0
+  canMove: 1
 --- !u!70 &1416890290
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

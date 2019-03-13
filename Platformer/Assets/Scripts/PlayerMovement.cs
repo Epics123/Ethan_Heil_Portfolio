@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float maxXSpeed = 15f;
     public float maxYSpeed = 25f;
     public bool isGrounded = false;
+    public bool canMove = true;
 
     Rigidbody2D rb2D;
     Vector2 angleNormal;
@@ -37,7 +38,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckInput();
+        if(canMove)
+            CheckInput();
     }
 
     void FixedUpdate()
@@ -98,9 +100,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        Vector2 localVel = transform.InverseTransformDirection(rb2D.velocity);
-        localVel.x = xMove;
-        rb2D.velocity = transform.TransformDirection(localVel);
+        if(canMove)
+        {
+            Vector2 localVel = transform.InverseTransformDirection(rb2D.velocity);
+            localVel.x = xMove;
+            rb2D.velocity = transform.TransformDirection(localVel);
+        }
+        else
+        {
+            rb2D.velocity = Vector2.zero;
+        }
     }
 
     void CheckMaxSpeed()
