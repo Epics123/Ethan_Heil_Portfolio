@@ -947,6 +947,16 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2399487484940173295, guid: 95461eaf1096e434e94c3e013fd73a88,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399487484940173295, guid: 95461eaf1096e434e94c3e013fd73a88,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 282615388471287678, guid: 95461eaf1096e434e94c3e013fd73a88,
         type: 3}
       propertyPath: nextLevel
@@ -1170,6 +1180,10 @@ PrefabInstance:
       value: 14.371
       objectReference: {fileID: 0}
     - target: {fileID: 136397101, guid: 35bade8232b72e8449cdf148c02fb366, type: 3}
+      propertyPath: hintLines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136397101, guid: 35bade8232b72e8449cdf148c02fb366, type: 3}
       propertyPath: background
       value: 
       objectReference: {fileID: 2048474170}
@@ -1177,5 +1191,26 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 329613919}
+    - target: {fileID: 136397101, guid: 35bade8232b72e8449cdf148c02fb366, type: 3}
+      propertyPath: hintLines.Array.data[0]
+      value: I don't like the look of those areas. I should probably avoid them. (Press
+        'E' to Continue)
+      objectReference: {fileID: 0}
+    - target: {fileID: 136397101, guid: 35bade8232b72e8449cdf148c02fb366, type: 3}
+      propertyPath: hintLines.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 136397101, guid: 35bade8232b72e8449cdf148c02fb366, type: 3}
+      propertyPath: specialString
+      value: ' red'
+      objectReference: {fileID: 0}
+    - target: {fileID: 136397101, guid: 35bade8232b72e8449cdf148c02fb366, type: 3}
+      propertyPath: insertIndex
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 136397101, guid: 35bade8232b72e8449cdf148c02fb366, type: 3}
+      propertyPath: specialStringColor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35bade8232b72e8449cdf148c02fb366, type: 3}

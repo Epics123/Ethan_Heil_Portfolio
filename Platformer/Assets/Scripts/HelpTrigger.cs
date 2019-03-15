@@ -12,7 +12,11 @@ public class HelpTrigger : MonoBehaviour
     public LayerMask player;
     public Color currentColor;
     public string[] hintLines;
+    public string specialString;
     public float lerpAmount;
+    public int specialStringColor;
+    public int insertIndex;
+    public int insetLine;
 
     bool dialogueActive = false;
     float r, g, b;
@@ -31,6 +35,7 @@ public class HelpTrigger : MonoBehaviour
         b = 0f;
 
         StartCoroutine(LerpColor());
+        InsertString(insertIndex);
     }
 
     // Update is called once per frame
@@ -63,6 +68,20 @@ public class HelpTrigger : MonoBehaviour
                 dialogueActive = true;
             }  
         }
+    }
+
+    void InsertString(int index)
+    {
+        switch(specialStringColor)
+        {
+            case 1: hintLines[insetLine] = hintLines[insetLine].Insert(insertIndex, "<color=red>" + specialString + "</color>");
+                break;
+            case 2: hintLines[insetLine] = hintLines[insetLine].Insert(insertIndex, "<color=blue>" + specialString + "</color>");
+                break;
+            default: hintLines[insetLine] = hintLines[insetLine].Insert(insertIndex, "<color=white>" + specialString + "</color>");
+                break;
+        }
+        
     }
 
     void ShowHint()
