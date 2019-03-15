@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 62e6ca64441024844a8a226c708e1637, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.913885, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5108,6 +5108,7 @@ GameObject:
   - component: {fileID: 2399487486221946843}
   - component: {fileID: 1549508293}
   - component: {fileID: 8718878521564909821}
+  - component: {fileID: 282615388471287678}
   m_Layer: 0
   m_Name: LevelFinish
   m_TagString: Untagged
@@ -5195,3 +5196,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 25
+--- !u!114 &282615388471287678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2399487486221946842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b5b9d865e0f35143880f5d1ecccb7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevel: 

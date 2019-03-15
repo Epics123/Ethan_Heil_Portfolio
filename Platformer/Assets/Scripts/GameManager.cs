@@ -29,4 +29,9 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
         }
     }
+
+    public void LoadNextLevel(string level)
+    {
+        SceneManager.LoadSceneAsync(level);
+    }
 }
