@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HelpTrigger.cs" />
     <Compile Include="Assets\Scripts\LevelFinish.cs" />
+    <Compile Include="Assets\Scripts\MoveUIElement.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
