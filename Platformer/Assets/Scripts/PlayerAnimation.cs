@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     public PlayerMovement movement;
+    public bool facingRight = true;
 
     Rigidbody2D rb2D;
     Animator animator;
     SpriteRenderer spriteRenderer;
 
-    bool facingRight = true;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
         CheckAnimation();
-        //CheckFilp();
+        CheckFilp();
     }
 
     void CheckAnimation()
@@ -35,19 +35,13 @@ public class PlayerAnimation : MonoBehaviour
 
     void CheckFilp()
     {
-        if(facingRight && rb2D.velocity.x < -0.1f)
+        if (facingRight)
         {
-            Flip();
+            spriteRenderer.flipX = false;
         }
-        else if (!facingRight && rb2D.velocity.x > 0.1f)
+        else if (!facingRight)
         {
-            Flip();
+            spriteRenderer.flipX = true;
         }
-    }
-
-    void Flip()
-    {
-        facingRight = !facingRight;
-        spriteRenderer.flipX = !spriteRenderer.flipX;
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 226445001}
   m_Layer: 9
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,11 +42,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.9899999, y: 3.53}
+  m_Size: {x: 1.1055555, y: 1.9611111}
   m_Direction: 0
 --- !u!114 &226445001
 MonoBehaviour:
@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6085271784052833321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.7703, z: 0}
+  m_LocalPosition: {x: 0, y: -1.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6085271784462441197}
@@ -104,10 +104,11 @@ GameObject:
   - component: {fileID: 6085271784462441196}
   - component: {fileID: 6085271784462441185}
   - component: {fileID: 6085271784462441186}
-  - component: {fileID: 2513261464868646106}
+  - component: {fileID: 1416890290}
+  - component: {fileID: 8668516057223647191}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +122,7 @@ Transform:
   m_GameObject: {fileID: 6085271784462441192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.01, y: -2.47, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6085271784052833320}
   - {fileID: 226444999}
@@ -165,7 +166,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 33e28973fb941d34a916d0c188d7597c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d9aa2685716f42b4d900222012993d50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -229,6 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 6085271784462441186}
+  facingRight: 1
 --- !u!114 &6085271784462441186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,19 +243,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5c11b41ef07d46b00cfedd16d784e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 0
+  gm: {fileID: 0}
   trigger: {fileID: 226444998}
   ground:
     serializedVersion: 2
     m_Bits: 256
   groundCheck: {fileID: 6085271784052833320}
+  anim: {fileID: 6085271784462441185}
   xSpeed: 0.5
   ySpeed: 7
   jumpForce: 700
-  maxXSpeed: 10
+  maxXSpeed: 15
   maxYSpeed: 25
   isGrounded: 0
---- !u!70 &2513261464868646106
+  canMove: 1
+--- !u!70 &1416890290
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,5 +271,21 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.9899999, y: 3.53}
+  m_Size: {x: 1.1055555, y: 1.9611111}
+  m_Direction: 0
+--- !u!70 &8668516057223647191
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6085271784462441192}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.1055555, y: 1.9611111}
   m_Direction: 0
