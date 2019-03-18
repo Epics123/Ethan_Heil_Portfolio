@@ -60,9 +60,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0beb6bf8343a1f94ebdbd785c1c6ff6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loopCenter: {fileID: 0}
-  inLoop: 0
-  startLoop: 0
 --- !u!1 &6085271784052833321
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +250,7 @@ MonoBehaviour:
   xSpeed: 0.5
   ySpeed: 7
   jumpForce: 700
-  maxXSpeed: 25
+  maxXSpeed: 10
   maxYSpeed: 25
   isGrounded: 0
 --- !u!70 &2513261464868646106
