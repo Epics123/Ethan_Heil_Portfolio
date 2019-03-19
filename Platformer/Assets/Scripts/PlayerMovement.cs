@@ -155,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
     void CheckRotation()
     {
 
-        if(Physics2D.Raycast(transform.position, -transform.up, 20f, ground))
+        if(Physics2D.Raycast(transform.position, -transform.up, 10f, ground) && isGrounded)
         {
             RaycastHit2D hitDown;
             hitDown = Physics2D.Raycast(transform.position, -transform.up, 20f, ground);
