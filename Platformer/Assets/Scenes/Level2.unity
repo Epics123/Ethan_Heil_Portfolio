@@ -348,7 +348,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -395,7 +395,7 @@ MonoBehaviour:
   startTarget: {fileID: 1286508180}
   offset: {x: 0, y: 3, z: -10}
   smoothTime: 0.1
-  startSize: 8
+  startSize: 9
 --- !u!4 &1286508180 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2399487486221946843, guid: 95461eaf1096e434e94c3e013fd73a88,
