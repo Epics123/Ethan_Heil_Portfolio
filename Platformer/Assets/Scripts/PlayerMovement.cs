@@ -163,12 +163,23 @@ public class PlayerMovement : MonoBehaviour
             Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
             angleNormal = hitDown.normal;
 
-            float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
+            float delta = hitDown.normal.y / hitDown.normal.x;
+            if(delta == Mathf.Infinity)
+            {
+                delta = 0f;
+            }
+
+            float theta = Mathf.Atan(delta);
 
             float newGravityX = 0f;
             float newGravityY = 0f;
 
-            if(slopeRotation.eulerAngles.z <= 180f)
+            if(slopeRotation.eulerAngles.z == 0f)
+            {
+                newGravityX = 0f;
+                newGravityY = -23f;
+            }
+            else if (slopeRotation.eulerAngles.z <= 180f)
             {
                 newGravityX = (hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
                 newGravityY = (hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
