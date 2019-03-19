@@ -252,7 +252,7 @@ MonoBehaviour:
   anim: {fileID: 6085271784462441185}
   xSpeed: 0.5
   ySpeed: 7
-  jumpForce: 700
+  jumpForce: 600
   maxXSpeed: 15
   maxYSpeed: 25
   isGrounded: 0

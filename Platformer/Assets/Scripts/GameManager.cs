@@ -34,4 +34,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(level);
     }
+
+    public void KillPlayer()
+    {
+        player.transform.position = restartPoint.position;
+        player.transform.rotation = restartPoint.rotation;
+    }
 }
