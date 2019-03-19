@@ -2720,6 +2720,12 @@ PrefabInstance:
       propertyPath: restartPoint
       value: 
       objectReference: {fileID: 1838895874991455499}
+    - target: {fileID: 7703125702281373009, guid: a8de8369eda145d42804c4b1a6354d47,
+        type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 2261174060414146387, guid: 5c71f330a80990b4d985702994fe5cd3,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8de8369eda145d42804c4b1a6354d47, type: 3}
 --- !u!1001 &8649069289041871539

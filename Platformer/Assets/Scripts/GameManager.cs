@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
     public GameObject player;
+    public GameObject explosion;
     public Transform restartPoint;
 
     // Start is called before the first frame update
@@ -37,6 +37,15 @@ public class GameManager : MonoBehaviour
 
     public void KillPlayer()
     {
+        Instantiate(explosion, player.transform.position, player.transform.rotation);
+        player.SetActive(false);
+        StartCoroutine(Respawn());
+    }
+
+    IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(2f);
+        player.SetActive(true);
         player.transform.position = restartPoint.position;
         player.transform.rotation = restartPoint.rotation;
     }
