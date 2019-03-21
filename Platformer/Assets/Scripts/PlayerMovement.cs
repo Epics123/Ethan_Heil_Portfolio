@@ -122,6 +122,8 @@ public class PlayerMovement : MonoBehaviour
         {
             xMove = -maxXSpeed;
         }
+
+        
     }
 
     void CheckGround()
@@ -130,6 +132,15 @@ public class PlayerMovement : MonoBehaviour
         if (col == null)
         {
             isGrounded = false;
+
+            if(rb2D.velocity.y >= maxYSpeed)
+            {
+                rb2D.velocity = new Vector2(rb2D.velocity.x, maxYSpeed);
+            }
+            if (rb2D.velocity.y <= -maxYSpeed)
+            {
+                rb2D.velocity = new Vector2(rb2D.velocity.x, -maxYSpeed);
+            }
         }
         else
         {

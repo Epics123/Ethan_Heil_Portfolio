@@ -257,7 +257,7 @@ MonoBehaviour:
   ySpeed: 7
   jumpForce: 600
   maxXSpeed: 15
-  maxYSpeed: 25
+  maxYSpeed: 41
   isGrounded: 0
   canMove: 1
 --- !u!70 &1416890290
