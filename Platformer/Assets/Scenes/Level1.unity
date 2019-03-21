@@ -2569,6 +2569,21 @@ PrefabInstance:
       propertyPath: restartPoint
       value: 
       objectReference: {fileID: 1838895874991455499}
+    - target: {fileID: 7703125702281373009, guid: a8de8369eda145d42804c4b1a6354d47,
+        type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1950439362}
+    - target: {fileID: 7703125702281373009, guid: a8de8369eda145d42804c4b1a6354d47,
+        type: 3}
+      propertyPath: timerCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7703125702281373009, guid: a8de8369eda145d42804c4b1a6354d47,
+        type: 3}
+      propertyPath: timerBackground
+      value: 
+      objectReference: {fileID: 275055013}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8de8369eda145d42804c4b1a6354d47, type: 3}
 --- !u!1001 &8649069289041871539

@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CheckTriggers.cs" />
+    <Compile Include="Assets\Scripts\doorKey.cs" />
     <Compile Include="Assets\Scripts\Explosion.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HelpTrigger.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\Scripts\MoveUIElement.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Portal.cs" />
     <Compile Include="Assets\Scripts\RotatePlatform.cs" />
     <Compile Include="Assets\Scripts\Spring.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

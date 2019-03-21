@@ -75,5 +75,10 @@ public class CameraFollow : MonoBehaviour
         canFollow = true;
         zoomOut = false;
         zoomIn = true;
+
+        yield return new WaitForSeconds(2f);
+        gm.timerCount = true;
+        gm.timer.enabled = true;
+        gm.timerBackground.enabled = true;
     }
 }

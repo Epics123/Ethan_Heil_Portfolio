@@ -32,5 +32,18 @@ public class CheckTriggers : MonoBehaviour
         {
             gm.KillPlayer();
         }
+
+        if(collision.gameObject.tag == "Platform")
+        {
+            gm.player.transform.parent = collision.transform;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+        {
+            gm.player.transform.parent = null;
+        }
     }
 }

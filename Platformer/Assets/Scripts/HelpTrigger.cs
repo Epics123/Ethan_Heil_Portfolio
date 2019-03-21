@@ -16,7 +16,7 @@ public class HelpTrigger : MonoBehaviour
     public float lerpAmount;
     public int specialStringColor;
     public int insertIndex;
-    public int insetLine;
+    public int insertLine;
 
     bool dialogueActive = false;
     float r, g, b;
@@ -74,11 +74,11 @@ public class HelpTrigger : MonoBehaviour
     {
         switch(specialStringColor)
         {
-            case 1: hintLines[insetLine] = hintLines[insetLine].Insert(insertIndex, "<color=red>" + specialString + "</color>");
+            case 1: hintLines[insertLine] = hintLines[insertLine].Insert(insertIndex, "<color=red>" + specialString + "</color>");
                 break;
-            case 2: hintLines[insetLine] = hintLines[insetLine].Insert(insertIndex, "<color=blue>" + specialString + "</color>");
+            case 2: hintLines[insertLine] = hintLines[insertLine].Insert(insertIndex, "<color=blue>" + specialString + "</color>");
                 break;
-            default: hintLines[insetLine] = hintLines[insetLine].Insert(insertIndex, "<color=white>" + specialString + "</color>");
+            default: hintLines[insertLine] = hintLines[insertLine].Insert(insertIndex, "<color=white>" + specialString + "</color>");
                 break;
         }
         
