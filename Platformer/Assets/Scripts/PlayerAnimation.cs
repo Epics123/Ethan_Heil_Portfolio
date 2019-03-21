@@ -29,7 +29,8 @@ public class PlayerAnimation : MonoBehaviour
 
     void CheckAnimation()
     {
-        animator.SetFloat("xMove", Mathf.Abs(rb2D.velocity.x));
+        Vector2 localVel = transform.InverseTransformDirection(rb2D.velocity);
+        animator.SetFloat("xMove", Mathf.Abs(localVel.x));
         animator.SetBool("onGround", movement.isGrounded);
     }
 

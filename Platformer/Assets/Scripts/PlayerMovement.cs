@@ -2,18 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum FloorMode
-{
-    BOTTOM_RIGHT,
-    TOP_RIGHT,
-    BOTTOM_LEFT,
-    TOP_LEFT,
-    NUETRAL
-}
 
 public class PlayerMovement : MonoBehaviour
 {
-    public FloorMode mode = FloorMode.BOTTOM_RIGHT;
     public GameManager gm;
     public GameObject trigger;
     public LayerMask ground;
@@ -25,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float maxXSpeed = 15f;
     public float maxYSpeed = 25f;
     public bool isGrounded = false;
+    public bool canMove = true;
 
     Rigidbody2D rb2D;
     Vector2 angleNormal;
@@ -32,10 +24,8 @@ public class PlayerMovement : MonoBehaviour
     float xMove = 0f;
     float acc = 0.25f;
     float frc = 0.3f;
-    int quadrant = 0;
 
     bool shouldJump = false;
-    bool switchQuad = false;
 
 
     // Start is called before the first frame update
@@ -48,7 +38,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckInput();
+        if(canMove)
+            CheckInput();
     }
 
     void FixedUpdate()
@@ -109,9 +100,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        Vector2 localVel = transform.InverseTransformDirection(rb2D.velocity);
-        localVel.x = xMove;
-        rb2D.velocity = transform.TransformDirection(localVel);
+        if(canMove)
+        {
+            Vector2 localVel = transform.InverseTransformDirection(rb2D.velocity);
+            localVel.x = xMove;
+            rb2D.velocity = transform.TransformDirection(localVel);
+        }
+        else
+        {
+            rb2D.velocity = Vector2.zero;
+        }
     }
 
     void CheckMaxSpeed()
@@ -124,6 +122,8 @@ public class PlayerMovement : MonoBehaviour
         {
             xMove = -maxXSpeed;
         }
+
+        
     }
 
     void CheckGround()
@@ -132,6 +132,15 @@ public class PlayerMovement : MonoBehaviour
         if (col == null)
         {
             isGrounded = false;
+
+            if(rb2D.velocity.y >= maxYSpeed)
+            {
+                rb2D.velocity = new Vector2(rb2D.velocity.x, maxYSpeed);
+            }
+            if (rb2D.velocity.y <= -maxYSpeed)
+            {
+                rb2D.velocity = new Vector2(rb2D.velocity.x, -maxYSpeed);
+            }
         }
         else
         {
@@ -157,25 +166,42 @@ public class PlayerMovement : MonoBehaviour
     void CheckRotation()
     {
 
-        if(Physics2D.Raycast(transform.position, -transform.up, 7f, ground) && isGrounded)
+        if(Physics2D.Raycast(transform.position, -transform.up, 3f, ground))
         {
             RaycastHit2D hitDown;
-            hitDown = Physics2D.Raycast(transform.position, -transform.up, 7f, ground);
+            hitDown = Physics2D.Raycast(transform.position, -transform.up, 3f, ground);
 
             Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitDown.normal);
             angleNormal = hitDown.normal;
 
-            float theta = Mathf.Atan(hitDown.normal.y / hitDown.normal.x);
-            float newGravityX = (hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
-            float newGravityY = (hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
+            float delta = hitDown.normal.y / hitDown.normal.x;
+            if(delta == Mathf.Infinity)
+            {
+                delta = 0f;
+            }
+
+            float theta = Mathf.Atan(delta);
+
+            float newGravityX = 0f;
+            float newGravityY = 0f;
+
+            if(slopeRotation.eulerAngles.z == 0f)
+            {
+                newGravityX = 0f;
+                newGravityY = -23f;
+            }
+            else if (slopeRotation.eulerAngles.z <= 180f)
+            {
+                newGravityX = (hitDown.normal.magnitude * Mathf.Cos(theta)) * 23;
+                newGravityY = (hitDown.normal.magnitude * Mathf.Sin(theta)) * 23;
+            }
+            else if(slopeRotation.eulerAngles.z >= 180f)
+            {
+                newGravityX = (hitDown.normal.magnitude * -Mathf.Cos(theta)) * 23;
+                newGravityY = (hitDown.normal.magnitude * -Mathf.Sin(theta)) * 23;
+            }
 
             Physics2D.gravity = new Vector2(newGravityX, newGravityY);
-            Debug.Log(Physics2D.gravity);
-            if (!float.IsNaN(newGravityX) && !float.IsNaN(newGravityY))
-            {
-                //mode = FloorMode.NUETRAL;
-                //Physics2D.gravity = new Vector2(newGravityX, newGravityY);
-            }
 
             transform.rotation = Quaternion.Slerp(transform.rotation, slopeRotation, 15 * Time.deltaTime);
         }
