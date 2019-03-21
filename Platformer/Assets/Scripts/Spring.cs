@@ -2,35 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckTriggers : MonoBehaviour
+public class Spring : MonoBehaviour
 {
     public GameManager gm;
-    public Color deathColor;
-    public Rigidbody2D rb2d;
+    public float launchForce;
 
     // Start is called before the first frame update
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        deathColor = Color.red;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.GetComponent<SpriteRenderer>().color == deathColor)
+        if(collision.gameObject.tag == "Player")
         {
-            gm.KillPlayer();
+            gm.player.GetComponent<Rigidbody2D>().AddForce(gm.player.transform.up * launchForce);
         }
     }
 }

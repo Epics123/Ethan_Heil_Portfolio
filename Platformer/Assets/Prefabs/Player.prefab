@@ -60,6 +60,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0beb6bf8343a1f94ebdbd785c1c6ff6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 0}
+  deathColor: {r: 0, g: 0, b: 0, a: 0}
+  rb2d: {fileID: 6085271784462441196}
 --- !u!1 &6085271784052833321
 GameObject:
   m_ObjectHideFlags: 0

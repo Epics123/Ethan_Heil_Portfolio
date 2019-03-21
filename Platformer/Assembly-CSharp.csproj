@@ -69,6 +69,8 @@
     <Compile Include="Assets\Scripts\MoveUIElement.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\RotatePlatform.cs" />
+    <Compile Include="Assets\Scripts\Spring.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/eheil/source/repos/ethan-heil-gametech/Platformer/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
