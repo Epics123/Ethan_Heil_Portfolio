@@ -10,11 +10,11 @@ public class Enemy : MonoBehaviour
     public float speed = 5f;
     public bool moveVertical;
     public bool moveHorizontal;
+    public bool movePositive;
+    public bool moveNegative;
 
     public Vector2 target;
     bool isMoving;
-    bool movePositive;
-    bool moveNegative;
 
     readonly float spacer = 0.01f;
 
@@ -38,7 +38,18 @@ public class Enemy : MonoBehaviour
     {
         if (isMoving == false)
         {
-            target = new Vector2(transform.position.x + 1, transform.position.y);
+            if(moveHorizontal == true)
+            {
+                if(movePositive == true)
+                {
+                    target = new Vector2(transform.position.x + 1, transform.position.y);
+                }
+                if(moveNegative == true)
+                {
+                    target = new Vector2(transform.position.x - 1, transform.position.y);
+                }
+            }
+            
             isMoving = true;
         }
         else if (isMoving == true)
@@ -47,7 +58,7 @@ public class Enemy : MonoBehaviour
             if (transform.position.Equals(target))
             {
                 isMoving = false;
-                target = new Vector2(transform.position.x + 1, transform.position.y);
+                //target = new Vector2(transform.position.x + 1, transform.position.y);
             }
         }
     }
@@ -58,6 +69,16 @@ public class Enemy : MonoBehaviour
         {
             if(transform.position.x + 1 >= gm.gridRows || transform.position.x < 0)
             {
+                if(movePositive == true)
+                {
+                    movePositive = false;
+                    moveNegative = true;
+                }
+                if(moveNegative == true)
+                {
+                    moveNegative = false;
+                    movePositive = true;
+                }
                 return false;
             }
         }

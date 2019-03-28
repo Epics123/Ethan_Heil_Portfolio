@@ -35,6 +35,7 @@ public class Square : MonoBehaviour
 
     void OnMouseOver()
     {
+        GridManager.UpdateUI(this);
         GridManager.OnOver(this);
 
         if(validSpace)
@@ -51,6 +52,7 @@ public class Square : MonoBehaviour
     void OnMouseExit()
     {
         spriteRenderer.material.color = originalColor;
+        GridManager.UpdateUI();
     }
 
     void OnMouseDown()

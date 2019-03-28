@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GridManager : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class GridManager : MonoBehaviour
     public int rows;
     public int cols;
     readonly float spacer = 0.01f;
+
+    public Text nameText;
+    public Text rowText;
+    public Text colText;
 
     private static GridManager instance;
 
@@ -76,6 +81,21 @@ public class GridManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public static void UpdateUI(Square square = null)
+    {
+        if(square == null)
+        {
+            instance.rowText.text = "---";
+            instance.colText.text = "---";
+            instance.nameText.text = "---";
+            return;
+        }
+
+        instance.rowText.text = square.gridPosition.x.ToString();
+        instance.colText.text = square.gridPosition.y.ToString();
+        instance.nameText.text = square.name;
     }
 
     public static void OnDown(Square square = null)
