@@ -66,4 +66,16 @@ public class GridManager : MonoBehaviour
         }
         
     }
+
+    public static void OnOver(Square square = null)
+    {
+        if (Mathf.Round(Vector2.Distance(square.gridPosition, instance.player.GetComponent<Player>().transform.position)) > 2)
+        {
+            square.validSpace = false;
+        }
+        else
+        {
+            square.validSpace = true;
+        }
+    }
 }

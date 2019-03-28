@@ -6,6 +6,7 @@ public class Square : MonoBehaviour
 {
     public Vector2Int gridPosition;
     public Material mouseOverMat;
+    public bool validSpace;
 
     static Color mouseOverColor;
 
@@ -33,7 +34,17 @@ public class Square : MonoBehaviour
 
     void OnMouseOver()
     {
-        spriteRenderer.material.color = mouseOverColor;
+        GridManager.OnOver(this);
+
+        if(validSpace)
+        {
+            spriteRenderer.material.color = mouseOverColor;
+        }
+        else
+        {
+            spriteRenderer.material.color = Color.red;
+        }
+        
     }
 
     void OnMouseExit()
