@@ -19,7 +19,7 @@ public class GridManager : MonoBehaviour
     public int levelEndY = 0;
     public int rows;
     public int cols;
-    readonly float spacer = 0.01f;
+    readonly float spacer = 0.05f;
 
     public Text nameText;
     public Text rowText;

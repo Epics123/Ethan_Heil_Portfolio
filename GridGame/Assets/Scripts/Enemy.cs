@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     public Vector2 target;
     bool isMoving;
 
-    readonly float spacer = 0.01f;
+    readonly float spacer = 0.05f;
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +42,22 @@ public class Enemy : MonoBehaviour
             {
                 if(movePositive == true)
                 {
-                    target = new Vector2(transform.position.x + 1, transform.position.y);
+                    target = new Vector2((transform.position.x + 1) + spacer, transform.position.y);
                 }
                 if(moveNegative == true)
                 {
-                    target = new Vector2(transform.position.x - 1, transform.position.y);
+                    target = new Vector2((transform.position.x - 1) - spacer, transform.position.y);
+                }
+            }
+            if(moveVertical == true)
+            {
+                if (movePositive == true)
+                {
+                    target = new Vector2(transform.position.x, (transform.position.y + 1) + spacer);
+                }
+                if (moveNegative == true)
+                {
+                    target = new Vector2(transform.position.x, (transform.position.y - 1) - spacer);
                 }
             }
             
