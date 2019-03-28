@@ -6,12 +6,13 @@ public class Square : MonoBehaviour
 {
     public Vector2Int gridPosition;
     public Material mouseOverMat;
+    public Color originalColor;
+    public SpriteRenderer spriteRenderer;
     public bool validSpace;
+    public bool isStart;
 
     static Color mouseOverColor;
 
-    Color originalColor;
-    SpriteRenderer spriteRenderer;
 
     void Awake()
     {
@@ -23,7 +24,7 @@ public class Square : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

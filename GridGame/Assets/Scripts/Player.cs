@@ -25,11 +25,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void MovePlayer(Square square = null)
-    {
-        gameObject.transform.position = square.transform.position;
-    }
-
     public void LerpPlayer(Square square = null)
     {
         if(isMoving == false)

@@ -10,6 +10,8 @@ public class GridManager : MonoBehaviour
     public Square squarePrefab;
     public float startX = 0f;
     public float startY = 0f;
+    public int levelStartX = 0;
+    public int levelStartY = 0;
     public int rows;
     public int cols;
     readonly float spacer = 0.01f;
@@ -24,9 +26,11 @@ public class GridManager : MonoBehaviour
     {
         InitGridHolder();
         BuildGrid();
+
         camX = (float)rows / 2f;
         camY = (float)cols / 2f;
         Camera.main.transform.position = new Vector3(camX, camY, -10);
+
         instance = this;
     }
 
@@ -54,6 +58,17 @@ public class GridManager : MonoBehaviour
                 square.transform.localPosition = newPos;
                 square.name = "Square_" + i + "_" + j;
                 square.gridPosition = new Vector2Int(i, j);
+                if(i == levelStartX && j == levelStartY)
+                {
+                    square.originalColor = Color.black;
+                    square.spriteRenderer.material.color = square.originalColor;
+                    square.isStart = true;
+                    StartPlayer(square);
+                }
+                else
+                {
+                    square.isStart = false;
+                }
             }
         }
     }
@@ -77,5 +92,10 @@ public class GridManager : MonoBehaviour
         {
             square.validSpace = true;
         }
+    }
+
+    public void StartPlayer(Square square = null)
+    {
+        player.transform.position = new Vector2(square.gridPosition.x, square.gridPosition.y);
     }
 }

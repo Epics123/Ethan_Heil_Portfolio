@@ -230,6 +230,8 @@ MonoBehaviour:
     type: 3}
   startX: 0
   startY: 0
+  levelStartX: 0
+  levelStartY: 5
   rows: 12
   cols: 12
   camX: 0
@@ -402,7 +404,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: abfd5bb4d74c407459944dad2f1ac618, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.53646696, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
