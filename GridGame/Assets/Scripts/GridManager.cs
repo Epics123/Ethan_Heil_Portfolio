@@ -7,6 +7,7 @@ public class GridManager : MonoBehaviour
     [HideInInspector]
     public GameObject gridHolder;
     public GameObject player;
+    public GameObject enemy;
     public Square squarePrefab;
     public float startX = 0f;
     public float startY = 0f;
@@ -79,7 +80,10 @@ public class GridManager : MonoBehaviour
         {
             instance.player.GetComponent<Player>().LerpPlayer(square);
         }
-        
+        if (instance.enemy.GetComponent<Enemy>().CheckBounds(square) == true)
+        {
+            Debug.Log("Enemy Move");
+        }
     }
 
     public static void OnOver(Square square = null)
