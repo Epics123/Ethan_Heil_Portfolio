@@ -69,7 +69,6 @@ public class Enemy : MonoBehaviour
             if (transform.position.Equals(target))
             {
                 isMoving = false;
-                //target = new Vector2(transform.position.x + 1, transform.position.y);
             }
         }
     }
@@ -78,14 +77,14 @@ public class Enemy : MonoBehaviour
     {
         if(moveHorizontal == true)
         {
-            if(transform.position.x + 1 >= gm.gridRows || transform.position.x < 0)
+            if(transform.position.x > gm.gridCols - 1 || transform.position.x < 0)
             {
                 if(movePositive == true)
                 {
                     movePositive = false;
                     moveNegative = true;
                 }
-                if(moveNegative == true)
+                else if(moveNegative == true)
                 {
                     moveNegative = false;
                     movePositive = true;
@@ -96,7 +95,7 @@ public class Enemy : MonoBehaviour
 
         if(moveVertical == true)
         {
-            if (transform.position.y + 1 >= gm.gridCols || transform.position.y < 0)
+            if (transform.position.y + 1 >= gm.gridRows || transform.position.y < 0)
             {
                 return false;
             }

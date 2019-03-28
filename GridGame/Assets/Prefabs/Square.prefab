@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e72543dcac868e245afa87805c511a81, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e785a24749be4084c896a24c82242362, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   validSpace: 0
   isStart: 0
+  isEnd: 0
 --- !u!61 &391335220794718644
 BoxCollider2D:
   m_ObjectHideFlags: 0
