@@ -229,8 +229,8 @@ MonoBehaviour:
     type: 3}
   startX: 0
   startY: 0
-  rows: 4
-  cols: 4
+  rows: 12
+  cols: 12
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
