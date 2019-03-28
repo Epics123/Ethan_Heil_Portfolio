@@ -8,6 +8,7 @@ public class GridManager : MonoBehaviour
     public GameObject gridHolder;
     public GameObject player;
     public GameObject enemy;
+    public GameManager gm;
     public Square squarePrefab;
     public float startX = 0f;
     public float startY = 0f;
@@ -17,7 +18,6 @@ public class GridManager : MonoBehaviour
     public int cols;
     readonly float spacer = 0.01f;
 
-
     private static GridManager instance;
 
     public float camX;
@@ -25,6 +25,10 @@ public class GridManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        gm.gridRows = rows;
+        gm.gridCols = cols;
+
         InitGridHolder();
         BuildGrid();
 
@@ -38,7 +42,7 @@ public class GridManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void InitGridHolder()
@@ -50,7 +54,7 @@ public class GridManager : MonoBehaviour
 
     void BuildGrid()
     {
-        for(int i = 0; i < rows; i++)
+        for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < cols; j++)
             {
@@ -59,7 +63,7 @@ public class GridManager : MonoBehaviour
                 square.transform.localPosition = newPos;
                 square.name = "Square_" + i + "_" + j;
                 square.gridPosition = new Vector2Int(i, j);
-                if(i == levelStartX && j == levelStartY)
+                if (i == levelStartX && j == levelStartY)
                 {
                     square.originalColor = Color.black;
                     square.spriteRenderer.material.color = square.originalColor;
@@ -76,14 +80,16 @@ public class GridManager : MonoBehaviour
 
     public static void OnDown(Square square = null)
     {
-        if(instance.player.GetComponent<Player>().CheckDistance(square) == true)
+        if (instance.player.GetComponent<Player>().CheckDistance(square) == true)
         {
             instance.player.GetComponent<Player>().LerpPlayer(square);
+            if(instance.enemy.GetComponent<Enemy>().CheckBounds())
+            {
+                instance.enemy.GetComponent<Enemy>().LerpEnemy();
+            }
+            
         }
-        if (instance.enemy.GetComponent<Enemy>().CheckBounds(square) == true)
-        {
-            Debug.Log("Enemy Move");
-        }
+        
     }
 
     public static void OnOver(Square square = null)
@@ -100,6 +106,7 @@ public class GridManager : MonoBehaviour
 
     public void StartPlayer(Square square = null)
     {
-        player.transform.position = new Vector2(square.gridPosition.x, square.gridPosition.y);
+        player.transform.position = new Vector2(square.gridPosition.x + (spacer * square.gridPosition.x), square.gridPosition.y + (spacer * square.gridPosition.y));
     }
+
 }

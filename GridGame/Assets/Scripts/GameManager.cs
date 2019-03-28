@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public int gridRows;
+    public int gridCols;
     // Start is called before the first frame update
     void Start()
     {

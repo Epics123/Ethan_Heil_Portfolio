@@ -24,7 +24,7 @@ public class Square : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+  
     }
 
     // Update is called once per frame
@@ -57,4 +57,13 @@ public class Square : MonoBehaviour
     {
         GridManager.OnDown(this);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 10)
+        {
+            //collision.gameObject.GetComponent<Enemy>().target = this;
+        }
+    }
+
 }

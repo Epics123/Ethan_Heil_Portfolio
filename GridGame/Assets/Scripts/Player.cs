@@ -18,7 +18,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(transform.position.x + 2);
         if(isMoving == true)
         {
             LerpPlayer();
