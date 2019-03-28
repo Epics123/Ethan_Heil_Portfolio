@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(transform.position.x + 2);
         if(isMoving == true)
         {
             LerpPlayer();
@@ -43,6 +44,18 @@ public class Player : MonoBehaviour
             {
                 isMoving = false;
             }
+        }
+    }
+
+    public bool CheckDistance(Square square = null)
+    {
+        if(Mathf.Round(Vector2.Distance(square.gridPosition, transform.position)) > 2)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 }

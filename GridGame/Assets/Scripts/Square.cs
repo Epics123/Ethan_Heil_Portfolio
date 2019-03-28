@@ -33,7 +33,6 @@ public class Square : MonoBehaviour
 
     void OnMouseOver()
     {
-        Debug.Log(name);
         spriteRenderer.material.color = mouseOverColor;
     }
 

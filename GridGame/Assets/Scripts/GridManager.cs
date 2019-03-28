@@ -50,7 +50,7 @@ public class GridManager : MonoBehaviour
             for (int j = 0; j < cols; j++)
             {
                 Square square = Instantiate(squarePrefab, gridHolder.transform);
-                Vector2 newPos = new Vector2(j + (spacer * j), i + (spacer * i));
+                Vector2 newPos = new Vector2(i + (spacer * i), j + (spacer * j));
                 square.transform.localPosition = newPos;
                 square.name = "Square_" + i + "_" + j;
                 square.gridPosition = new Vector2Int(i, j);
@@ -60,6 +60,10 @@ public class GridManager : MonoBehaviour
 
     public static void OnDown(Square square = null)
     {
-        instance.player.GetComponent<Player>().LerpPlayer(square);
+        if(instance.player.GetComponent<Player>().CheckDistance(square) == true)
+        {
+            instance.player.GetComponent<Player>().LerpPlayer(square);
+        }
+        
     }
 }
