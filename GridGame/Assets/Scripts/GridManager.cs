@@ -17,11 +17,16 @@ public class GridManager : MonoBehaviour
 
     private static GridManager instance;
 
+    public float camX;
+    public float camY;
     // Start is called before the first frame update
     void Start()
     {
         InitGridHolder();
         BuildGrid();
+        camX = (float)rows / 2f;
+        camY = (float)cols / 2f;
+        Camera.main.transform.position = new Vector3(camX, camY, -10);
         instance = this;
     }
 
