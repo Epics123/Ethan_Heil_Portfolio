@@ -10,6 +10,7 @@ public class Square : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public bool validSpace;
     public bool isStart;
+    public bool isEnd;
 
     static Color mouseOverColor;
 
@@ -60,11 +61,11 @@ public class Square : MonoBehaviour
         GridManager.OnDown(this);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == 10)
+        if(collision.gameObject.layer == 9 && isEnd == true)
         {
-            //collision.gameObject.GetComponent<Enemy>().target = this;
+            Debug.Log("Level Complete!");
         }
     }
 

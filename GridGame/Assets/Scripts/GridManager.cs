@@ -15,6 +15,8 @@ public class GridManager : MonoBehaviour
     public float startY = 0f;
     public int levelStartX = 0;
     public int levelStartY = 0;
+    public int levelEndX = 0;
+    public int levelEndY = 0;
     public int rows;
     public int cols;
     readonly float spacer = 0.01f;
@@ -75,9 +77,16 @@ public class GridManager : MonoBehaviour
                     square.isStart = true;
                     StartPlayer(square);
                 }
+                else if(i == levelEndX && j == levelEndY)
+                {
+                    square.originalColor = Color.green;
+                    square.spriteRenderer.material.color = square.originalColor;
+                    square.isEnd = true;
+                }
                 else
                 {
                     square.isStart = false;
+                    square.isEnd = false;
                 }
             }
         }
