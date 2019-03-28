@@ -41,4 +41,9 @@ public class Square : MonoBehaviour
     {
         spriteRenderer.material.color = originalColor;
     }
+
+    void OnMouseDown()
+    {
+        GridManager.OnDown(this);
+    }
 }

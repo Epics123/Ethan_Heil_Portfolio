@@ -6,6 +6,7 @@ public class GridManager : MonoBehaviour
 {
     [HideInInspector]
     public GameObject gridHolder;
+    public GameObject player;
     public Square squarePrefab;
     public float startX = 0f;
     public float startY = 0f;
@@ -50,5 +51,10 @@ public class GridManager : MonoBehaviour
                 square.gridPosition = new Vector2Int(i, j);
             }
         }
+    }
+
+    public static void OnDown(Square square = null)
+    {
+        instance.player.GetComponent<Player>().LerpPlayer(square);
     }
 }
