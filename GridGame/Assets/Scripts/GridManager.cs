@@ -72,7 +72,7 @@ public class GridManager : MonoBehaviour
                 square.gridPosition = new Vector2Int(i, j);
                 if (i == levelStartX && j == levelStartY)
                 {
-                    square.originalColor = Color.black;
+                    square.originalColor = Color.magenta;
                     square.spriteRenderer.material.color = square.originalColor;
                     square.isStart = true;
                     StartPlayer(square);
@@ -85,6 +85,36 @@ public class GridManager : MonoBehaviour
                 }
                 else
                 {
+                    if(j % 2 == 0)
+                    {
+                        square.originalColor = Color.cyan;
+                        square.spriteRenderer.material.color = square.originalColor;
+                        if(i % 2 == 0)
+                        {
+                            square.originalColor = Color.cyan;
+                            square.spriteRenderer.material.color = square.originalColor;
+                        }
+                        else
+                        {
+                            square.originalColor = Color.grey;
+                            square.spriteRenderer.material.color = square.originalColor;
+                        }
+                    }
+                    if (j % 2 == 1)
+                    {
+                        square.originalColor = Color.cyan;
+                        square.spriteRenderer.material.color = square.originalColor;
+                        if (i % 2 == 1)
+                        {
+                            square.originalColor = Color.cyan;
+                            square.spriteRenderer.material.color = square.originalColor;
+                        }
+                        else
+                        {
+                            square.originalColor = Color.grey;
+                            square.spriteRenderer.material.color = square.originalColor;
+                        }
+                    }
                     square.isStart = false;
                     square.isEnd = false;
                 }

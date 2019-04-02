@@ -8,6 +8,7 @@ public class Square : MonoBehaviour
     public Material mouseOverMat;
     public Color originalColor;
     public SpriteRenderer spriteRenderer;
+    public GameObject objectOnSquare;
     public bool validSpace;
     public bool isStart;
     public bool isEnd;
