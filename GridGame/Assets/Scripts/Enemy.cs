@@ -89,7 +89,6 @@ public class Enemy : MonoBehaviour
                     moveNegative = false;
                     movePositive = true;
                 }
-                return false;
             }
         }
 
@@ -97,7 +96,16 @@ public class Enemy : MonoBehaviour
         {
             if (transform.position.y + 1 >= gm.gridRows || transform.position.y < 0)
             {
-                return false;
+                if (movePositive == true)
+                {
+                    movePositive = false;
+                    moveNegative = true;
+                }
+                else if (moveNegative == true)
+                {
+                    moveNegative = false;
+                    movePositive = true;
+                }
             }
         }
 
