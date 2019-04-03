@@ -6,7 +6,6 @@ public class Wall : MonoBehaviour
 {
     public Vector2Int gridPosition;
     public Square location;
-    readonly float spacer = 0.05f;
 
     // Start is called before the first frame update
     void Start()

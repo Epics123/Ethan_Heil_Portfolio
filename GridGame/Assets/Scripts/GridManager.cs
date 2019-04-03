@@ -93,6 +93,7 @@ public class GridManager : MonoBehaviour
                     square.originalColor = Color.magenta;
                     square.spriteRenderer.material.color = square.originalColor;
                     square.isStart = true;
+                    square.validSpace = false;
                     StartPlayer(square);
                 }
                 else if(i == levelEndX && j == levelEndY)
@@ -157,21 +158,27 @@ public class GridManager : MonoBehaviour
 
     public static void OnDown(Square square = null)
     {
-        if (instance.player.GetComponent<Player>().CheckDistance(square) == true)
+        if (instance.player.GetComponent<Player>().CheckDistance(square) == true && square.validSpace == true)
         {
             instance.player.GetComponent<Player>().LerpPlayer(square);
             if(instance.enemy.GetComponent<Enemy>().CheckBounds())
             {
                 instance.enemy.GetComponent<Enemy>().LerpEnemy();
-            }
-            
-        }
-        
+            } 
+        } 
     }
 
     public static void OnOver(Square square = null)
     {
-        if (Mathf.Round(Vector2.Distance(square.gridPosition, instance.player.GetComponent<Player>().transform.position)) > 2)
+        if (square.finishLocked == true)
+        {
+            square.validSpace = false;
+        }
+        else if(square.hasWall == true)
+        {
+            square.validSpace = false;
+        }
+        else if(Mathf.Round(Vector2.Distance(square.gridPosition, instance.player.GetComponent<Player>().transform.position)) > 2)
         {
             square.validSpace = false;
         }
@@ -185,5 +192,4 @@ public class GridManager : MonoBehaviour
     {
         player.transform.position = new Vector2(square.gridPosition.x + (spacer * square.gridPosition.x), square.gridPosition.y + (spacer * square.gridPosition.y));
     }
-
 }

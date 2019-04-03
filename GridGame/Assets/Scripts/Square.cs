@@ -13,6 +13,7 @@ public class Square : MonoBehaviour
     public bool isStart;
     public bool isEnd;
     public bool hasWall;
+    public bool finishLocked;
 
     static Color mouseOverColor;
 
@@ -27,7 +28,10 @@ public class Square : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-  
+        if(isEnd == true)
+        {
+            finishLocked = true;
+        }
     }
 
     // Update is called once per frame
@@ -68,19 +72,6 @@ public class Square : MonoBehaviour
         if(collision.gameObject.layer == 9 && isEnd == true)
         {
             Debug.Log("Level Complete!");
-        }
-
-        if(collision.gameObject.tag == "Wall")
-        {
-            hasWall = true;
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Wall")
-        {
-            hasWall = true;
         }
     }
 
