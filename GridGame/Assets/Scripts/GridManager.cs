@@ -90,7 +90,6 @@ public class GridManager : MonoBehaviour
 
                 if (i == levelStartX && j == levelStartY)
                 {
-                    square.originalColor = Color.magenta;
                     square.spriteRenderer.material.color = square.originalColor;
                     square.isStart = true;
                     square.validSpace = false;
