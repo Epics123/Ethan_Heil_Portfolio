@@ -307,6 +307,7 @@ MonoBehaviour:
   player: {fileID: 1198595815}
   enemy: {fileID: 602651022}
   gm: {fileID: 0}
+  wall: {fileID: 561166618073237226, guid: 5612e2d14206f804ba5279c416b05e55, type: 3}
   squarePrefab: {fileID: 7895408277450620038, guid: 17f84248c56647d4ebb2daf60ffe8fc2,
     type: 3}
   startX: 0
@@ -317,6 +318,11 @@ MonoBehaviour:
   levelEndY: 6
   rows: 7
   cols: 7
+  numWalls: 3
+  wallPositions:
+  - {x: 5, y: 6}
+  - {x: 5, y: 5}
+  - {x: 6, y: 5}
   nameText: {fileID: 602959083}
   rowText: {fileID: 1476040858}
   colText: {fileID: 799807723}

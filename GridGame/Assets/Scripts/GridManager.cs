@@ -10,6 +10,7 @@ public class GridManager : MonoBehaviour
     public GameObject player;
     public GameObject enemy;
     public GameManager gm;
+    public Wall wall;
     public Square squarePrefab;
     public float startX = 0f;
     public float startY = 0f;
@@ -19,7 +20,10 @@ public class GridManager : MonoBehaviour
     public int levelEndY = 0;
     public int rows;
     public int cols;
+    public int numWalls = 0;
     readonly float spacer = 0.05f;
+
+    public Vector2Int[] wallPositions;
 
     public Text nameText;
     public Text rowText;
@@ -35,6 +39,7 @@ public class GridManager : MonoBehaviour
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         gm.gridRows = rows;
         gm.gridCols = cols;
+
 
         InitGridHolder();
         BuildGrid();
@@ -70,6 +75,19 @@ public class GridManager : MonoBehaviour
                 square.transform.localPosition = newPos;
                 square.name = "Square_" + i + "_" + j;
                 square.gridPosition = new Vector2Int(i, j);
+
+                for(int k = 0; k < wallPositions.Length; k++)
+                {
+                    if(wallPositions[k] == new Vector2Int(i, j))
+                    {
+                        Wall newWall = Instantiate(wall, gridHolder.transform);
+                        Vector2 newWallPos = new Vector2(i + (spacer * i), j + (spacer * j));
+                        newWall.transform.localPosition = newWallPos;
+                        newWall.gridPosition = new Vector2Int(i, j);
+                        newWall.location = square;
+                    }
+                }
+
                 if (i == levelStartX && j == levelStartY)
                 {
                     square.originalColor = Color.magenta;

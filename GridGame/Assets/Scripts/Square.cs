@@ -12,6 +12,7 @@ public class Square : MonoBehaviour
     public bool validSpace;
     public bool isStart;
     public bool isEnd;
+    public bool hasWall;
 
     static Color mouseOverColor;
 
@@ -67,6 +68,19 @@ public class Square : MonoBehaviour
         if(collision.gameObject.layer == 9 && isEnd == true)
         {
             Debug.Log("Level Complete!");
+        }
+
+        if(collision.gameObject.tag == "Wall")
+        {
+            hasWall = true;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            hasWall = true;
         }
     }
 
