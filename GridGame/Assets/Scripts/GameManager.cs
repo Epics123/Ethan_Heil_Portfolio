@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -54,5 +55,10 @@ public class GameManager : MonoBehaviour
         int seconds = (timeDecimal % (60 * 100)) / 100;
         int hundreths = timeDecimal % 100;
         return System.String.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, hundreths);
+    }
+
+     public void Restart()
+    {
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
     }
 }
