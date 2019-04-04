@@ -20,7 +20,6 @@ public class GridManager : MonoBehaviour
     public int levelEndY = 0;
     public int rows;
     public int cols;
-    public int numWalls = 0;
     readonly float spacer = 0.05f;
 
     public Vector2Int[] wallPositions;
@@ -47,6 +46,8 @@ public class GridManager : MonoBehaviour
         camX = (float)rows / 2f;
         camY = (float)cols / 2f;
         Camera.main.transform.position = new Vector3(camX, camY, -10);
+
+        gm.numWalls = wallPositions.Length;
 
         instance = this;
     }
