@@ -2308,5 +2308,10 @@ PrefabInstance:
       propertyPath: time
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 6715587064506539454, guid: 18d0da65a6604f2488f7c973ce360ddb,
+        type: 3}
+      propertyPath: nextScene
+      value: EndScene
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18d0da65a6604f2488f7c973ce360ddb, type: 3}

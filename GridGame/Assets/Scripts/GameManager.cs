@@ -26,13 +26,23 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         UpdateTimer();
-        keys.text = numKeys.ToString();
+        
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            RestartGame();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space) && SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            SceneManager.LoadSceneAsync("Level1");
+        }
     }
 
     void UpdateTimer()
     {
         if (timerCount)
         {
+            keys.text = numKeys.ToString();
             time -= Time.deltaTime;
 
             if(time <= 0f)
@@ -63,5 +73,10 @@ public class GameManager : MonoBehaviour
      public void Restart()
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+    }
+
+    void RestartGame()
+    {
+        SceneManager.LoadSceneAsync("Tutorial");
     }
 }
