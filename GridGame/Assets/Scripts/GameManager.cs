@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int gridCols;
     public int numWalls = 0;
     public bool timerCount = true;
+    public string nextScene;
 
     float time = 30f;
 
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
             {
                 time = 0f;
                 timerCount = false;
-                Debug.Log("Time Up!");
+                Restart();
             }
 
             DisplayTimer();
