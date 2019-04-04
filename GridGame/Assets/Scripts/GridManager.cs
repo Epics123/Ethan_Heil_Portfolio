@@ -11,7 +11,9 @@ public class GridManager : MonoBehaviour
     public GameObject enemy;
     public GameManager gm;
     public Wall wall;
+    public DoorKey key;
     public Square squarePrefab;
+    public Square endSquare;
     public float startX = 0f;
     public float startY = 0f;
     public int levelStartX = 0;
@@ -20,16 +22,19 @@ public class GridManager : MonoBehaviour
     public int levelEndY = 0;
     public int rows;
     public int cols;
-    public int numWalls = 0;
+    
     readonly float spacer = 0.05f;
 
     public Vector2Int[] wallPositions;
+    public Vector2Int[] keyPositions;
 
     public Text nameText;
     public Text rowText;
     public Text colText;
 
     private static GridManager instance;
+
+    GameObject[] inactiveWalls;
 
     public float camX;
     public float camY;
@@ -44,6 +49,8 @@ public class GridManager : MonoBehaviour
         InitGridHolder();
         BuildGrid();
 
+        gm.numWalls = wallPositions.Length;
+
         camX = (float)rows / 2f;
         camY = (float)cols / 2f;
         Camera.main.transform.position = new Vector3(camX, camY, -10);
@@ -54,7 +61,17 @@ public class GridManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(gm.numWalls == 0)
+        {
+            inactiveWalls = GameObject.FindGameObjectsWithTag("Wall");
+            for(int i = 0; i < inactiveWalls.Length; i++)
+            {
+                inactiveWalls[i].GetComponent<Wall>().location.hasWall = false;
+                inactiveWalls[i].SetActive(false);
+            }
+            endSquare.finishLocked = false;
+            gm.numWalls = -1;
+        }
     }
 
     void InitGridHolder()
@@ -87,6 +104,16 @@ public class GridManager : MonoBehaviour
                         newWall.location = square;
                     }
                 }
+                for(int l = 0; l < keyPositions.Length; l++)
+                {
+                    if(keyPositions[l] == new Vector2Int(i, j))
+                    {
+                        DoorKey newKey = Instantiate(key, gridHolder.transform);
+                        Vector2 newKeyPos = new Vector2(i + (spacer * i), j + (spacer * j));
+                        newKey.transform.localPosition = newKeyPos;
+                        newKey.gridPosition = new Vector2Int(i, j);
+                    }  
+                }
 
                 if (i == levelStartX && j == levelStartY)
                 {
@@ -100,6 +127,7 @@ public class GridManager : MonoBehaviour
                     square.originalColor = Color.green;
                     square.spriteRenderer.material.color = square.originalColor;
                     square.isEnd = true;
+                    endSquare = square;
                 }
                 else
                 {

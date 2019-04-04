@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public Text timer;
     public int gridRows;
     public int gridCols;
+    public int numWalls = 0;
     public bool timerCount = true;
 
     float time = 30f;

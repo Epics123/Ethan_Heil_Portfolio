@@ -308,6 +308,7 @@ MonoBehaviour:
   enemy: {fileID: 602651022}
   gm: {fileID: 0}
   wall: {fileID: 561166618073237226, guid: 5612e2d14206f804ba5279c416b05e55, type: 3}
+  key: {fileID: 4717359202485923782, guid: d7d917afffdcf584a840fcc5cf4a41dc, type: 3}
   squarePrefab: {fileID: 7895408277450620038, guid: 17f84248c56647d4ebb2daf60ffe8fc2,
     type: 3}
   startX: 0
@@ -318,11 +319,14 @@ MonoBehaviour:
   levelEndY: 6
   rows: 7
   cols: 7
-  numWalls: 3
   wallPositions:
   - {x: 5, y: 6}
   - {x: 5, y: 5}
   - {x: 6, y: 5}
+  keyPositions:
+  - {x: 0, y: 6}
+  - {x: 6, y: 0}
+  - {x: 3, y: 3}
   nameText: {fileID: 602959083}
   rowText: {fileID: 1476040858}
   colText: {fileID: 799807723}
@@ -638,7 +642,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: abfd5bb4d74c407459944dad2f1ac618, type: 3}
-  m_Color: {r: 0.8862745, g: 0.1215686, b: 0.8415262, a: 1}
+  m_Color: {r: 1, g: 0.13333344, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1264,6 +1268,7 @@ MonoBehaviour:
   timer: {fileID: 1248913919}
   gridRows: 0
   gridCols: 0
+  numWalls: 0
   timerCount: 1
 --- !u!4 &1484936003
 Transform:
