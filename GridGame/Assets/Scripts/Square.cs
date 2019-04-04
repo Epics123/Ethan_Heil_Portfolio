@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Square : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Square : MonoBehaviour
     public Color originalColor;
     public SpriteRenderer spriteRenderer;
     public GameObject objectOnSquare;
+    public GameManager gm;
     public bool validSpace;
     public bool isStart;
     public bool isEnd;
@@ -32,6 +34,7 @@ public class Square : MonoBehaviour
         {
             finishLocked = true;
         }
+        gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -71,7 +74,7 @@ public class Square : MonoBehaviour
     {
         if(collision.gameObject.layer == 9 && isEnd == true)
         {
-            Debug.Log("Level Complete!");
+            SceneManager.LoadSceneAsync(gm.nextScene);
         }
     }
 

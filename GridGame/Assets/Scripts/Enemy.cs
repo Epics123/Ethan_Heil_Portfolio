@@ -111,4 +111,13 @@ public class Enemy : MonoBehaviour
 
         return true;
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 9)
+        {
+            gm.Restart();
+        }
+    }
 }
