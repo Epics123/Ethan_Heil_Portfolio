@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public Text timer;
+    public Text keys;
     public int gridRows;
     public int gridCols;
     public int numWalls = 0;
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         UpdateTimer();
+        keys.text = numWalls.ToString();
     }
 
     void UpdateTimer()

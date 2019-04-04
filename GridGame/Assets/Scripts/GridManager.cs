@@ -70,7 +70,6 @@ public class GridManager : MonoBehaviour
                 inactiveWalls[i].SetActive(false);
             }
             endSquare.finishLocked = false;
-            gm.numWalls = -1;
         }
     }
 
