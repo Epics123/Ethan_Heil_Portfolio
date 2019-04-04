@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
     public int numKeys = 0;
     public bool timerCount = true;
     public string nextScene;
+    public float time = 30f;
 
-    float time = 30f;
 
     // Start is called before the first frame update
     void Start()
