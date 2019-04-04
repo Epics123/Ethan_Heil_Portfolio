@@ -8,7 +8,7 @@ public class GridManager : MonoBehaviour
     [HideInInspector]
     public GameObject gridHolder;
     public GameObject player;
-    public GameObject enemy;
+    public GameObject[] enemies;
     public GameManager gm;
     public Wall wall;
     public DoorKey key;
@@ -45,17 +45,14 @@ public class GridManager : MonoBehaviour
         gm.gridRows = rows;
         gm.gridCols = cols;
 
-
         InitGridHolder();
         BuildGrid();
 
-        gm.numWalls = wallPositions.Length;
+        gm.numKeys = keyPositions.Length;
 
         camX = (float)rows / 2f;
         camY = (float)cols / 2f;
         Camera.main.transform.position = new Vector3(camX, camY, -10);
-
-        gm.numWalls = wallPositions.Length;
 
         instance = this;
     }
@@ -63,7 +60,7 @@ public class GridManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gm.numWalls == 0)
+        if(gm.numKeys == 0)
         {
             inactiveWalls = GameObject.FindGameObjectsWithTag("Wall");
             for(int i = 0; i < inactiveWalls.Length; i++)
@@ -189,10 +186,13 @@ public class GridManager : MonoBehaviour
         if (instance.player.GetComponent<Player>().CheckDistance(square) == true && square.validSpace == true)
         {
             instance.player.GetComponent<Player>().LerpPlayer(square);
-            if(instance.enemy.GetComponent<Enemy>().CheckBounds())
+            for(int i = 0; i < instance.enemies.Length; i++)
             {
-                instance.enemy.GetComponent<Enemy>().LerpEnemy();
-            } 
+                if (instance.enemies[i].GetComponent<Enemy>().CheckBounds())
+                {
+                    instance.enemies[i].GetComponent<Enemy>().LerpEnemy();
+                }
+            }   
         } 
     }
 

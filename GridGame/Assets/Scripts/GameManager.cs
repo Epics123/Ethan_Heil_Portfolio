@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public Text keys;
     public int gridRows;
     public int gridCols;
-    public int numWalls = 0;
+    public int numKeys = 0;
     public bool timerCount = true;
     public string nextScene;
 
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         UpdateTimer();
-        keys.text = numWalls.ToString();
+        keys.text = numKeys.ToString();
     }
 
     void UpdateTimer()

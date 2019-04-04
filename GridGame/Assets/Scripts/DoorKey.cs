@@ -24,7 +24,7 @@ public class DoorKey : MonoBehaviour
     {
         if(collision.gameObject.layer == 9)
         {
-            gm.numWalls--;
+            gm.numKeys--;
             gameObject.SetActive(false);
         }
     }
