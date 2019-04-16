@@ -369,8 +369,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8683053291022854812, guid: 3190f2117f636524b945d5b73e4c367f,
         type: 3}
+      propertyPath: jumpTime
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683053291022854812, guid: 3190f2117f636524b945d5b73e4c367f,
+        type: 3}
       propertyPath: jumpForce
-      value: 300
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683053291022854812, guid: 3190f2117f636524b945d5b73e4c367f,
+        type: 3}
+      propertyPath: maxXSpeed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3190f2117f636524b945d5b73e4c367f, type: 3}

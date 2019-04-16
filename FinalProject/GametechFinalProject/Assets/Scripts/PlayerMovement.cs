@@ -11,11 +11,13 @@ public class PlayerMovement : MonoBehaviour
     public float ySpeed = 7f;
     public float jumpForce = 300f;
     public float maxXSpeed = 10f;
+    public float jumpTime;
 
     Rigidbody2D rb2D;
     float xMove = 0f;
     float acc = 0.25f;
     float frc = 0.3f;
+    float jumpTimer;
     bool shouldJump = false;
 
     // Start is called before the first frame update
@@ -79,8 +81,25 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             shouldJump = true;
+            jumpTimer = jumpTime;
         }
 
+        if (Input.GetKey(KeyCode.Space) && shouldJump == true)
+        {
+            if (jumpTimer > 0)
+            {
+                jumpTimer -= Time.deltaTime;
+            }
+            else
+            {
+                shouldJump = false;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            shouldJump = false;
+        }
     }
 
     void Move()
@@ -123,7 +142,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        shouldJump = false;
-        rb2D.AddForce(transform.up * jumpForce);
+        rb2D.velocity = new Vector2( rb2D.velocity.x, jumpForce);
     }
 }
