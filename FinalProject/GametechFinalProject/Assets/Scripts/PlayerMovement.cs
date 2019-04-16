@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded = false;
     public float xSpeed = 0.5f;
     public float ySpeed = 7f;
-    public float jumpForce = 700f;
+    public float jumpForce = 300f;
     public float maxXSpeed = 10f;
 
     Rigidbody2D rb2D;
@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+        CheckJump();
         CheckGround();
     }
 
@@ -110,5 +111,19 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
         }
+    }
+
+    void CheckJump()
+    {
+        if (shouldJump)
+        {
+            Jump();
+        }
+    }
+
+    void Jump()
+    {
+        shouldJump = false;
+        rb2D.AddForce(transform.up * jumpForce);
     }
 }

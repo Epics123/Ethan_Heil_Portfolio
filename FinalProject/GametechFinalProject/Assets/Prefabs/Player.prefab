@@ -179,5 +179,5 @@ MonoBehaviour:
   isGrounded: 0
   xSpeed: 0.5
   ySpeed: 7
-  jumpForce: 700
+  jumpForce: 300
   maxXSpeed: 10
