@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask ground;
     public bool isGrounded = false;
+    public bool facingRight = true;
     public float xSpeed = 0.5f;
     public float ySpeed = 7f;
     public float jumpForce = 300f;
@@ -43,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
+            facingRight = true;
             if (xMove < 0)
             {
                 xMove += (acc * xSpeed) * 2;
@@ -59,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.A))
         {
+            facingRight = false;
             if (xMove > 0)
             {
                 xMove -= (acc * xSpeed) * 2;
