@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThrowObject : MonoBehaviour
+public class Orb : MonoBehaviour
 {
+    public GameObject collisionCheck;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +17,6 @@ public class ThrowObject : MonoBehaviour
     {
         
     }
+
+    
 }
