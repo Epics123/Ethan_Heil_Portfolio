@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    public float throwForce;
     public bool canHold = true;
     public bool isHolding = false;
     public GameObject orb;
@@ -12,9 +11,12 @@ public class PickUp : MonoBehaviour
     public GameObject rightOrbPos;
     public GameObject leftOrbPos;
     public PlayerMovement movement;
+    public LineArcRenderer lineArc;
 
-    Vector2 objectPos;
-    float distance;
+    Vector2 mousePos;
+    float distance = 2;
+    float launchX;
+    float launchY;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,31 @@ public class PickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        launchX = mousePos.x - transform.position.x;
+        launchY = mousePos.y - transform. position.y;
 
+        if(launchX > distance)
+        {
+            launchX = distance;
+        }
+        if(launchX < -distance)
+        {
+            launchX = -distance;
+        }
+
+        if(launchY > distance)
+        {
+            launchY = distance;
+        }
+        if(launchY < -distance)
+        {
+            launchY = -distance;
+        }
+
+        lineArc.angle = Mathf.Rad2Deg * Mathf.Atan(launchY / launchX);
+
+        //Debug.Log("(" + launchX + "," + launchY + ")");
     }
 
     void OnTriggerEnter2D(Collider2D collision)
