@@ -9,6 +9,9 @@ public class PickUp : MonoBehaviour
     public bool isHolding = false;
     public GameObject orb;
     public GameObject tempParent;
+    public GameObject rightOrbPos;
+    public GameObject leftOrbPos;
+    public PlayerMovement movement;
 
     Vector2 objectPos;
     float distance;
@@ -29,7 +32,14 @@ public class PickUp : MonoBehaviour
     {
         if (collision.gameObject.tag == "Orb")
         {
-            Debug.Log("Pickup");
+            if(movement.facingRight)
+            {
+                tempParent = rightOrbPos;
+            }
+            else
+            {
+                tempParent = leftOrbPos;
+            }
             orb = collision.gameObject;
             isHolding = true;
             collision.GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -43,6 +53,14 @@ public class PickUp : MonoBehaviour
         if(collision.gameObject.tag == "Orb")
         {
             isHolding = true;
+            if (movement.facingRight)
+            {
+                tempParent = rightOrbPos;
+            }
+            else
+            {
+                tempParent = leftOrbPos;
+            }
             orb.transform.position = tempParent.transform.position;     
         } 
     }

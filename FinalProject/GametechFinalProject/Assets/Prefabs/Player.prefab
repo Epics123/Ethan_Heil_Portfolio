@@ -320,4 +320,7 @@ MonoBehaviour:
   canHold: 1
   isHolding: 0
   orb: {fileID: 0}
-  tempParent: {fileID: 996941859}
+  tempParent: {fileID: 0}
+  rightOrbPos: {fileID: 996941859}
+  leftOrbPos: {fileID: 374150116}
+  movement: {fileID: 8683053291022854812}
