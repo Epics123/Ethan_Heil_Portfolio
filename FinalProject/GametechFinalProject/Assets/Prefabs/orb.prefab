@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3033410328312226216}
   - component: {fileID: 1907438422}
   - component: {fileID: 8514962391464603606}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: orb
   m_TagString: Orb
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 663011044628276312}
   - component: {fileID: 7033996857584436605}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CollisionCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
