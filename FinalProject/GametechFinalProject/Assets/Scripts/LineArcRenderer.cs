@@ -8,8 +8,8 @@ public class LineArcRenderer : MonoBehaviour
     public float velocity;
     public float angle;
     public int resolution = 10;
+    public float gravity;
 
-    float gravity;
     float radianAngle;
 
 
