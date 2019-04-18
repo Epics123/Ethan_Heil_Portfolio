@@ -58,7 +58,6 @@ public class PickUp : MonoBehaviour
                 orb.GetComponent<Orb>().collisionCheck.SetActive(true);
             }  
         }
-
     }
 
     void OnTriggerEnter2D(Collider2D collision)
