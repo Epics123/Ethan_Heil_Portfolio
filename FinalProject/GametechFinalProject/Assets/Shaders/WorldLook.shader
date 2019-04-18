@@ -70,7 +70,7 @@
 
 			// Perspective correction for screen uv coordinate
 			float2 screen_uv = i.screen_uv.xy / i.screen_uv.z;
-			screen_uv.y = 1 - screen_uv.y;
+			//screen_uv.y = 1 - screen_uv.y;
 
 			// Do the thing!
 			fixed4 col = tex2D(_WorldChange, screen_uv);
