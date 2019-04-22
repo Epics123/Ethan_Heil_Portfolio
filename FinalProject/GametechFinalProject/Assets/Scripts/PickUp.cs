@@ -56,6 +56,7 @@ public class PickUp : MonoBehaviour
                 orb.GetComponent<Rigidbody2D>().gravityScale = 1;
                 orb.GetComponent<Rigidbody2D>().velocity = launchVelocity;
                 orb.GetComponent<Orb>().collisionCheck.SetActive(true);
+                orb.GetComponent<Orb>().thrown = true;
             }  
         }
     }
