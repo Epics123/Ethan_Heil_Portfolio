@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class WorldController : MonoBehaviour
 {
 
+    public string level;
+
     void Awake()
     {
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        SceneManager.LoadScene(level, LoadSceneMode.Additive);
     }
 
     // Start is called before the first frame update

@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionCheck: {fileID: 7856847626004499637}
+  worldLook: {fileID: 2100000, guid: 174184deefc434e498fd27b0e2ccbbb9, type: 2}
 --- !u!1 &7856847626004499637
 GameObject:
   m_ObjectHideFlags: 0
