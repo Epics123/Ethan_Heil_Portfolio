@@ -39,12 +39,13 @@ public class PickUp : MonoBehaviour
         {
             launchX = distance;
         }
-        if(launchX < -distance && launchX < 0)
+
+        if (launchX < -distance && launchX < 0)
         {
             launchX = -distance;
         }
 
-        time = distance / launchX;
+        time = launchX / distance;
         launchY = lineArc.gravity * (time / 2);
         lineArc.velocity = Mathf.Sqrt(Mathf.Pow(launchX, 2) + Mathf.Pow(launchY, 2));
         launchVelocity = new Vector2(launchX, launchY);
