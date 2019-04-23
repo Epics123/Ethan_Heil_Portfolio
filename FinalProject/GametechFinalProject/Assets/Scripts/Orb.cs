@@ -18,6 +18,7 @@ public class Orb : MonoBehaviour
     void Start()
     {
         Physics2D.IgnoreLayerCollision(12, 8);
+        Physics2D.IgnoreLayerCollision(12, 10);
     }
 
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class Orb : MonoBehaviour
     {
         if (thrown == true)
         {
+            Physics2D.IgnoreLayerCollision(12, 10);
             StartCoroutine(CheckSpeed());
         }
         if(stopped == true)
@@ -40,6 +42,7 @@ public class Orb : MonoBehaviour
             stopped = true;
             GetComponent<SpriteRenderer>().material = worldLook;
             Physics2D.IgnoreLayerCollision(12, 11);
+            Physics2D.IgnoreLayerCollision(12, 10, false);
 
             yield return ExpandOrb(minScale, maxScale, duration);
             thrown = false;
@@ -63,5 +66,5 @@ public class Orb : MonoBehaviour
         yield return new WaitForSeconds(12);
         gameObject.SetActive(false);
     }
-    
+
 }

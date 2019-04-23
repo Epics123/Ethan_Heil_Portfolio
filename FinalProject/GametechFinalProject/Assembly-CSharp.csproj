@@ -63,10 +63,12 @@
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\LineArcRenderer.cs" />
+    <Compile Include="Assets\Scripts\ObsticleCheckCollision.cs" />
     <Compile Include="Assets\Scripts\Orb.cs" />
     <Compile Include="Assets\Scripts\PickUp.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\SmoothCameraFollow.cs" />
+    <Compile Include="Assets\Scripts\World2Obsticle.cs" />
     <Compile Include="Assets\Scripts\WorldController.cs" />
     <None Include="Assets\Shaders\WorldLook.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">

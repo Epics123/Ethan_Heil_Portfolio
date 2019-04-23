@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         Physics2D.IgnoreLayerCollision(11, 10);
-        Physics2D.IgnoreLayerCollision(11, 8);
     }
 
     // Update is called once per frame
