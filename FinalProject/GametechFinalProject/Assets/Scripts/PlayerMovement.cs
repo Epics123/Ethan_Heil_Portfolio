@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Transform groundCheck;
     public LayerMask ground;
+    public Animator anim;
     public bool isGrounded = false;
     public bool facingRight = true;
     public float xSpeed = 0.5f;
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         CheckInput();
+        Flip();
     }
 
     void FixedUpdate()
@@ -59,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
                 xMove += acc * xSpeed;
                 CheckMaxSpeed();
             }
+            anim.SetFloat("xSpeed", Mathf.Abs(xMove));
         }
         else if (Input.GetKey(KeyCode.A))
         {
@@ -76,10 +79,12 @@ public class PlayerMovement : MonoBehaviour
                 xMove -= acc * xSpeed;
                 CheckMaxSpeed();
             }
+            anim.SetFloat("xSpeed", Mathf.Abs(xMove));
         }
         else
         {
             xMove -= Mathf.Min(Mathf.Abs(xMove), frc) * Mathf.Sign(xMove);
+            anim.SetFloat("xSpeed", Mathf.Abs(xMove));
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -129,10 +134,12 @@ public class PlayerMovement : MonoBehaviour
         if (col == null)
         {
             isGrounded = false;
+            anim.SetBool("onGround", false);
         }
         else
         {
             isGrounded = true;
+            anim.SetBool("onGround", true);
         }
     }
 
@@ -147,5 +154,17 @@ public class PlayerMovement : MonoBehaviour
     void Jump()
     {
         rb2D.velocity = new Vector2( rb2D.velocity.x, jumpForce);
+    }
+
+    void Flip()
+    {
+        if(facingRight)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 }

@@ -13,6 +13,7 @@ public class PickUp : MonoBehaviour
     public GameObject leftOrbPos;
     public PlayerMovement movement;
     public LineArcRenderer lineArc;
+    public Animator anim;
 
     Vector2 mousePos;
     Vector2 launchVelocity;
@@ -75,6 +76,7 @@ public class PickUp : MonoBehaviour
             }
             orb = collision.gameObject;
             isHolding = true;
+            anim.SetBool("HoldingOrb", isHolding);
             collision.GetComponent<Rigidbody2D>().gravityScale = 0;
             orb.GetComponent<Orb>().collisionCheck.SetActive(false);
             orb.transform.position = tempParent.transform.position;
@@ -106,6 +108,7 @@ public class PickUp : MonoBehaviour
                 orb.GetComponent<Orb>().collisionCheck.SetActive(true);
                 orb = null;
                 isHolding = false;
+                anim.SetBool("HoldingOrb", isHolding);
                 collision.GetComponent<Rigidbody2D>().gravityScale = 1;
             } 
         }
