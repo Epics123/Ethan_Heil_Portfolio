@@ -66,4 +66,12 @@ public class Orb : MonoBehaviour
         Destroy(gameObject);
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Orb")
+        {
+            Physics2D.IgnoreCollision(collisionCheck.GetComponent<CircleCollider2D>(),
+                collision.gameObject.GetComponent<Orb>().collisionCheck.GetComponent<CircleCollider2D>());
+        }
+    }
 }

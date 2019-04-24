@@ -113,7 +113,8 @@ public class PickUp : MonoBehaviour
             }
             else
             {
-                Physics2D.IgnoreCollision(playerCollider, collision.GetComponent<Orb>().collisionCheck.GetComponent<CircleCollider2D>());
+                Physics2D.IgnoreCollision(playerCollider, 
+                    collision.GetComponent<Orb>().collisionCheck.GetComponent<CircleCollider2D>());
             }
             
         }
