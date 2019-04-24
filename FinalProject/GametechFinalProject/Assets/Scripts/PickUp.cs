@@ -58,23 +58,41 @@ public class PickUp : MonoBehaviour
         lineArc.velocity = Mathf.Sqrt(Mathf.Pow(launchX, 2) + Mathf.Pow(launchY, 2));
         launchVelocity = new Vector2(launchX, launchY);
 
+        if(isHolding)
+        {
+            if (movement.facingRight)
+            {
+                tempParent = rightOrbPos;
+            }
+            else
+            {
+                tempParent = leftOrbPos;
+            }
+            orb.transform.position = tempParent.transform.position;
+        }
+
         if(Input.GetMouseButtonDown(0))
         {
             if(isHolding == true)
             {
                 isHolding = false;
-                orb.GetComponent<Rigidbody2D>().gravityScale = 1;
+                anim.SetBool("HoldingOrb", isHolding);
+                canHold = true;
+
                 orb.GetComponent<Rigidbody2D>().velocity = launchVelocity;
                 orb.GetComponent<Orb>().collisionCheck.SetActive(true);
                 orb.GetComponent<Orb>().thrown = true;
+                orb.GetComponent<Rigidbody2D>().gravityScale = 1;
+                orb = null;
             }  
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Orb")
+        if (collision.gameObject.tag == "Orb" && canHold == true)
         {
+            canHold = false;
             if(movement.facingRight)
             {
                 tempParent = rightOrbPos;
@@ -108,18 +126,4 @@ public class PickUp : MonoBehaviour
         } 
     }
 
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Orb")
-        {
-            if(orb != null)
-            {
-                orb.GetComponent<Orb>().collisionCheck.SetActive(true);
-                orb = null;
-                isHolding = false;
-                anim.SetBool("HoldingOrb", isHolding);
-                collision.GetComponent<Rigidbody2D>().gravityScale = 1;
-            } 
-        }
-    }
 }
