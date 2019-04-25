@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6485299100256589175}
-  - component: {fileID: 170994460109826811}
+  - component: {fileID: 5086789178084559054}
   m_Layer: 11
   m_Name: CollisionCheck
   m_TagString: Untagged
@@ -121,8 +121,8 @@ Transform:
   m_Father: {fileID: 8683053291022854808}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &170994460109826811
-BoxCollider2D:
+--- !u!70 &5086789178084559054
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -135,18 +135,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 1, y: 2}
-  m_EdgeRadius: 0
+  m_Direction: 0
 --- !u!1 &7881443283316191640
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,8 +303,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8683053291022854808}
   - component: {fileID: 8683053291022854811}
+  - component: {fileID: 3146807233672286881}
   - component: {fileID: 5119572762597256213}
-  - component: {fileID: 1568095007012141701}
   - component: {fileID: 8683053291022854812}
   - component: {fileID: 1150626701707561078}
   - component: {fileID: 325614756}
@@ -392,6 +382,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &3146807233672286881
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8683053291022854810}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!50 &5119572762597256213
 Rigidbody2D:
   serializedVersion: 4
@@ -413,32 +419,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1568095007012141701
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8683053291022854810}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2}
-  m_EdgeRadius: 0
 --- !u!114 &8683053291022854812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,6 +465,7 @@ MonoBehaviour:
   movement: {fileID: 8683053291022854812}
   lineArc: {fileID: 576010817022253389}
   anim: {fileID: 325614756}
+  playerCollider: {fileID: 5086789178084559054}
 --- !u!95 &325614756
 Animator:
   serializedVersion: 3

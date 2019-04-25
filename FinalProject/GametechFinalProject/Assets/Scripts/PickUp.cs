@@ -14,7 +14,7 @@ public class PickUp : MonoBehaviour
     public PlayerMovement movement;
     public LineArcRenderer lineArc;
     public Animator anim;
-    public BoxCollider2D playerCollider;
+    public CapsuleCollider2D playerCollider;
 
     Vector2 mousePos;
     Vector2 launchVelocity;

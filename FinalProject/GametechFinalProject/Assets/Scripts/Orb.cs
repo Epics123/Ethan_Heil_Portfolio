@@ -58,6 +58,12 @@ public class Orb : MonoBehaviour
             transform.localScale = Vector3.Lerp(a, b, i);
             yield return null;
         }
+
+        if(gameObject.transform.localScale == maxScale)
+        {
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+            collisionCheck.GetComponent<CircleCollider2D>().enabled = false;
+        }
     }
 
     IEnumerator DeactivateOrb()
