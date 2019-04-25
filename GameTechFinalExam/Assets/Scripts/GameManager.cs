@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public LoadLevel loadLevel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetMouseButtonDown(0))
+        {
+            loadLevel.LoadNextLevel();
+        }
     }
 }
