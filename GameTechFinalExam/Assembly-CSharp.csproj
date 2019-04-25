@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\LoadLevel.cs" />
+    <Compile Include="Assets\Scripts\SpawnEnemies.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/ethan.heil/source/repos/ethan-heil-gametech/GameTechFinalExam/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
