@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator anim;
     public bool isGrounded = false;
     public bool facingRight = true;
+    public bool canMove = true;
     public float xSpeed = 0.5f;
     public float ySpeed = 7f;
     public float jumpForce = 300f;
@@ -38,8 +39,11 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
-        CheckJump();
+        if(canMove)
+        {
+            Move();
+            CheckJump();
+        }
         CheckGround();
     }
 
