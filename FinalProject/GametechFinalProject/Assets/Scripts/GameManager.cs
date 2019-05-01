@@ -37,4 +37,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         SceneManager.LoadSceneAsync(level);
     }
+
+    public void ResetPlayer()
+    {
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+    }
 }
