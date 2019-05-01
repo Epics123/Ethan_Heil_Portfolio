@@ -23,6 +23,7 @@ public class Key : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             gm.numKeys--;
+            gm.playerKeys++;
             gameObject.SetActive(false);
         }
     }
