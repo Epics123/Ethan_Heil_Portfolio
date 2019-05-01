@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\DeathBox.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
+    <Compile Include="Assets\Scripts\EndScene.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HelpTrigger.cs" />
     <Compile Include="Assets\Scripts\Key.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Assets\Scripts\PickUp.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\SmoothCameraFollow.cs" />
+    <Compile Include="Assets\Scripts\StartScene.cs" />
     <Compile Include="Assets\Scripts\World2Obsticle.cs" />
     <Compile Include="Assets\Scripts\WorldController.cs" />
     <None Include="Assets\Shaders\WorldLook.shader" />
