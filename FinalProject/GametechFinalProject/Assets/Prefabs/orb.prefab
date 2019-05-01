@@ -133,11 +133,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionCheck: {fileID: 7856847626004499637}
-  maxScale: {x: 5, y: 5, z: 1}
+  maxScale: {x: 7, y: 7, z: 1}
   worldLook: {fileID: 2100000, guid: 174184deefc434e498fd27b0e2ccbbb9, type: 2}
   thrown: 0
   speed: 2
   duration: 1
+  stopped: 0
 --- !u!1 &7856847626004499637
 GameObject:
   m_ObjectHideFlags: 0
