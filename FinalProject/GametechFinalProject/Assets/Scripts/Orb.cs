@@ -10,6 +10,7 @@ public class Orb : MonoBehaviour
     public bool thrown = false;
     public float speed = 2f;
     public float duration = 2f;
+    public float portalLife = 12f;
 
     Vector3 minScale = new Vector3 (1, 1, 1);
     public bool stopped = false;
@@ -68,7 +69,7 @@ public class Orb : MonoBehaviour
 
     IEnumerator DeactivateOrb()
     {
-        yield return new WaitForSeconds(12);
+        yield return new WaitForSeconds(portalLife);
         Destroy(gameObject);
     }
 
