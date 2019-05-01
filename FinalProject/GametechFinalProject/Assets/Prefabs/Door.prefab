@@ -4879,4 +4879,4 @@ MonoBehaviour:
   gm: {fileID: 0}
   ps: {fileID: 6450970010248753188}
   unlockedColor: {r: 0, g: 0.6320754, b: 0.035696715, a: 0.5254902}
-  nextLevel: Tutorial
+  nextLevel: Level1

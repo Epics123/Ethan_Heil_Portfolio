@@ -46,7 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keys: []
+  spawnPoint: {fileID: 0}
+  player: {fileID: 0}
+  keyText: {fileID: 0}
   numKeys: 0
+  playerKeys: 0
 --- !u!114 &2578985849178023514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22fb10e99e2e6344090effae767451f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: World2
+  level: World2Tutorial
 --- !u!114 &2578985849178023511
 MonoBehaviour:
   m_ObjectHideFlags: 0
