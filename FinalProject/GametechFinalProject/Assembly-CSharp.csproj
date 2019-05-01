@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HelpTrigger.cs" />
+    <Compile Include="Assets\Scripts\Key.cs" />
     <Compile Include="Assets\Scripts\LineArcRenderer.cs" />
     <Compile Include="Assets\Scripts\ObsticleCheckCollision.cs" />
     <Compile Include="Assets\Scripts\Orb.cs" />
