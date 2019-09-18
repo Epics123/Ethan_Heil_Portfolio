@@ -1,0 +1,396 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1420706014262284}
+  m_IsPrefabAsset: 1
+--- !u!1 &1420706014262284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4629685532011094}
+  - component: {fileID: 114307275453518658}
+  - component: {fileID: 114926535507981040}
+  - component: {fileID: 114583298360552570}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: GM
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4629685532011094
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1420706014262284}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6051701, y: 0.13589609, z: 0.008395951}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114307275453518658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1420706014262284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff03b247a2dfd54a9be03c5932faa58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameScore: 0
+  lives: 3
+  waveNum: 0
+  player: {fileID: 1662347279393932, guid: 3bc6ebf766f16024894103f0590f92b8, type: 2}
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  bones: {fileID: 0}
+  score: {fileID: 0}
+  wave: {fileID: 0}
+  challenge: {fileID: 0}
+  countdown: {fileID: 0}
+--- !u!114 &114583298360552570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1420706014262284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbb93d797a3874a4c8c8ebd9f37d9f45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalToKill: 0
+  waves:
+  - name: Wave 1
+    enemies:
+    - {fileID: 4156415858165254, guid: 3b885933c38bd5847a337c9ace9f277a, type: 2}
+    enemyCount1: 10
+    enemyCount2: 0
+    enemyCount3: 0
+    rate1: 0.45
+    rate2: 0
+    rate3: 0
+    challenge:
+      name: Ciprock(s)
+      enemyToKill: Ciprock
+      numToKill: 5
+  - name: Wave 2
+    enemies:
+    - {fileID: 4156415858165254, guid: 3b885933c38bd5847a337c9ace9f277a, type: 2}
+    enemyCount1: 10
+    enemyCount2: 0
+    enemyCount3: 0
+    rate1: 0.6
+    rate2: 0
+    rate3: 0
+    challenge:
+      name: Ciprock(s)
+      enemyToKill: Ciprock
+      numToKill: 10
+  - name: Wave 3
+    enemies:
+    - {fileID: 4156415858165254, guid: 3b885933c38bd5847a337c9ace9f277a, type: 2}
+    enemyCount1: 10
+    enemyCount2: 0
+    enemyCount3: 0
+    rate1: 1
+    rate2: 0
+    rate3: 0
+    challenge:
+      name: Ciprock(s)
+      enemyToKill: Ciprock
+      numToKill: 10
+  - name: Wave 4
+    enemies:
+    - {fileID: 4156415858165254, guid: 3b885933c38bd5847a337c9ace9f277a, type: 2}
+    enemyCount1: 10
+    enemyCount2: 0
+    enemyCount3: 0
+    rate1: 1.2
+    rate2: 0
+    rate3: 0
+    challenge:
+      name: Ciprock(s)
+      enemyToKill: Ciprock
+      numToKill: 15
+  - name: Wave 5
+    enemies:
+    - {fileID: 4156415858165254, guid: 3b885933c38bd5847a337c9ace9f277a, type: 2}
+    - {fileID: 4761015337270738, guid: 59ec831b7a23e434a84e3d703a54cb5a, type: 2}
+    enemyCount1: 10
+    enemyCount2: 1
+    enemyCount3: 0
+    rate1: 1.2
+    rate2: 0.45
+    rate3: 0
+    challenge:
+      name: Juggernaut(s)
+      enemyToKill: Juggernaut
+      numToKill: 1
+  - name: Wave 6
+    enemies:
+    - {fileID: 4156415858165254, guid: 3b885933c38bd5847a337c9ace9f277a, type: 2}
+    - {fileID: 0}
+    enemyCount1: 10
+    enemyCount2: 0
+    enemyCount3: 0
+    rate1: 2
+    rate2: 0
+    rate3: 0
+    challenge:
+      name: Ciprock(s)
+      enemyToKill: Ciprock
+      numToKill: 10
+  - name: Wave 7
+    enemies:
+    - {fileID: 4156415858165254, guid: 3b885933c38bd5847a337c9ace9f277a, type: 2}
+    - {fileID: 4761015337270738, guid: 59ec831b7a23e434a84e3d703a54cb5a, type: 2}
+    enemyCount1: 10
+    enemyCount2: 2
+    enemyCount3: 0
+    rate1: 1.5
+    rate2: 0.3
+    rate3: 0
+    challenge:
+      name: Juggernaut(s)
+      enemyToKill: Juggernaut
+      numToKill: 2
+  - name: Wave 8
+    enemies:
+    - {fileID: 4761015337270738, guid: 59ec831b7a23e434a84e3d703a54cb5a, type: 2}
+    - {fileID: 4156415858165254, guid: 3b885933c38bd5847a337c9ace9f277a, type: 2}
+    enemyCount1: 2
+    enemyCount2: 1
+    enemyCount3: 0
+    rate1: 1
+    rate2: 0.2
+    rate3: 0
+    challenge:
+      name: Ciprock(s)
+      enemyToKill: Ciprock
+      numToKill: 5
+  - name: Wave 9
+    enemies:
+    - {fileID: 4156415858165254, guid: 3b885933c38bd5847a337c9ace9f277a, type: 2}
+    - {fileID: 4761015337270738, guid: 59ec831b7a23e434a84e3d703a54cb5a, type: 2}
+    - {fileID: 4822611299741968, guid: f7f60e29f8bd94a49a1bd5b5f76a70e4, type: 2}
+    enemyCount1: 10
+    enemyCount2: 2
+    enemyCount3: 2
+    rate1: 1
+    rate2: 0.5
+    rate3: 0.25
+    challenge:
+      name: Mini(s)
+      enemyToKill: Mini
+      numToKill: 2
+  - name: Wave 10
+    enemies:
+    - {fileID: 4156415858165254, guid: 3b885933c38bd5847a337c9ace9f277a, type: 2}
+    - {fileID: 4822611299741968, guid: f7f60e29f8bd94a49a1bd5b5f76a70e4, type: 2}
+    enemyCount1: 10
+    enemyCount2: 5
+    enemyCount3: 0
+    rate1: 1
+    rate2: 2
+    rate3: 0
+    challenge:
+      name: Ciprock(s)
+      enemyToKill: Ciprock
+      numToKill: 10
+  - name: Wave 11
+    enemies:
+    - {fileID: 4822611299741968, guid: f7f60e29f8bd94a49a1bd5b5f76a70e4, type: 2}
+    - {fileID: 0}
+    enemyCount1: 10
+    enemyCount2: 0
+    enemyCount3: 0
+    rate1: 1
+    rate2: 0
+    rate3: 0
+    challenge:
+      name: Mini(s)
+      enemyToKill: Mini
+      numToKill: 10
+  - name: Wave 12
+    enemies:
+    - {fileID: 4822611299741968, guid: f7f60e29f8bd94a49a1bd5b5f76a70e4, type: 2}
+    - {fileID: 4761015337270738, guid: 59ec831b7a23e434a84e3d703a54cb5a, type: 2}
+    enemyCount1: 10
+    enemyCount2: 2
+    enemyCount3: 0
+    rate1: 1
+    rate2: 0.2
+    rate3: 0
+    challenge:
+      name: Juggernaut(s)
+      enemyToKill: Juggernaut
+      numToKill: 2
+  - name: Wave 13
+    enemies:
+    - {fileID: 4156415858165254, guid: 3b885933c38bd5847a337c9ace9f277a, type: 2}
+    - {fileID: 4822611299741968, guid: f7f60e29f8bd94a49a1bd5b5f76a70e4, type: 2}
+    enemyCount1: 2
+    enemyCount2: 10
+    enemyCount3: 0
+    rate1: 0.25
+    rate2: 1
+    rate3: 0
+    challenge:
+      name: Ciprock(s)
+      enemyToKill: Ciprock
+      numToKill: 2
+  - name: Wave 14
+    enemies:
+    - {fileID: 4156415858165254, guid: 3b885933c38bd5847a337c9ace9f277a, type: 2}
+    - {fileID: 0}
+    enemyCount1: 10
+    enemyCount2: 0
+    enemyCount3: 0
+    rate1: 3
+    rate2: 0
+    rate3: 0
+    challenge:
+      name: Ciprock(s)
+      enemyToKill: Ciprock
+      numToKill: 30
+  - name: Wave 15
+    enemies:
+    - {fileID: 4822611299741968, guid: f7f60e29f8bd94a49a1bd5b5f76a70e4, type: 2}
+    - {fileID: 0}
+    enemyCount1: 6
+    enemyCount2: 0
+    enemyCount3: 0
+    rate1: 2
+    rate2: 0
+    rate3: 0
+    challenge:
+      name: Mini(s)
+      enemyToKill: Mini
+      numToKill: 15
+  - name: Wave 16
+    enemies:
+    - {fileID: 4822611299741968, guid: f7f60e29f8bd94a49a1bd5b5f76a70e4, type: 2}
+    - {fileID: 0}
+    enemyCount1: 10
+    enemyCount2: 0
+    enemyCount3: 0
+    rate1: 1
+    rate2: 0
+    rate3: 0
+    challenge:
+      name: Mini(s)
+      enemyToKill: Mini
+      numToKill: 10
+  - name: Wave 17
+    enemies:
+    - {fileID: 4634181725565816, guid: 5817e9616ac42f24abbb6e9755233f99, type: 2}
+    - {fileID: 0}
+    enemyCount1: 4
+    enemyCount2: 0
+    enemyCount3: 0
+    rate1: 1
+    rate2: 0
+    rate3: 0
+    challenge:
+      name: Teleporter(s)
+      enemyToKill: Teleporter
+      numToKill: 2
+  - name: Wave 18
+    enemies:
+    - {fileID: 4822611299741968, guid: f7f60e29f8bd94a49a1bd5b5f76a70e4, type: 2}
+    - {fileID: 4634181725565816, guid: 5817e9616ac42f24abbb6e9755233f99, type: 2}
+    enemyCount1: 10
+    enemyCount2: 3
+    enemyCount3: 0
+    rate1: 1
+    rate2: 0.5
+    rate3: 0
+    challenge:
+      name: Teleporter(s)
+      enemyToKill: Teleporter
+      numToKill: 2
+  - name: Wave 19
+    enemies:
+    - {fileID: 4634181725565816, guid: 5817e9616ac42f24abbb6e9755233f99, type: 2}
+    - {fileID: 0}
+    enemyCount1: 2
+    enemyCount2: 2
+    enemyCount3: 0
+    rate1: 1
+    rate2: 0.5
+    rate3: 0
+    challenge:
+      name: Mini(s)
+      enemyToKill: Mini
+      numToKill: 2
+  - name: Wave 20
+    enemies:
+    - {fileID: 4822611299741968, guid: f7f60e29f8bd94a49a1bd5b5f76a70e4, type: 2}
+    - {fileID: 4634181725565816, guid: 5817e9616ac42f24abbb6e9755233f99, type: 2}
+    enemyCount1: 20
+    enemyCount2: 5
+    enemyCount3: 0
+    rate1: 2
+    rate2: 1
+    rate3: 0
+    challenge:
+      name: Mini(s)
+      enemyToKill: Mini
+      numToKill: 50
+  nextWave: 0
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  gm: {fileID: 114307275453518658}
+  cam: {fileID: 0}
+  mc: {fileID: 0}
+  challengeText: {fileID: 0}
+  player: {fileID: 0}
+  timeBetweenWaves: 5
+  waveCountdown: 0
+  state: 2
+--- !u!114 &114926535507981040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1420706014262284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c9155be2669f54a91203162cdff326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
