@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - UI_Ignore
+  - LeftUI
+  - RightUI
+  - Gold
+  - Green
+  - Red
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - GoldLayer
+  - 
+  - WaterLayer
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 1702474699
+    locked: 0
+  - name: WaterLayer
+    uniqueID: 477966181
+    locked: 0
+  - name: GoldLayer
+    uniqueID: 3519478035
+    locked: 0
+  - name: Wood
+    uniqueID: 3515993061
+    locked: 0
+  - name: Dam/Dynamite
+    uniqueID: 3202102151
+    locked: 0
+  - name: New Layer
+    uniqueID: 2275565833
+    locked: 0
