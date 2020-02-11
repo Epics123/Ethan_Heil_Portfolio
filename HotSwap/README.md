@@ -5,7 +5,7 @@ illicit in their room before om gets home!
 
 This game was made for a 48 hour game jam and it is very incompete. As of right now it 
 is just a sandbox where you can mess around with all of the items in the room. Our team
-plans to continue working on it more in the future.
+hopes to continue working on it more in the future.
 
 This project was copied to my portfolio repo from another repo. If you would like to see
 the original git workflow here is the original repo: https://github.com/Epics123/HotSwap
