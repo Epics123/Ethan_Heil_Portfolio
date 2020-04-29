@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MenuScenes_iE_StartEnd/StartScene.unity
+    guid: bde3d9f817a56f54b8da83247065ae07
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level1_Intro.unity
+    guid: 11fd090efa7d9e14f90805887329ebbc
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level2_Swingin.unity
+    guid: b6fad9d41db661349a9bd53f7336461a
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level3_LaserBeams.unity
+    guid: abf2927b386aaa24589d37d96293c4e2
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level4_FreeSwing.unity
+    guid: 7caf1468b1999bd4ebf5636fcb06a012
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level5_ThreadTheNeedle.unity
+    guid: 27a11fd768b119447a0629d284394e14
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level6_Hoppin.unity
+    guid: 54d57d1f126ed7746a5d9d31a989c64b
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level7_Cameras.unity
+    guid: ac9039fdb8721634197fee881e764682
+  - enabled: 1
+    path: Assets/Scenes/MenuScenes_iE_StartEnd/EndScene.unity
+    guid: 0aab3a92d68232546a5f1f9fbb4f59bd
+  m_configObjects: {}

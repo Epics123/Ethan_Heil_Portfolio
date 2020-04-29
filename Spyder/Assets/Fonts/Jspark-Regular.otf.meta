@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 5e45b5bc70bb5bc4b90f9bf475299ab5
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Jspark
+  fontNames:
+  - Jspark
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: edc73a0df04e60845b3d3e26446e359c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
