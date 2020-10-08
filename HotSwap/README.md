@@ -3,6 +3,10 @@
 HotSwap is a 3D sandbox VR game where the player is a teenager who must hide all of the 
 illicit in their room before mom gets home!
 
-This game was made for a 48 hour game jam and it is very incompete. As of right now it 
-is just a sandbox where you can mess around with all of the items in the room. Our team
-hopes to continue working on it more in the future.
+I worked on Hot Swap as a part of a 48 hour game jam during my spring 2020 semester at Champlain. 
+I was on a 10 person team with 1 producer, 2 designers, 3 programmers, and 4 artists, and
+I was responible for some of the visual effects in the game as well as object interaction. 
+This was my first time ever working on a VR game, but it was fun to try and tackle a new challenge 
+in a short period of time. Unfortunatly, because it took the team a while to get the hang of working 
+with VR we were only able to get a working sandbox with a few core mechanics. 
+Messing around in VR is always fun though!
